@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ewaksaamj8l8"]
+[gd_scene load_steps=15 format=3 uid="uid://ewaksaamj8l8"]
 
 [ext_resource type="Script" path="res://scripts/campfire.gd" id="1_vtdrk"]
 [ext_resource type="PackedScene" uid="uid://csnghhu6d75k2" path="res://models/campfire/campfire.glb" id="1_y08bn"]
 [ext_resource type="Texture2D" uid="uid://dr2c3al2tkijo" path="res://addons/poly_pack/textures/VFX/fire-sprite.png" id="2_r6vlr"]
+[ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_r8fo0"]
+[ext_resource type="AudioStream" uid="uid://c1d74w5y7car7" path="res://sounds/campfire/campfire_ignite.wav" id="5_huamx"]
 
 [sub_resource type="Curve" id="Curve_5ntli"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.128676, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -79,3 +81,10 @@ light_energy = 1.35
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 omni_attenuation = 1.93186
+
+[node name="CampfireLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_r8fo0")
+volume_db = -5.0
+
+[node name="CampfireIgnite" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_huamx")
