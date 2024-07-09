@@ -88,3 +88,6 @@ volume_db = -5.0
 
 [node name="CampfireIgnite" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_huamx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.926607, 0.37603, 0, -0.37603, 0.926607, 0, 1.34403, 2.52109)
