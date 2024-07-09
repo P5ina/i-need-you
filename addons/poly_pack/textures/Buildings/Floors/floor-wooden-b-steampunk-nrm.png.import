@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ut67du1i34tj"
+path.s3tc="res://.godot/imported/floor-wooden-b-steampunk-nrm.png-9209430d7c087782831a2655e5e65f8d.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://addons/poly_pack/textures/Buildings/Floors/floor-wooden-b-steampunk-nrm.png"
+dest_files=["res://.godot/imported/floor-wooden-b-steampunk-nrm.png-9209430d7c087782831a2655e5e65f8d.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.5
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=0
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=2048
+detect_3d/compress_to=0
