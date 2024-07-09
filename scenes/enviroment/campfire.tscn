@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://ewaksaamj8l8"]
+[gd_scene load_steps=13 format=3 uid="uid://ewaksaamj8l8"]
 
+[ext_resource type="Script" path="res://scripts/campfire.gd" id="1_vtdrk"]
 [ext_resource type="PackedScene" uid="uid://csnghhu6d75k2" path="res://models/campfire/campfire.glb" id="1_y08bn"]
 [ext_resource type="Texture2D" uid="uid://dr2c3al2tkijo" path="res://addons/poly_pack/textures/VFX/fire-sprite.png" id="2_r6vlr"]
 
@@ -57,6 +58,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_ni16c")
 
 [node name="Campfire" type="Node3D"]
+script = ExtResource("1_vtdrk")
 
 [node name="Mesh" parent="." instance=ExtResource("1_y08bn")]
 
