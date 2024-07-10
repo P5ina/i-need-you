@@ -32,7 +32,7 @@ func rand_position() -> Vector3:
 	return Vector3(randf(), 0, randf()).normalized() * radius
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_on == false:
 		return
 
