@@ -28,4 +28,4 @@ func _physics_process(delta: float) -> void:
 
 
 func is_moving() -> bool:
-	return direction.length_squared() > 0 
+	return velocity.length_squared() > 0 

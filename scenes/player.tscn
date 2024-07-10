@@ -9,6 +9,7 @@ radius = 0.4
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_53sw8")
+speed = 2.5
 stop_duration = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -23,11 +24,13 @@ script = ExtResource("2_o23ic")
 
 [node name="Camera3D" type="Camera3D" parent="CameraHorizon/CameraLook"]
 
-[node name="HeadBob" type="Node" parent="CameraHorizon/CameraLook/Camera3D" node_paths=PackedStringArray("player_movement")]
+[node name="HeadBob" type="Node" parent="CameraHorizon/CameraLook/Camera3D" node_paths=PackedStringArray("camera_look_node", "player_movement")]
 script = ExtResource("2_6403b")
-frequency = 10.0
-amplitude = 0.16
-smooth_speed = 5.0
+frequency = 8.0
+amplitude_x = 0.12
+amplitude_y = 0.2
+smooth_speed = 2.0
+camera_look_node = NodePath("../..")
 player_movement = NodePath("../../../..")
 
 [node name="Lamp" type="OmniLight3D" parent="."]
