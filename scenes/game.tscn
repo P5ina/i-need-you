@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bobgx57vt0gua"]
+[gd_scene load_steps=8 format=3 uid="uid://bobgx57vt0gua"]
 
 [ext_resource type="PackedScene" uid="uid://cxnwyqkhw0h8" path="res://scenes/player.tscn" id="1_pus0v"]
+[ext_resource type="PackedScene" uid="uid://ewaksaamj8l8" path="res://scenes/enviroment/campfire.tscn" id="2_cnl44"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_od2vl"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -36,7 +37,8 @@ shape = SubResource("WorldBoundaryShape3D_u7e6i")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
 mesh = SubResource("PlaneMesh_jp543")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819042, 0.573734, 0, -0.573734, 0.819042, 0, 0.620942, 0)
-
 [node name="Player" parent="." instance=ExtResource("1_pus0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Campfire" parent="." instance=ExtResource("2_cnl44")]
+visible = false

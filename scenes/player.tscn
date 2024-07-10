@@ -18,3 +18,11 @@ shape = SubResource("CapsuleShape3D_y1dyf")
 [node name="Camera3D" type="Camera3D" parent="CameraHorizon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 script = ExtResource("2_o23ic")
+
+[node name="Lamp" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(0.253036, 0.335855, 0.402344, 1)
+light_energy = 0.2
+light_volumetric_fog_energy = 0.0
+omni_range = 3.395
+omni_attenuation = 0.466518
