@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bobgx57vt0gua"]
+
+[ext_resource type="PackedScene" uid="uid://cxnwyqkhw0h8" path="res://scenes/player.tscn" id="1_pus0v"]
+[ext_resource type="PackedScene" uid="uid://ewaksaamj8l8" path="res://scenes/enviroment/campfire.tscn" id="2_cnl44"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_od2vl"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.5, 0.5, 0.5, 1)
+sky_energy_multiplier = 0.0
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Sky" id="Sky_1vds2"]
+sky_material = SubResource("ProceduralSkyMaterial_od2vl")
+
+[sub_resource type="Environment" id="Environment_4bggq"]
+background_mode = 2
+sky = SubResource("Sky_1vds2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u7e6i"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jp543"]
+size = Vector2(10, 10)
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4bggq")
+
+[node name="Plane" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
+shape = SubResource("WorldBoundaryShape3D_u7e6i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
+mesh = SubResource("PlaneMesh_jp543")
+
+[node name="Player" parent="." instance=ExtResource("1_pus0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Campfire" parent="." instance=ExtResource("2_cnl44")]
+visible = false
