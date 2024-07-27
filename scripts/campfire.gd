@@ -9,7 +9,8 @@ extends Node3D
 @export var radius := 0.1
 
 var is_on := false
-var tween: Tween
+var light_tween: Tween
+var move_tween: Tween
 var start_position: Vector3
 
 @onready var fire_particles: GPUParticles3D = $FireParticles
@@ -36,18 +37,21 @@ func _process(_delta: float) -> void:
 	if is_on == false:
 		return
 
-	if not tween.is_running():
-		tween = create_tween()
-		tween.tween_property(fire_light, "light_energy", rand_light(), light_change_duration)
-		tween.tween_property(fire_light, "position", start_position + rand_position(), light_move_duration)
+	if not light_tween.is_valid():
+		light_tween = create_tween().set_parallel().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+		light_tween.tween_property(fire_light, "light_energy", rand_light(), light_change_duration)
+	
+	if not move_tween.is_valid():
+		move_tween = create_tween()
+		move_tween.tween_property(fire_light, "position", start_position + rand_position(), light_move_duration)
 
 
 func turn_on() -> void:
 	is_on = true
 	fire_particles.emitting = true
 
-	tween = create_tween()
-	tween.tween_property(fire_light, "light_energy", rand_light(), light_start_duration)
+	light_tween = create_tween()
+	light_tween.tween_property(fire_light, "light_energy", rand_light(), light_start_duration)
 
 	campfire_ignite.play()
 	campfire_loop.play()

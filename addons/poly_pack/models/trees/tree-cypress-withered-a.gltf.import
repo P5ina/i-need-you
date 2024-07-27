@@ -1,0 +1,47 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dktdoa1prglb6"
+path="res://.godot/imported/tree-cypress-withered-a.gltf-cae399e3991150219910b368bcb49098.scn"
+
+[deps]
+
+source_file="res://addons/poly_pack/models/trees/tree-cypress-withered-a.gltf"
+dest_files=["res://.godot/imported/tree-cypress-withered-a.gltf-cae399e3991150219910b368bcb49098.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=100.0
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=false
+animation/fps=24.0
+animation/trimming=false
+animation/remove_immutable_tracks=false
+import_script/path=""
+_subresources={
+"meshes": {
+"Root Scene_tree-cypress-withered-a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/extracted/tree-cypress-withered-a.tree-cypress-withered-a.mesh"
+}
+}
+}
+gltf/naming_version=0
+gltf/embedded_image_handling=1

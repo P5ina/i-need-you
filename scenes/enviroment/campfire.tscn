@@ -79,7 +79,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559, 0)
 light_color = Color(1, 0.654902, 0.184314, 1)
 light_energy = 1.35
 light_volumetric_fog_energy = 0.0
+light_size = 0.2
 shadow_enabled = true
+shadow_bias = 0.01
 omni_attenuation = 1.93186
 
 [node name="CampfireLoop" type="AudioStreamPlayer" parent="."]
@@ -88,6 +90,3 @@ volume_db = -5.0
 
 [node name="CampfireIgnite" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_huamx")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.926607, 0.37603, 0, -0.37603, 0.926607, 0, 1.34403, 2.52109)

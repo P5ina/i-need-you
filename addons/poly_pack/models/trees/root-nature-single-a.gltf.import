@@ -1,0 +1,47 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cc7ug2f2kdleb"
+path="res://.godot/imported/root-nature-single-a.gltf-187f743ae1f5fe08ac46d411f0c1cd25.scn"
+
+[deps]
+
+source_file="res://addons/poly_pack/models/trees/root-nature-single-a.gltf"
+dest_files=["res://.godot/imported/root-nature-single-a.gltf-187f743ae1f5fe08ac46d411f0c1cd25.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=100.0
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=false
+animation/fps=24.0
+animation/trimming=false
+animation/remove_immutable_tracks=false
+import_script/path=""
+_subresources={
+"meshes": {
+"Root Scene_root-nature-single-a": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/polyperfect/Poly Universal Pack/- Meshes/Nature/Trees/extracted/root-nature-single-a.root-nature-single-a.mesh"
+}
+}
+}
+gltf/naming_version=0
+gltf/embedded_image_handling=1

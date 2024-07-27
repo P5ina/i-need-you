@@ -10,12 +10,12 @@ sky_energy_multiplier = 0.0
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.5, 0.5, 0.5, 1)
 
-[sub_resource type="Sky" id="Sky_1vds2"]
+[sub_resource type="Sky" id="Sky_cqpuq"]
 sky_material = SubResource("ProceduralSkyMaterial_od2vl")
 
 [sub_resource type="Environment" id="Environment_4bggq"]
 background_mode = 2
-sky = SubResource("Sky_1vds2")
+sky = SubResource("Sky_cqpuq")
 tonemap_mode = 2
 glow_enabled = true
 
