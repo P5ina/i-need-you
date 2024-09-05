@@ -33,7 +33,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl"
 }
-text/letter_speed=0.01
+text/letter_speed=0.02
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
@@ -49,7 +49,9 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
-text/autopauses={}
+text/autopauses={
+".!?": 0.2
+}
 translation/enabled=false
 translation/original_locale="en"
 translation/file_mode=1
@@ -58,15 +60,16 @@ translation/save_mode=0
 translation/add_separator=false
 layout/style_list=["res://dialogues/style/yni_style.tres", "res://dialogues/style/visual_novel_style.tres"]
 layout/default_style="res://dialogues/style/yni_style.tres"
+text/absolute_autopauses=false
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=2560
+window/size/window_height_override=1440
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
