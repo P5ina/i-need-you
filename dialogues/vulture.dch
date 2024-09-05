@@ -5,7 +5,18 @@
 "color": Color(0.984375, 0.689991, 0.182648, 1),
 "custom_info": {
 "sound_mood_default": "",
-"sound_moods": {},
+"sound_moods": {
+"Mood 1": {
+"mode": 1,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.1,
+"skip_characters": 3.0,
+"sound_path": "res://sounds/characters/character_talking.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
 "style": ""
 },
 "default_portrait": "normal",

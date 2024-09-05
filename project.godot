@@ -62,13 +62,14 @@ translation/add_separator=false
 layout/style_list=["res://dialogues/style/yni_style.tres", "res://dialogues/style/visual_novel_style.tres"]
 layout/default_style="res://dialogues/style/yni_style.tres"
 text/absolute_autopauses=false
+glossary/default_case_sensitive=true
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/window_width_override=2560
-window/size/window_height_override=1440
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
