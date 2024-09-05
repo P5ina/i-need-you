@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bcnjij6ip3ope"]
+
+[ext_resource type="StyleBox" uid="uid://clra7wpfh23oa" path="res://dialogues/style/frame_panel_style.tres" id="1_e76hc"]
+[ext_resource type="FontFile" uid="uid://0tx8wkusaqcj" path="res://fonts/retro_gaming.ttf" id="2_hw12q"]
+
+[resource]
+Label/fonts/font = ExtResource("2_hw12q")
+PanelContainer/styles/panel = ExtResource("1_e76hc")
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/normal_font = ExtResource("2_hw12q")
