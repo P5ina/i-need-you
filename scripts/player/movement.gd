@@ -9,7 +9,7 @@ func _ready() -> void:
 	assert(owner is CharacterBody2D)
 	character_body = owner
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	direction = Input.get_vector(
 		"move_left", "move_right", "move_up", "move_down"
 	)
