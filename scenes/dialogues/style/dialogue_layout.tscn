@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgm078g3bq865"]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue_layout.gd" id="1_1qaaw"]
+[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="2_mppye"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_0f4am"]
+[ext_resource type="Texture2D" uid="uid://r0q4flpe43t7" path="res://textures/ui/panel_frameless.png" id="3_e0xcf"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="4_x52ad"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="6_a7sdj"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="7_nai3h"]
+[ext_resource type="AudioStream" uid="uid://bmq406l27uy7g" path="res://sounds/characters/character_talking.wav" id="7_wpcql"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="8_p3rcy"]
+[ext_resource type="Texture2D" uid="uid://4c875pfrpu1m" path="res://textures/ui/next_indicator.png" id="9_suf4c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y8cgm"]
+content_margin_top = 2.0
+texture = ExtResource("3_e0xcf")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 32, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8c7mk"]
+font_size = 6
+
+[node name="DialogueLayout" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1qaaw")
+
+[node name="CharacterText" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -57.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="NameContainer" type="PanelContainer" parent="CharacterText"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_mppye")
+theme_override_styles/panel = SubResource("StyleBoxTexture_y8cgm")
+
+[node name="DialogicNode_NameLabel" type="Label" parent="CharacterText/NameContainer"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "He"
+label_settings = SubResource("LabelSettings_8c7mk")
+script = ExtResource("4_x52ad")
+
+[node name="TextContainer" type="PanelContainer" parent="CharacterText"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_mppye")
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="CharacterText/TextContainer"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Test text"
+script = ExtResource("3_0f4am")
+
+[node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="CharacterText/TextContainer/DialogicNode_DialogText"]
+script = ExtResource("6_a7sdj")
+mode = 1
+sounds = Array[AudioStream]([ExtResource("7_wpcql")])
+play_every_character = 3
+pitch_variance = 0.1
+
+[node name="DialogicNode_NextIndicator" type="Control" parent="CharacterText/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("8_p3rcy")
+animation = 1
+texture = ExtResource("9_suf4c")
+texture_size = Vector2(8, 8)
+
+[node name="Choices" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -71.0
+offset_right = 47.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DialogicNode_ChoiceButton" type="Button" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Choice 1"
+autowrap_mode = 2
+script = ExtResource("7_nai3h")
+choice_index = 0
+
+[node name="DialogicNode_ChoiceButton2" type="Button" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Choice 1"
+autowrap_mode = 2
+script = ExtResource("7_nai3h")
+choice_index = 1
+
+[node name="DialogicNode_ChoiceButton3" type="Button" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Choice 1"
+autowrap_mode = 2
+script = ExtResource("7_nai3h")
+choice_index = 2
+
+[node name="DialogicNode_ChoiceButton4" type="Button" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Choice 1"
+autowrap_mode = 2
+script = ExtResource("7_nai3h")
+choice_index = 3
+
+[node name="DialogicNode_ChoiceButton5" type="Button" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Choice 1"
+autowrap_mode = 2
+script = ExtResource("7_nai3h")
+choice_index = 4
+
+[node name="DialogicNode_ChoiceButton6" type="Button" parent="Choices"]
+layout_mode = 2
+theme = ExtResource("2_mppye")
+text = "Choice 1"
+autowrap_mode = 2
+script = ExtResource("7_nai3h")
+choice_index = 5
