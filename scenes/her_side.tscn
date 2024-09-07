@@ -1,20 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://drcr3mvorxqx7"]
+[gd_scene load_steps=7 format=3 uid="uid://drcr3mvorxqx7"]
 
 [ext_resource type="PackedScene" uid="uid://b8sf01aw1jc0w" path="res://scenes/players/base_player.tscn" id="1_o3qx6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_u4uff"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_sihth"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
-[ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="5_0g4is"]
+[ext_resource type="PackedScene" uid="uid://bco3kjdrj10ue" path="res://scenes/characters/base_character.tscn" id="5_2bfwo"]
 
 [sub_resource type="Resource" id="Resource_wiidg"]
 script = ExtResource("3_sihth")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykkwu"]
-radius = 16.0
-height = 64.0
 
 [node name="HerSide" type="Node2D"]
 
@@ -24,7 +20,7 @@ height = 64.0
 script = ExtResource("2_u4uff")
 follow_mode = 5
 follow_target = NodePath("../BasePlayer")
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_wiidg")
 follow_damping_value = Vector2(0.5, 0.5)
 dead_zone_width = 0.3
@@ -32,17 +28,9 @@ dead_zone_height = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.7, 0.7)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("4_h74hp")
 
-[node name="Character" type="StaticBody2D" parent="."]
-position = Vector2(0, -200)
-
-[node name="Sprite2D" type="Sprite2D" parent="Character"]
-scale = Vector2(0.25, 0.5)
-texture = ExtResource("5_0g4is")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
-shape = SubResource("CapsuleShape2D_ykkwu")
+[node name="BaseCharacter" parent="." instance=ExtResource("5_2bfwo")]

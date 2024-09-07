@@ -1,11 +1,14 @@
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	assert(owner is CharacterBody2D)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	if not event.is_action_pressed("interact"):
+		return
+	
+	for body in get_overlapping_bodies():
+		if body.has_meta(Interactable.META_NAME):
+			var interactable: Interactable = body.get_meta(Interactable.META_NAME)
+			interactable.interact(owner)

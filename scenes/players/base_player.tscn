@@ -68,12 +68,18 @@ layout_mode = 2
 theme = ExtResource("3_hcurp")
 theme_override_styles/panel = SubResource("StyleBoxTexture_axwna")
 
-[node name="Label" type="Label" parent="InteractionArea/InteractionLayer/Control/HBoxContainer/KeyboardButtonPanel"]
+[node name="KeyLabel" type="Label" parent="InteractionArea/InteractionLayer/Control/HBoxContainer/KeyboardButtonPanel"]
 layout_mode = 2
 theme = ExtResource("3_hcurp")
 theme_override_font_sizes/font_size = 5
 text = "E"
 horizontal_alignment = 1
+
+[node name="ActionLabel" type="Label" parent="InteractionArea/InteractionLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hcurp")
+theme_override_font_sizes/font_size = 6
+text = "Talk"
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("2_3o1ov")
