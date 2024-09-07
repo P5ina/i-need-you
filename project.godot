@@ -63,6 +63,13 @@ layout/style_list=["res://dialogues/style/yni_style.tres", "res://dialogues/styl
 layout/default_style="res://dialogues/style/yni_style.tres"
 text/absolute_autopauses=false
 glossary/default_case_sensitive=true
+variables={
+"vulture": {
+"bad": 0.0,
+"good": 0.0,
+"very_bad": 0.0
+}
+}
 
 [display]
 
