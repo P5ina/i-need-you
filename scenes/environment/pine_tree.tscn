@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq88xdrncoy7q"]
+
+[ext_resource type="Texture2D" uid="uid://b58ok52ih20wx" path="res://textures/environment/pine_tree.png" id="1_hd6uw"]
+[ext_resource type="Texture2D" uid="uid://ck2csg7mqcvc8" path="res://textures/environment/pine_tree_n.png" id="2_ycipd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2d0ec"]
+diffuse_texture = ExtResource("1_hd6uw")
+normal_texture = ExtResource("2_ycipd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtvx5"]
+size = Vector2(10, 8)
+
+[node name="PineTree" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -34)
+texture = SubResource("CanvasTexture_2d0ec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_gtvx5")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8sf01aw1jc0w"]
+[gd_scene load_steps=11 format=3 uid="uid://b8sf01aw1jc0w"]
 
 [ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="1_f1f68"]
 [ext_resource type="Script" path="res://scripts/player/movement.gd" id="2_3o1ov"]
@@ -23,7 +23,18 @@ texture_margin_bottom = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyq7k"]
 radius = 16.0
 
+[sub_resource type="Gradient" id="Gradient_fpgu6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d6v0v"]
+gradient = SubResource("Gradient_fpgu6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="BasePlayer" type="CharacterBody2D"]
+z_index = 1
+collision_mask = 3
 motion_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,7 +42,9 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_f1f68")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+collision_mask = 2
 script = ExtResource("2_k1stm")
+ui_animation_duration = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_gitxn")
@@ -39,7 +52,7 @@ debug_color = Color(0, 0.527754, 0.997625, 0.42)
 
 [node name="InteractionLayer" type="CanvasLayer" parent="InteractionArea"]
 
-[node name="Control" type="Control" parent="InteractionArea/InteractionLayer"]
+[node name="InteractionControl" type="Control" parent="InteractionArea/InteractionLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +60,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InteractionArea/InteractionLayer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="InteractionArea/InteractionLayer/InteractionControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,20 +75,20 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="KeyboardButtonPanel" type="PanelContainer" parent="InteractionArea/InteractionLayer/Control/HBoxContainer"]
+[node name="KeyboardButtonPanel" type="PanelContainer" parent="InteractionArea/InteractionLayer/InteractionControl/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 theme = ExtResource("3_hcurp")
 theme_override_styles/panel = SubResource("StyleBoxTexture_axwna")
 
-[node name="KeyLabel" type="Label" parent="InteractionArea/InteractionLayer/Control/HBoxContainer/KeyboardButtonPanel"]
+[node name="KeyLabel" type="Label" parent="InteractionArea/InteractionLayer/InteractionControl/HBoxContainer/KeyboardButtonPanel"]
 layout_mode = 2
 theme = ExtResource("3_hcurp")
 theme_override_font_sizes/font_size = 5
 text = "E"
 horizontal_alignment = 1
 
-[node name="ActionLabel" type="Label" parent="InteractionArea/InteractionLayer/Control/HBoxContainer"]
+[node name="ActionLabel" type="Label" parent="InteractionArea/InteractionLayer/InteractionControl/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_hcurp")
 theme_override_font_sizes/font_size = 6
@@ -86,3 +99,12 @@ script = ExtResource("2_3o1ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vyq7k")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.210919, 0.423639, 1)
+energy = 0.2
+texture = SubResource("GradientTexture2D_d6v0v")
+texture_scale = 4.0
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
