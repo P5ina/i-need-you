@@ -18,8 +18,8 @@ var tween: Tween
 func _ready() -> void:
 	fire_light.energy = 0.0
 	campfire_sprite.play(&"unlit")
-	await get_tree().create_timer(2.).timeout
-	ignite()
+	#await get_tree().create_timer(2.).timeout
+	#ignite()
 
 func rand_light() -> float:
 	return randf_range(min_light, max_light)
