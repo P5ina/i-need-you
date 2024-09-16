@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://f0wbyxk0bkco"]
+[gd_scene load_steps=9 format=4 uid="uid://f0wbyxk0bkco"]
 
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_lgkms"]
 [ext_resource type="PackedScene" uid="uid://ctrei0oev4836" path="res://scenes/environment/main_menu_campfire.tscn" id="2_lkaum"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="3_0lw5e"]
 [ext_resource type="Script" path="res://scripts/ui/menu_options.gd" id="4_j3q0t"]
 [ext_resource type="Script" path="res://scripts/ui/menu_buttons/play_button.gd" id="5_5dbft"]
-[ext_resource type="AudioStream" uid="uid://cg1j3x32ne730" path="res://sounds/music/main_menu.mp3" id="5_crn1b"]
 
 [sub_resource type="Animation" id="Animation_u8v45"]
 length = 0.001
@@ -170,9 +169,5 @@ libraries = {
 "": SubResource("AnimationLibrary_0mtf1")
 }
 autoplay = "intro"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_crn1b")
-autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/MainMenuScreen/MenuOptions/PlayButton" to="CanvasLayer/MainMenuScreen/MenuOptions/PlayButton" method="_on_pressed"]

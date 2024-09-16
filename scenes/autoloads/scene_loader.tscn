@@ -4,8 +4,8 @@
 
 [node name="SceneLoader" type="Node"]
 script = ExtResource("1_a58b1")
-fade_duration = 0.5
-black_screen_delay = 1.0
+fade_duration = 1.0
+black_screen_delay = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10

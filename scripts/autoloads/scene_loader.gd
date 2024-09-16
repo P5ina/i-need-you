@@ -46,8 +46,8 @@ func _process(_delta: float) -> void:
 			if tween and tween.is_running():
 				await tween.finished
 			get_tree().change_scene_to_packed(loaded_scene)
+			set_process(false)
 			tween = create_tween()
 			tween.tween_property(fader, "modulate:a", 0.0, fade_duration)
 			tween.tween_callback(fader.set_visible.bind(false))
 			await tween.finished
-			set_process(false)
