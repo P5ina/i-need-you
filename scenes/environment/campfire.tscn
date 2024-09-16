@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://c0u15loetoco0"]
+
+[ext_resource type="Script" path="res://scripts/campfire.gd" id="1_48djx"]
+[ext_resource type="Texture2D" uid="uid://dkyq3hfbl6rrv" path="res://textures/environment/campfire_spritesheet.png" id="1_lnhw7"]
+[ext_resource type="Texture2D" uid="uid://ceqe02og0cusw" path="res://textures/campfire_light.png" id="2_cjmi2"]
+[ext_resource type="AudioStream" uid="uid://c1d74w5y7car7" path="res://sounds/campfire/campfire_ignite.wav" id="3_p48lc"]
+[ext_resource type="Texture2D" uid="uid://dkyxooca5h13b" path="res://textures/environment/campfire_unlit.png" id="3_pp1ia"]
+[ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_4hclq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t13pi"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17cw7"]
+atlas = ExtResource("1_lnhw7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y3kn"]
+atlas = ExtResource("1_lnhw7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp67x"]
+atlas = ExtResource("1_lnhw7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vrs5"]
+atlas = ExtResource("1_lnhw7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o3oy"]
+atlas = ExtResource("1_lnhw7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am8co"]
+atlas = ExtResource("1_lnhw7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bafyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17cw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y3kn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp67x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vrs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o3oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am8co")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pp1ia")
+}],
+"loop": true,
+"name": &"unlit",
+"speed": 5.0
+}]
+
+[node name="Campfire" type="StaticBody2D"]
+script = ExtResource("1_48djx")
+min_light = 1.5
+light_change_duration = 0.75
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t13pi")
+
+[node name="FireLight" type="PointLight2D" parent="."]
+color = Color(1, 0.523648, 0.238001, 1)
+energy = 4.0
+texture = ExtResource("2_cjmi2")
+
+[node name="CampfireSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bafyt")
+animation = &"unlit"
+
+[node name="CampfireIgniteSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p48lc")
+
+[node name="CampfireLoopSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4hclq")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgm078g3bq865"]
+[gd_scene load_steps=12 format=3 uid="uid://cgm078g3bq865"]
 
 [ext_resource type="Script" path="res://scripts/dialogue/dialogue_layout.gd" id="1_1qaaw"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="2_mppye"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="4_x52ad"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="6_a7sdj"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="7_nai3h"]
-[ext_resource type="AudioStream" uid="uid://bmq406l27uy7g" path="res://sounds/characters/character_talking.wav" id="7_wpcql"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="8_p3rcy"]
 [ext_resource type="Texture2D" uid="uid://4c875pfrpu1m" path="res://textures/ui/next_indicator.png" id="9_suf4c"]
 
@@ -73,7 +72,6 @@ script = ExtResource("3_0f4am")
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="CharacterText/TextContainer/DialogicNode_DialogText"]
 script = ExtResource("6_a7sdj")
 mode = 1
-sounds = Array[AudioStream]([ExtResource("7_wpcql")])
 play_every_character = 3
 pitch_variance = 0.1
 
