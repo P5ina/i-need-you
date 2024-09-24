@@ -15,8 +15,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="MainMenuCampfire" instance=ExtResource("1_k43xx")]
-min_light = 0.5
-max_light = 2.0
 
 [node name="FireLight" parent="." index="1"]
 color = Color(0.699218, 0.310854, 0, 1)
