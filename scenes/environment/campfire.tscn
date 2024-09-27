@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0u15loetoco0"]
+[gd_scene load_steps=25 format=3 uid="uid://c0u15loetoco0"]
 
 [ext_resource type="Script" path="res://scripts/campfire.gd" id="1_48djx"]
 [ext_resource type="Texture2D" uid="uid://dkyq3hfbl6rrv" path="res://textures/environment/campfire_spritesheet.png" id="1_lnhw7"]
 [ext_resource type="AudioStream" uid="uid://c1d74w5y7car7" path="res://sounds/campfire/campfire_ignite.wav" id="3_p48lc"]
 [ext_resource type="Texture2D" uid="uid://dkyxooca5h13b" path="res://textures/environment/campfire_unlit.png" id="3_pp1ia"]
 [ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_4hclq"]
+[ext_resource type="Texture2D" uid="uid://b13nt4ceddo7q" path="res://textures/environment/campfire_fire_only.png" id="4_ovwsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t13pi"]
 size = Vector2(32, 32)
@@ -79,6 +80,64 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5iml1"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn5tq"]
+atlas = ExtResource("4_ovwsh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjffl"]
+atlas = ExtResource("4_ovwsh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lstbc"]
+atlas = ExtResource("4_ovwsh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmiet"]
+atlas = ExtResource("4_ovwsh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6fwn"]
+atlas = ExtResource("4_ovwsh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cl41"]
+atlas = ExtResource("4_ovwsh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bu0th"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn5tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjffl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lstbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmiet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6fwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cl41")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"unlit",
+"speed": 5.0
+}]
+
 [node name="Campfire" type="StaticBody2D"]
 script = ExtResource("1_48djx")
 min_light = 0.5
@@ -96,6 +155,12 @@ texture_scale = 0.75
 
 [node name="CampfireSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bafyt")
+animation = &"unlit"
+
+[node name="FireSprite" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_5iml1")
+sprite_frames = SubResource("SpriteFrames_bu0th")
 animation = &"unlit"
 
 [node name="CampfireIgniteSound" type="AudioStreamPlayer2D" parent="."]

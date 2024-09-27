@@ -11,6 +11,7 @@ var tween: Tween
 
 @onready var fire_light: PointLight2D = $FireLight
 @onready var campfire_sprite: AnimatedSprite2D = $CampfireSprite
+@onready var fire_sprite: AnimatedSprite2D = $FireSprite
 @onready var campfire_loop: AudioStreamPlayer2D = $CampfireLoopSound
 @onready var campfire_ignite: AudioStreamPlayer2D = $CampfireIgniteSound
 
@@ -18,6 +19,7 @@ var tween: Tween
 func _ready() -> void:
 	fire_light.energy = 0.0
 	campfire_sprite.play(&"unlit")
+	fire_sprite.play(&"unlit")
 	#await get_tree().create_timer(2.).timeout
 	#ignite()
 
@@ -40,6 +42,7 @@ func ignite() -> void:
 	tween = create_tween()
 	tween.tween_property(fire_light, "energy", rand_light(), light_start_duration)
 	campfire_sprite.play(&"lit")
+	fire_sprite.play(&"lit")
 
 	campfire_ignite.play()
 	campfire_loop.play()

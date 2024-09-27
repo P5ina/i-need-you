@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://cir1hx8aaa056"]
+
+[ext_resource type="Texture2D" uid="uid://bq7ah2n5rhkva" path="res://textures/characters/characters_spritesheet.png" id="1_252kg"]
+
+[resource]
+diffuse_texture = ExtResource("1_252kg")
