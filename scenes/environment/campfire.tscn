@@ -7,9 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_4hclq"]
 [ext_resource type="Texture2D" uid="uid://b13nt4ceddo7q" path="res://textures/environment/campfire_fire_only.png" id="4_ovwsh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t13pi"]
-size = Vector2(32, 32)
-
 [sub_resource type="Gradient" id="Gradient_6q6tb"]
 offsets = PackedFloat32Array(0, 0.182624, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.203922, 1, 1, 1, 0)
@@ -80,6 +77,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qnqo"]
+radius = 11.0
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5iml1"]
 light_mode = 1
 
@@ -144,9 +144,6 @@ min_light = 0.5
 max_light = 2.0
 light_change_duration = 0.75
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_t13pi")
-
 [node name="FireLight" type="PointLight2D" parent="."]
 color = Color(1, 0.523648, 0.238001, 1)
 energy = 2.0
@@ -156,6 +153,10 @@ texture_scale = 0.75
 [node name="CampfireSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bafyt")
 animation = &"unlit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_2qnqo")
 
 [node name="FireSprite" type="AnimatedSprite2D" parent="."]
 light_mask = 2

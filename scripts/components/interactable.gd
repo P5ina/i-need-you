@@ -1,6 +1,8 @@
 class_name Interactable
 extends Node
 
+signal interaction_ended
+
 const META_NAME = &"InteractableComponent"
 
 @export var action_name: String = "Interact"

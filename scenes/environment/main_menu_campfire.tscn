@@ -16,7 +16,7 @@ fill_to = Vector2(0.5, 0)
 
 [node name="MainMenuCampfire" instance=ExtResource("1_k43xx")]
 
-[node name="FireLight" parent="." index="1"]
+[node name="FireLight" parent="." index="0"]
 color = Color(0.699218, 0.310854, 0, 1)
 texture = SubResource("GradientTexture2D_qa4h3")
 texture_scale = 0.5

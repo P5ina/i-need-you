@@ -22,4 +22,4 @@ shape = SubResource("RectangleShape2D_44jjr")
 
 [node name="Interactable" type="Node" parent="."]
 script = ExtResource("2_pgt4u")
-action_name = "Talk"
+action_name = "Поговорить"
