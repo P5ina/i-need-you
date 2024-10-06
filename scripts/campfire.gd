@@ -5,12 +5,14 @@ extends Node2D
 @export var max_light: float = 4
 @export var light_start_duration := 2.0
 @export var light_change_duration := 0.5
+@export var ignite_from_start: bool = false
 
 var is_on: bool = false
 var tween: Tween
 
 @onready var fire_light: PointLight2D = $FireLight
 @onready var campfire_sprite: AnimatedSprite2D = $CampfireSprite
+@onready var fire_sprite: AnimatedSprite2D = $FireSprite
 @onready var campfire_loop: AudioStreamPlayer2D = $CampfireLoopSound
 @onready var campfire_ignite: AudioStreamPlayer2D = $CampfireIgniteSound
 
@@ -18,8 +20,9 @@ var tween: Tween
 func _ready() -> void:
 	fire_light.energy = 0.0
 	campfire_sprite.play(&"unlit")
-	#await get_tree().create_timer(2.).timeout
-	#ignite()
+	fire_sprite.play(&"unlit")
+	if ignite_from_start:
+		ignite()
 
 func rand_light() -> float:
 	return randf_range(min_light, max_light)
@@ -40,6 +43,7 @@ func ignite() -> void:
 	tween = create_tween()
 	tween.tween_property(fire_light, "energy", rand_light(), light_start_duration)
 	campfire_sprite.play(&"lit")
+	fire_sprite.play(&"lit")
 
 	campfire_ignite.play()
 	campfire_loop.play()

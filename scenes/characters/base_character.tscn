@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="1_vh4ao"]
 [ext_resource type="Script" path="res://scripts/character/character_interactable.gd" id="2_pgt4u"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykkwu"]
-radius = 16.0
-height = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44jjr"]
+size = Vector2(30, 10)
 
 [node name="BaseCharacter" type="StaticBody2D"]
-position = Vector2(0, -200)
+z_index = 1
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 
@@ -17,8 +17,9 @@ scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_vh4ao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ykkwu")
+position = Vector2(0, 26)
+shape = SubResource("RectangleShape2D_44jjr")
 
 [node name="Interactable" type="Node" parent="."]
 script = ExtResource("2_pgt4u")
-action_name = "Talk"
+action_name = "Поговорить"

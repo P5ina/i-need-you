@@ -1,7 +1,6 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cemlm1x0snvik"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cemlm1x0snvik"]
 
 [ext_resource type="Texture2D" uid="uid://lkse24yj62d0" path="res://textures/environment/forest_tiles.png" id="1_s4wne"]
-[ext_resource type="PackedScene" uid="uid://cq88xdrncoy7q" path="res://scenes/environment/pine_tree.tscn" id="3_pn6j6"]
 [ext_resource type="Texture2D" uid="uid://g7hcqpun4ife" path="res://textures/environment/pine_canvas_texture.tres" id="3_yujxa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyjm6"]
@@ -86,10 +85,6 @@ texture_region_size = Vector2i(32, 32)
 3:3/0/terrain = 0
 3:3/0/terrains_peering_bit/top_left_corner = 0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4m6pr"]
-resource_name = "trees"
-scenes/1/scene = ExtResource("3_pn6j6")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rbq2"]
 texture = ExtResource("3_yujxa")
 texture_region_size = Vector2i(48, 32)
@@ -105,5 +100,4 @@ terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0, 0.468479, 0.112499, 1)
 sources/2 = SubResource("TileSetAtlasSource_tyjm6")
-sources/4 = SubResource("TileSetScenesCollectionSource_4m6pr")
 sources/6 = SubResource("TileSetAtlasSource_8rbq2")
