@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="7_4hqte"]
 [ext_resource type="PackedScene" uid="uid://c0u15loetoco0" path="res://scenes/environment/campfire.tscn" id="8_aam31"]
-[ext_resource type="PackedScene" uid="uid://bmmp5kbqbevy5" path="res://scenes/characters/vulture.tscn" id="8_kqdj8"]
+[ext_resource type="PackedScene" uid="uid://b6e234xe5gnhu" path="res://scenes/characters/vulture.tscn" id="8_kqdj8"]
 
 [sub_resource type="Resource" id="Resource_wiidg"]
 script = ExtResource("3_sihth")
@@ -37,9 +37,10 @@ tile_map_data = PackedByteArray("AAACAAEAAgABAAMAAAACAAIAAgABAAAAAAADAAIAAgACAAE
 tile_set = ExtResource("7_4hqte")
 
 [node name="Vulture" parent="SortingNode" instance=ExtResource("8_kqdj8")]
-position = Vector2(0, -165)
+position = Vector2(0, -140)
 
 [node name="BasePlayer" parent="SortingNode" instance=ExtResource("1_o3qx6")]
+physics_interpolation_mode = 1
 y_sort_enabled = true
 position = Vector2(0, -50)
 

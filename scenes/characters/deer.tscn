@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmmp5kbqbevy5"]
+
+[ext_resource type="PackedScene" uid="uid://bco3kjdrj10ue" path="res://scenes/characters/base_character.tscn" id="1_q8uhx"]
+[ext_resource type="Texture2D" uid="uid://cir1hx8aaa056" path="res://textures/characters/characters.tres" id="2_7dkvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg0o2"]
+size = Vector2(20, 57)
+
+[node name="Deer" instance=ExtResource("1_q8uhx")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_7dkvo")
+region_enabled = true
+region_rect = Rect2(0, 64, 64, 64)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_bg0o2")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://h1qakwnx5c6t"]
+
+[ext_resource type="PackedScene" uid="uid://bco3kjdrj10ue" path="res://scenes/characters/base_character.tscn" id="1_pm6f7"]
+[ext_resource type="Texture2D" uid="uid://cir1hx8aaa056" path="res://textures/characters/characters.tres" id="2_f8neg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg0o2"]
+size = Vector2(28, 14)
+
+[node name="Fish" instance=ExtResource("1_pm6f7")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_f8neg")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 64)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_bg0o2")

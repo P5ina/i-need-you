@@ -5,6 +5,7 @@ extends Node2D
 @export var max_light: float = 4
 @export var light_start_duration := 2.0
 @export var light_change_duration := 0.5
+@export var ignite_from_start: bool = false
 
 var is_on: bool = false
 var tween: Tween
@@ -20,8 +21,8 @@ func _ready() -> void:
 	fire_light.energy = 0.0
 	campfire_sprite.play(&"unlit")
 	fire_sprite.play(&"unlit")
-	#await get_tree().create_timer(2.).timeout
-	#ignite()
+	if ignite_from_start:
+		ignite()
 
 func rand_light() -> float:
 	return randf_range(min_light, max_light)
