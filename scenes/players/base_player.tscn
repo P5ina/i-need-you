@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b8sf01aw1jc0w"]
 
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_e1le4"]
 [ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="1_f1f68"]
-[ext_resource type="Script" path="res://scripts/player/movement.gd" id="2_3o1ov"]
 [ext_resource type="Script" path="res://scripts/player/interaction_area.gd" id="2_k1stm"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="3_hcurp"]
 [ext_resource type="Texture2D" uid="uid://dqndf0argk5m" path="res://textures/ui/keyboard_button.png" id="4_6fvil"]
@@ -36,6 +36,7 @@ fill_to = Vector2(0.5, 0)
 z_index = 1
 collision_mask = 3
 motion_mode = 1
+script = ExtResource("1_e1le4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -93,9 +94,6 @@ layout_mode = 2
 theme = ExtResource("3_hcurp")
 theme_override_font_sizes/font_size = 6
 text = "Talk"
-
-[node name="Movement" type="Node" parent="."]
-script = ExtResource("2_3o1ov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vyq7k")

@@ -11,8 +11,8 @@
 
 [sub_resource type="Resource" id="Resource_wiidg"]
 script = ExtResource("3_sihth")
-duration = 1.0
-transition = 0
+duration = 3.0
+transition = 4
 ease = 2
 
 [sub_resource type="Resource" id="Resource_soo13"]
@@ -40,37 +40,36 @@ tile_set = ExtResource("7_4hqte")
 position = Vector2(0, -140)
 
 [node name="BasePlayer" parent="SortingNode" instance=ExtResource("1_o3qx6")]
-physics_interpolation_mode = 1
-y_sort_enabled = true
 position = Vector2(0, -50)
 
 [node name="CameraDirector" type="Node2D" parent="."]
 script = ExtResource("3_3qywj")
 
 [node name="PlayerCamera" type="Node2D" parent="CameraDirector" node_paths=PackedStringArray("follow_target")]
-position = Vector2(1.4013e-45, -50)
+process_priority = -1
+position = Vector2(0, -50)
 script = ExtResource("2_u4uff")
 priority = 5
 follow_mode = 2
 follow_target = NodePath("../../SortingNode/BasePlayer")
-zoom = Vector2(0.7, 0.7)
 tween_resource = SubResource("Resource_wiidg")
 follow_damping = true
 dead_zone_width = 0.3
 dead_zone_height = 0.3
+draw_limits = true
 
 [node name="CampfireCamera" type="Node2D" parent="CameraDirector"]
 script = ExtResource("2_u4uff")
 zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_soo13")
 tween_on_load = false
+draw_limits = true
 
 [node name="Campfire" parent="." instance=ExtResource("8_aam31")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(1.4013e-45, -50)
-zoom = Vector2(0.7, 0.7)
+position = Vector2(0, -50)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
