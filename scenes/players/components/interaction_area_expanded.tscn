@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5a0xtoadotq4"]
+
+[ext_resource type="PackedScene" uid="uid://d0btb4nk81wf2" path="res://scenes/players/components/interaction_area.tscn" id="1_41k6k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmqqk"]
+radius = 64.0
+
+[node name="InteractionAreaExpanded" instance=ExtResource("1_41k6k")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_kmqqk")
