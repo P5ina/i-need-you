@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8sf01aw1jc0w"]
+[gd_scene load_steps=8 format=3 uid="uid://b8sf01aw1jc0w"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_e1le4"]
 [ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="1_f1f68"]
 [ext_resource type="PackedScene" uid="uid://d0btb4nk81wf2" path="res://scenes/players/components/interaction_area.tscn" id="3_rkmi2"]
+[ext_resource type="Script" path="res://scripts/player/player_movement.gd" id="4_4rkoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyq7k"]
 radius = 16.0
@@ -21,7 +22,6 @@ z_index = 1
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_e1le4")
-movement_speed = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -37,3 +37,6 @@ color = Color(0, 0.210919, 0.423639, 1)
 energy = 0.2
 texture = SubResource("GradientTexture2D_d6v0v")
 texture_scale = 4.0
+
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("4_4rkoq")

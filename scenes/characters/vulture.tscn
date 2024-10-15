@@ -17,3 +17,10 @@ region_rect = Rect2(0, 0, 64, 64)
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_bg0o2")
+
+[node name="CharacterCamera2D" parent="Interactable" index="0"]
+position = Vector2(0, 32)
+zoom = Vector2(1.3, 1.3)
+
+[node name="PlayerPosition" parent="Interactable" index="1"]
+position = Vector2(0, 45)
