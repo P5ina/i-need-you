@@ -14,7 +14,7 @@ enum Step {
 	RIGHT_STEP
 }
 
-var direction: Vector2 = Vector2.DOWN
+var direction: Vector2 = Vector2.UP
 var _next_step: Step = Step.LEFT_STEP
 var _can_take_next_step: bool = false
 var _tween: Tween

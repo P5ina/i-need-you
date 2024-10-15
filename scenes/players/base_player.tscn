@@ -21,6 +21,7 @@ z_index = 1
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_e1le4")
+movement_speed = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

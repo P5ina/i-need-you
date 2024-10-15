@@ -109,6 +109,7 @@ tile_set = ExtResource("1_lgkms")
 color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 process_callback = 0
 
 [node name="MainMenuCampfire" parent="." instance=ExtResource("2_lkaum")]

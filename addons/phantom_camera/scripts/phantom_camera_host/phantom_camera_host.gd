@@ -483,7 +483,7 @@ func _assign_new_active_pcam(pcam: Node) -> void:
 				_active_pcam_2d.set_follow_target_physics_based(false, self)
 				## TODO - Temporary solution to support Godot 4.2
 				## Remove line below and uncomment the following once Godot 4.3 is min verison.
-				camera_2d.set("physics_interpolation_mode", 2)
+				camera_2d.set("physics_interpolation_mode", 0)
 				#camera_2d.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 	else:
 		_follow_target_physics_based = false
@@ -495,7 +495,12 @@ func _assign_new_active_pcam(pcam: Node) -> void:
 		if _active_pcam_3d.camera_3d_resource:
 			camera_3d.cull_mask = _active_pcam_3d.cull_mask
 			camera_3d.projection = _active_pcam_3d.projection
-
+	
+	if ProjectSettings.get_setting("physics/common/physics_interpolation"):
+		camera_2d.process_callback = Camera2D.CAMERA2D_PROCESS_PHYSICS
+	else:
+		camera_2d.process_callback = Camera2D.CAMERA2D_PROCESS_IDLE
+	
 	if no_previous_pcam:
 		if _is_2D:
 			_prev_active_pcam_2d_transform = _active_pcam_2d.global_transform

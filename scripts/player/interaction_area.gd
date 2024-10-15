@@ -54,6 +54,8 @@ func _input(event: InputEvent) -> void:
 func stop_interacting() -> void:
 	_current_interaction.interaction_ended.disconnect(stop_interacting)
 	_current_interaction = null
+	
+	_update_can_interact()
 
 
 func _update_can_interact() -> void:

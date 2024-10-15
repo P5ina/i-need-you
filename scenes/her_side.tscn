@@ -9,6 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://c0u15loetoco0" path="res://scenes/environment/campfire.tscn" id="8_aam31"]
 [ext_resource type="PackedScene" uid="uid://b6e234xe5gnhu" path="res://scenes/characters/vulture.tscn" id="8_kqdj8"]
 
+[sub_resource type="Animation" id="Animation_2hqly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneDirector/CampfireCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_1tkbi"]
 resource_name = "intro"
 length = 3.0
@@ -37,21 +52,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"ignite"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_2hqly"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CutsceneDirector/CampfireCamera:priority")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ucn2"]
@@ -110,7 +110,6 @@ z_index = 1
 position = Vector2(0, -50)
 
 [node name="PlayerCamera" type="Node2D" parent="CutsceneDirector" node_paths=PackedStringArray("follow_target")]
-process_priority = -1
 position = Vector2(0, -50)
 script = ExtResource("2_u4uff")
 priority = 5
@@ -131,8 +130,7 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-zoom = Vector2(3, 3)
+position = Vector2(0, -50)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
