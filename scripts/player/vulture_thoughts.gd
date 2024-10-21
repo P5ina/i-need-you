@@ -22,7 +22,7 @@ func show_hint(step: VerticalMovement.Step) -> void:
 		var tween: Tween = create_tween()
 		tween.tween_property(left_mouse_button, "modulate:a", 1.0, fade_duration)
 	else:
-		right_action_label.text = thoughts.pick_random()
+		right_action_label.text = first_thoughts.pick_random()
 		var tween: Tween = create_tween()
 		tween.tween_property(right_mouse_button, "modulate:a", 1.0, fade_duration)
 
