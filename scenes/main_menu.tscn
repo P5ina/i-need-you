@@ -114,6 +114,7 @@ physics_interpolation_mode = 1
 process_callback = 0
 
 [node name="MainMenuCampfire" parent="." instance=ExtResource("2_lkaum")]
+max_light = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

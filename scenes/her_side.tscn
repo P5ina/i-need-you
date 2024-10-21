@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://drcr3mvorxqx7"]
+[gd_scene load_steps=16 format=4 uid="uid://drcr3mvorxqx7"]
 
 [ext_resource type="PackedScene" uid="uid://b8sf01aw1jc0w" path="res://scenes/players/base_player.tscn" id="1_o3qx6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_u4uff"]
+[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="2_vikpj"]
 [ext_resource type="Script" path="res://scripts/story/camera_director.gd" id="3_3qywj"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_sihth"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
@@ -24,10 +25,47 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutsceneDirector/CanvasLayer/IntroQuote:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer/Quote:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer/Author:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_1tkbi"]
 resource_name = "intro"
-length = 3.0
+length = 13.0
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,7 +73,7 @@ tracks/0/path = NodePath("CutsceneDirector/CampfireCamera:priority")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [10, 0]
@@ -47,12 +85,48 @@ tracks/1/path = NodePath("CutsceneDirector/SortingNode/Campfire")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
+"times": PackedFloat32Array(11.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"ignite"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutsceneDirector/CanvasLayer/IntroQuote:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer/Quote:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7, 9, 10, 11.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.47451, 0.0705882, 1), Color(1, 0.47451, 0.0705882, 1), Color(1, 0.47451, 0.0705882, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer/Author:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ucn2"]
@@ -80,6 +154,53 @@ libraries = {
 "": SubResource("AnimationLibrary_7ucn2")
 }
 script = ExtResource("3_3qywj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CutsceneDirector"]
+
+[node name="IntroQuote" type="ColorRect" parent="CutsceneDirector/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CutsceneDirector/CanvasLayer/IntroQuote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -20.0
+offset_right = 103.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Quote" type="Label" parent="CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_vikpj")
+theme_override_font_sizes/font_size = 8
+text = "“Дойдя до конца, 
+люди смеются над страхами, 
+мучившими их вначале.”"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Author" type="Label" parent="CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_vikpj")
+theme_override_font_sizes/font_size = 8
+text = "- Пауло Коэль"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="SortingNode" type="Node2D" parent="CutsceneDirector"]
 y_sort_enabled = true
@@ -131,7 +252,7 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(0, -50)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
