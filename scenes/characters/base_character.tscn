@@ -37,8 +37,6 @@ script = ExtResource("3_owhwn")
 zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_jppqv")
 draw_limits = true
-_preview_noise = null
-noise_emitter_layer = null
 
 [node name="PlayerPosition" type="Node2D" parent="Interactable"]
 

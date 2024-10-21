@@ -34,6 +34,8 @@ position = Vector2(0, -60)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
 script = ExtResource("2_jtn8n")
 
 [node name="VultureCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
@@ -43,11 +45,10 @@ follow_mode = 4
 follow_target = NodePath("../VulturePlayer")
 follow_path = NodePath("../CameraPath")
 tween_resource = SubResource("Resource_ik7di")
+tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(0.1, 0.5)
 draw_limits = true
-_preview_noise = null
-noise_emitter_layer = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
