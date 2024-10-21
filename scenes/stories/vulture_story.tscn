@@ -46,6 +46,8 @@ tween_resource = SubResource("Resource_ik7di")
 follow_damping = true
 follow_damping_value = Vector2(0.1, 0.5)
 draw_limits = true
+_preview_noise = null
+noise_emitter_layer = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
