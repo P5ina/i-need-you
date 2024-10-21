@@ -146,6 +146,7 @@ light_change_duration = 0.75
 
 [node name="FireLight" type="PointLight2D" parent="."]
 color = Color(1, 0.523648, 0.238001, 1)
+energy = 0.5
 texture = SubResource("GradientTexture2D_favlu")
 texture_scale = 0.75
 
