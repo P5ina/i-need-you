@@ -53,6 +53,7 @@ follow_damping_value = Vector2(0.1, 0.5)
 draw_limits = true
 
 [node name="Darkness" type="CanvasModulate" parent="." node_paths=PackedStringArray("vulture_player")]
+visible = false
 color = Color(0, 0, 0, 1)
 script = ExtResource("5_phnfr")
 vulture_player = NodePath("../VulturePlayer")
@@ -63,3 +64,5 @@ darkness_end_y = -120.0
 
 [node name="CameraPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_i27w0")
+
+[node name="VulturesLookingArea1" type="Node2D" parent="."]

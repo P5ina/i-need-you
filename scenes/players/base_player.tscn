@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b8sf01aw1jc0w"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_e1le4"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_rwqj8"]
 [ext_resource type="PackedScene" uid="uid://d0btb4nk81wf2" path="res://scenes/players/components/interaction_area.tscn" id="3_rkmi2"]
 [ext_resource type="Script" path="res://scripts/player/player_movement.gd" id="4_4rkoq"]
+[ext_resource type="Script" path="res://scripts/player/player_gamemode_updater.gd" id="4_jnila"]
 
 [sub_resource type="Gradient" id="Gradient_fpgu6"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -18,7 +18,6 @@ fill_to = Vector2(0.5, 0)
 z_index = 1
 collision_mask = 3
 motion_mode = 1
-script = ExtResource("1_e1le4")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_rkmi2")]
 position = Vector2(0, -10)
@@ -40,3 +39,6 @@ texture_scale = 4.0
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("4_4rkoq")
 movement_speed = 35.0
+
+[node name="GamemodeUpdater" type="Node" parent="."]
+script = ExtResource("4_jnila")

@@ -21,6 +21,7 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 SceneLoader="*res://scenes/autoloads/scene_loader.tscn"
 StoryState="*res://scenes/autoloads/story_state.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Gamemode="*res://scenes/autoloads/gamemode.tscn"
 
 [debug]
 

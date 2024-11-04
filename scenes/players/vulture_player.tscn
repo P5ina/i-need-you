@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bqoiqhehqmbpo"]
+[gd_scene load_steps=39 format=3 uid="uid://bqoiqhehqmbpo"]
 
 [ext_resource type="Texture2D" uid="uid://5f0d6dwo2ua7" path="res://textures/player/vulture_player.png" id="1_xog6v"]
 [ext_resource type="Script" path="res://scripts/player/player_vulture_animation.gd" id="2_ou6yk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/player/vulture_thoughts.gd" id="4_ywkx4"]
 [ext_resource type="Texture2D" uid="uid://buaesp0656y7s" path="res://textures/ui/left_mouse_button_icon.tres" id="6_8km3r"]
 [ext_resource type="Texture2D" uid="uid://b738vknao4buw" path="res://textures/ui/right_mouse_button_icon.tres" id="7_2f33w"]
+[ext_resource type="Script" path="res://scripts/player/player_gamemode_updater.gd" id="9_hrys8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w0ql5"]
 light_mode = 1
@@ -303,3 +304,6 @@ layout_mode = 2
 theme = ExtResource("4_epmoi")
 theme_override_font_sizes/font_size = 6
 text = "Right!"
+
+[node name="GamemodeUpdater" type="Node" parent="."]
+script = ExtResource("9_hrys8")
