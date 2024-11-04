@@ -1,11 +1,14 @@
 extends CanvasModulate
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var vulture_player: Node2D
+@export var darkness_start_y: float
+@export var darkness_end_y: float
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	var vulture_y: float = vulture_player.global_position.y
+	var darkness_range: float = darkness_end_y - darkness_start_y
+	var darkness_progress: float = (vulture_y - darkness_start_y) / darkness_range
+	darkness_progress = clampf(darkness_progress, 0.0, 1.0)
+	color = Color.BLACK.lerp(Color.WHITE, darkness_progress)
