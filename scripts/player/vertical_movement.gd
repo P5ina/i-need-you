@@ -8,6 +8,7 @@ extends Node
 @onready var body: AnimatableBody2D = owner
 
 @onready var vulture_thoughts: VultureThoughts = $VultureThoughts
+@onready var animation: PlayerVultureAnimation = owner.get_meta(PlayerVultureAnimation.META_NAME)
 
 enum Step {
 	LEFT_STEP,
@@ -41,9 +42,11 @@ func _make_step() -> void:
 		_tween.kill()
 	_can_take_next_step = false
 	vulture_thoughts.hide_hint()
+	var animation_direction: PlayerVultureAnimation.AnimationDirection = PlayerVultureAnimation.AnimationDirection.UP if direction == Vector2.UP else PlayerVultureAnimation.AnimationDirection.DOWN
+	animation.play_step_animation(animation_direction, _next_step == Step.RIGHT_STEP)
 	_tween = create_tween()
-	_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)\
-		.tween_property(body, "position", direction * step_distance, step_duration)\
+	_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD) \
+		.tween_property(body, "position", direction * step_distance, step_duration) \
 		.as_relative()
 	_tween.tween_interval(step_cooldown)
 	_tween.tween_callback(_step_done)

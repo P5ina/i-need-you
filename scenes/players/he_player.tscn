@@ -248,7 +248,7 @@ height = 14.0
 
 [node name="HePlayer" instance=ExtResource("1_2j7eh")]
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_vnv0h")
 animation = &"idle_down"
 

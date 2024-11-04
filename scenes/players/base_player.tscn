@@ -39,3 +39,4 @@ texture_scale = 4.0
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("4_4rkoq")
+movement_speed = 35.0
