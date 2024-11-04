@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/story/vulture/vulture_looking_rotation.gd" id="2_waowu"]
 
 [node name="VultureLooking" type="Node2D"]
+z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fv5jo")
