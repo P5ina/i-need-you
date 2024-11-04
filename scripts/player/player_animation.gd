@@ -1,4 +1,7 @@
+class_name PlayerAnimation
 extends AnimatedSprite2D
+
+const META_NAME = &"AnimationComponent"
 
 enum AnimationDirection {
 	UP,
@@ -10,7 +13,9 @@ enum AnimationDirection {
 var last_direction: AnimationDirection
 var last_is_moving: bool
 
-@onready var interaction_area: InteractionArea = owner.get_meta(InteractionArea.META_NAME)
+
+func _ready() -> void:
+	owner.set_meta(META_NAME, self)
 
 
 func _process(_delta: float) -> void:
@@ -19,6 +24,7 @@ func _process(_delta: float) -> void:
 	var is_moving: bool = normalized_velocity.length() > 0.1
 
 	update_animation(direction, is_moving)
+
 
 func get_direction(normalized_velocity: Vector2) -> AnimationDirection:
 	if normalized_velocity.y < 0:
