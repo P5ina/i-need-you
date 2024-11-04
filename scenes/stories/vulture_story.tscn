@@ -31,17 +31,17 @@ tile_set = ExtResource("1_eb0f3")
 
 [node name="VulturePlayer" parent="SortingNode" instance=ExtResource("5_j5jhs")]
 
-[node name="VulturesLookingSpawnArea" type="Polygon2D" parent="SortingNode"]
+[node name="VulturesLookingSpawnArea1" type="Polygon2D" parent="SortingNode"]
 y_sort_enabled = true
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-30, -400, -200, -400, -200, 0, -30, 0)
+polygon = PackedVector2Array(-30, -400, -200, -400, -200, 100, -30, 100)
 script = ExtResource("7_2vq0v")
 spawn_distance = 48
 
 [node name="VulturesLookingSpawnArea2" type="Polygon2D" parent="SortingNode"]
 y_sort_enabled = true
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(30, -400, 200, -400, 200, 0, 30, 0)
+polygon = PackedVector2Array(30, -400, 200, -400, 200, 100, 30, 100)
 script = ExtResource("7_2vq0v")
 spawn_distance = 48
 
@@ -68,12 +68,11 @@ follow_damping_value = Vector2(0.1, 0.5)
 draw_limits = true
 
 [node name="Darkness" type="CanvasModulate" parent="." node_paths=PackedStringArray("vulture_player")]
-visible = false
 color = Color(0, 0, 0, 1)
 script = ExtResource("5_phnfr")
 vulture_player = NodePath("../SortingNode/VulturePlayer")
 darkness_start_y = -40.0
-darkness_end_y = -120.0
+darkness_end_y = -80.0
 
 [node name="CameraPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_i27w0")
