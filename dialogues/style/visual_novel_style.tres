@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://hjfkuygne4d5"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=20 format=3 uid="uid://hjfkuygne4d5"]
 
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_d58na"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_2876b"]
@@ -11,42 +11,46 @@
 [ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="9_t4ty7"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_pm81p"]
 
-[sub_resource type="Resource" id="Resource_gumcw"]
+[sub_resource type="Resource" id="Resource_21m0p"]
+script = ExtResource("1_d58na")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_uw2c2"]
 script = ExtResource("1_d58na")
 scene = ExtResource("2_2876b")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_3h3ps"]
+[sub_resource type="Resource" id="Resource_k5sfk"]
 script = ExtResource("1_d58na")
 scene = ExtResource("3_e4214")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_6lpxj"]
+[sub_resource type="Resource" id="Resource_3yj15"]
 script = ExtResource("1_d58na")
 scene = ExtResource("4_h4da5")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_iac5o"]
+[sub_resource type="Resource" id="Resource_vu8q7"]
 script = ExtResource("1_d58na")
 scene = ExtResource("5_dqisd")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_b61eh"]
+[sub_resource type="Resource" id="Resource_kwbmg"]
 script = ExtResource("1_d58na")
 scene = ExtResource("6_j28ve")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_4u47d"]
+[sub_resource type="Resource" id="Resource_i78ka"]
 script = ExtResource("1_d58na")
 scene = ExtResource("7_15td8")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_58p6t"]
+[sub_resource type="Resource" id="Resource_abdfi"]
 script = ExtResource("1_d58na")
 scene = ExtResource("8_ax0wb")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_nh4ch"]
+[sub_resource type="Resource" id="Resource_mesmw"]
 script = ExtResource("1_d58na")
 scene = ExtResource("9_t4ty7")
 overrides = {}
@@ -54,6 +58,18 @@ overrides = {}
 [resource]
 script = ExtResource("10_pm81p")
 name = "visual_novel_style"
+layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16", "17"])
+layer_info = {
+"": SubResource("Resource_21m0p"),
+"10": SubResource("Resource_uw2c2"),
+"11": SubResource("Resource_k5sfk"),
+"12": SubResource("Resource_3yj15"),
+"13": SubResource("Resource_vu8q7"),
+"14": SubResource("Resource_kwbmg"),
+"15": SubResource("Resource_i78ka"),
+"16": SubResource("Resource_abdfi"),
+"17": SubResource("Resource_mesmw")
+}
 base_overrides = {}
-layers = Array[ExtResource("1_d58na")]([SubResource("Resource_gumcw"), SubResource("Resource_3h3ps"), SubResource("Resource_6lpxj"), SubResource("Resource_iac5o"), SubResource("Resource_b61eh"), SubResource("Resource_4u47d"), SubResource("Resource_58p6t"), SubResource("Resource_nh4ch")])
+layers = Array[ExtResource("1_d58na")]([])
 metadata/_latest_layer = 3

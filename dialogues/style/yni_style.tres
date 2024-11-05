@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=5 format=3 uid="uid://b7an2r1v8x6d8"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://b7an2r1v8x6d8"]
 
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_xg8e3"]
 [ext_resource type="PackedScene" uid="uid://cgm078g3bq865" path="res://scenes/dialogues/style/dialogue_layout.tscn" id="2_fxca1"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_roc2q"]
 
-[sub_resource type="Resource" id="Resource_hi6ek"]
+[sub_resource type="Resource" id="Resource_iwro4"]
+script = ExtResource("1_xg8e3")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_0jd1o"]
 script = ExtResource("1_xg8e3")
 scene = ExtResource("2_fxca1")
 overrides = {}
@@ -12,6 +16,11 @@ overrides = {}
 [resource]
 script = ExtResource("2_roc2q")
 name = "yni_style"
+layer_list = Array[String](["10"])
+layer_info = {
+"": SubResource("Resource_iwro4"),
+"10": SubResource("Resource_0jd1o")
+}
 base_overrides = {}
-layers = Array[ExtResource("1_xg8e3")]([SubResource("Resource_hi6ek")])
-metadata/_latest_layer = 0
+layers = Array[ExtResource("1_xg8e3")]([])
+metadata/_latest_layer = "10"
