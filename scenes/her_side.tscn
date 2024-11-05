@@ -255,7 +255,6 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
 position = Vector2(0, -26)
 process_callback = 0
 
