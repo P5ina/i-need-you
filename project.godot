@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 SceneLoader="*res://scenes/autoloads/scene_loader.tscn"
 StoryState="*res://scenes/autoloads/story_state.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Gamemode="*res://scenes/autoloads/gamemode.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [debug]
 
@@ -67,11 +67,8 @@ layout/default_style="res://dialogues/style/yni_style.tres"
 text/absolute_autopauses=false
 glossary/default_case_sensitive=true
 variables={
-"vulture": {
-"bad": 0.0,
-"good": 0.0,
-"very_bad": 0.0
-}
+"load_story": false,
+"vulture_good": 0.0
 }
 
 [display]

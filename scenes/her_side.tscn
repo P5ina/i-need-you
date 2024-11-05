@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://drcr3mvorxqx7"]
+[gd_scene load_steps=16 format=4 uid="uid://drcr3mvorxqx7"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_u4uff"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="2_vikpj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_sihth"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
 [ext_resource type="PackedScene" uid="uid://b71g8dq5v2xht" path="res://scenes/players/he_player.tscn" id="6_18sb7"]
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="7_3wn8s"]
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="7_4hqte"]
 [ext_resource type="PackedScene" uid="uid://c0u15loetoco0" path="res://scenes/environment/campfire.tscn" id="8_aam31"]
 [ext_resource type="PackedScene" uid="uid://b6e234xe5gnhu" path="res://scenes/characters/vulture.tscn" id="8_kqdj8"]
@@ -233,9 +232,10 @@ position = Vector2(0, -140)
 z_index = 1
 
 [node name="HePlayer" parent="CutsceneDirector/SortingNode" instance=ExtResource("6_18sb7")]
-script = ExtResource("7_3wn8s")
+position = Vector2(0, -26)
 
 [node name="PlayerCamera" type="Node2D" parent="CutsceneDirector" node_paths=PackedStringArray("follow_target")]
+position = Vector2(0, -26)
 script = ExtResource("2_u4uff")
 priority = 5
 follow_mode = 2
@@ -255,6 +255,8 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(0, -26)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
