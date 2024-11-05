@@ -18,6 +18,9 @@ region_rect = Rect2(0, 0, 64, 64)
 position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_bg0o2")
 
+[node name="Interactable" parent="." index="2"]
+story_scene = "res://scenes/stories/vulture_story.tscn"
+
 [node name="CharacterCamera2D" parent="Interactable" index="0"]
 position = Vector2(0, 32)
 zoom = Vector2(1.3, 1.3)
