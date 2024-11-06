@@ -1,3 +1,4 @@
+class_name Campfire
 extends Node2D
 
 
@@ -37,7 +38,7 @@ func _process(_delta: float) -> void:
 		tween.tween_property(fire_light, "energy", rand_light(), light_change_duration)
 
 
-func ignite() -> void:
+func ignite(play_ignite_sound: bool = true) -> void:
 	is_on = true
 
 	tween = create_tween()
@@ -45,5 +46,6 @@ func ignite() -> void:
 	campfire_sprite.play(&"lit")
 	fire_sprite.play(&"lit")
 
-	campfire_ignite.play()
+	if play_ignite_sound:
+		campfire_ignite.play()
 	campfire_loop.play()

@@ -73,4 +73,4 @@ func _step_done() -> void:
 	if movement_locked:
 		return
 	_can_take_next_step = true
-	vulture_thoughts.show_hint(_next_step)
+	vulture_thoughts.show_hint(_next_step, direction == Vector2.DOWN)

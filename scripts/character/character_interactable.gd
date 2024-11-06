@@ -41,6 +41,7 @@ func lock_player(player: Node2D) -> void:
 func unlock_player(player: Node2D) -> void:
 	character_camera_2d.priority = 0
 	player.get_meta(InteractionArea.META_NAME).current_interaction = null
+	player.get_meta(PlayerMovement.META_NAME).movement_locked = false
 	interaction_ended.emit()
 
 

@@ -36,6 +36,7 @@ action_name = "Поговорить"
 script = ExtResource("3_owhwn")
 zoom = Vector2(1.5, 1.5)
 tween_resource = SubResource("Resource_jppqv")
+tween_on_load = false
 draw_limits = true
 
 [node name="PlayerPosition" type="Node2D" parent="Interactable"]

@@ -16,13 +16,13 @@ func _ready() -> void:
 	right_mouse_button.modulate.a = 0
 
 
-func show_hint(step: VerticalMovement.Step) -> void:
+func show_hint(step: VerticalMovement.Step, backwards: bool) -> void:
 	if step == VerticalMovement.Step.LEFT_STEP:
-		left_action_label.text = first_thoughts.pick_random()
+		left_action_label.text = first_thoughts.pick_random() if not backwards else thoughts.pick_random()
 		var tween: Tween = create_tween()
 		tween.tween_property(left_mouse_button, "modulate:a", 1.0, fade_duration)
 	else:
-		right_action_label.text = first_thoughts.pick_random()
+		right_action_label.text = first_thoughts.pick_random() if not backwards else thoughts.pick_random()
 		var tween: Tween = create_tween()
 		tween.tween_property(right_mouse_button, "modulate:a", 1.0, fade_duration)
 
