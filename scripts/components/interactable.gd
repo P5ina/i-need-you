@@ -14,3 +14,4 @@ func _ready() -> void:
 
 func interact(_player: CharacterBody2D) -> void:
 	push_error("Unimplemented interact method")
+	interaction_ended.emit()

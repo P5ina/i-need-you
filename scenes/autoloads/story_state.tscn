@@ -4,5 +4,3 @@
 
 [node name="StoryState" type="Node"]
 script = ExtResource("1_fx2gc")
-
-[node name="HerSide" type="Node" parent="."]

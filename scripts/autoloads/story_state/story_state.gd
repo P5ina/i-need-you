@@ -2,37 +2,38 @@ extends Node
 
 const SAVE_FILE = "user://story.save"
 
-var intro_played: bool = false
+enum CharacterState {
+	NONE,
+	BEGINING,
+	STORY,
+	CONVINCE,
+	ENDING,
+}
+
+var intro_played: bool:
+	get:
+		return _save_dictionary.get("intro_played", false)
+	set(value):
+		_save_dictionary["intro_played"] = value
+
+var _save_dictionary: Dictionary = {}
 
 func _ready() -> void:
 	load_state()
 
 
-func get_save_state() -> Dictionary:
-	return {
-		"intro_played": intro_played
-	}
+func get_character_state(character_name: String) -> CharacterState:
+	return _save_dictionary.get(character_name + "_state", CharacterState.NONE)
 
 
+func set_character_state(character_name: String, state: CharacterState) -> void:
+	_save_dictionary[character_name + "_state"] = state
+
+
+# TODO: Add save for dialogue lines to prevent abusing the save system
 func save_state() -> void:
-	var save_file: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
-	var save: Dictionary = get_save_state()
-	var json_string: String = JSON.stringify(save)
-	save_file.store_line(json_string)
+	Dialogic.Save.save("", false, Dialogic.Save.ThumbnailMode.NONE, _save_dictionary)
 
 
 func load_state() -> void:
-	if not FileAccess.file_exists(SAVE_FILE):
-		return
-	
-	var parser: JSON = JSON.new()
-	
-	var save_file: FileAccess = FileAccess.open("user://story.save", FileAccess.READ)
-	var json_string: String = save_file.get_line()
-	var parse_error: Error = parser.parse(json_string)
-	if parse_error != OK:
-		push_error("JSON Parse Error: ", parser.get_error_message(), 
-			" in ", json_string, " at line ", parser.get_error_line())
-	
-	var save: Dictionary = parser.data
-	intro_played = save["intro_played"]
+	_save_dictionary = Dialogic.Save.get_slot_info("")

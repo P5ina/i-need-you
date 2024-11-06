@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b13nt4ceddo7q" path="res://textures/environment/campfire_fire_only.png" id="4_ovwsh"]
 
 [sub_resource type="Gradient" id="Gradient_6q6tb"]
-offsets = PackedFloat32Array(0, 0.182624, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.203922, 1, 1, 1, 0)
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_favlu"]
 gradient = SubResource("Gradient_6q6tb")
@@ -141,12 +141,12 @@ animations = [{
 [node name="Campfire" type="StaticBody2D"]
 script = ExtResource("1_48djx")
 min_light = 0.5
-max_light = 2.0
+max_light = 1.0
 light_change_duration = 0.75
 
 [node name="FireLight" type="PointLight2D" parent="."]
 color = Color(1, 0.523648, 0.238001, 1)
-energy = 2.0
+energy = 0.5
 texture = SubResource("GradientTexture2D_favlu")
 texture_scale = 0.75
 
@@ -159,6 +159,7 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_2qnqo")
 
 [node name="FireSprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
 light_mask = 2
 material = SubResource("CanvasItemMaterial_5iml1")
 sprite_frames = SubResource("SpriteFrames_bu0th")

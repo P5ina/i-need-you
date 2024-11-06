@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bco3kjdrj10ue"]
+[gd_scene load_steps=7 format=3 uid="uid://bco3kjdrj10ue"]
 
 [ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="1_vh4ao"]
 [ext_resource type="Script" path="res://scripts/character/character_interactable.gd" id="2_pgt4u"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_owhwn"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_00htg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44jjr"]
 size = Vector2(30, 10)
+
+[sub_resource type="Resource" id="Resource_jppqv"]
+script = ExtResource("4_00htg")
+duration = 0.5
+transition = 4
+ease = 1
 
 [node name="BaseCharacter" type="StaticBody2D"]
 z_index = 1
@@ -20,6 +28,20 @@ texture = ExtResource("1_vh4ao")
 position = Vector2(0, 26)
 shape = SubResource("RectangleShape2D_44jjr")
 
-[node name="Interactable" type="Node" parent="."]
+[node name="Interactable" type="Node2D" parent="."]
 script = ExtResource("2_pgt4u")
 action_name = "Поговорить"
+
+[node name="CharacterCamera2D" type="Node2D" parent="Interactable"]
+script = ExtResource("3_owhwn")
+zoom = Vector2(1.5, 1.5)
+tween_resource = SubResource("Resource_jppqv")
+tween_on_load = false
+draw_limits = true
+
+[node name="PlayerPosition" type="Node2D" parent="Interactable"]
+
+[node name="Representation" type="Sprite2D" parent="Interactable/PlayerPosition"]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_vh4ao")

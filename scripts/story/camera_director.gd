@@ -1,9 +1,13 @@
-extends Node2D
+extends AnimationPlayer
 
-#@onready var campfire_camera: PhantomCamera2D = $CampfireCamera
-#@onready var player_camera: PhantomCamera2D = $PlayerCamera
+@onready var campfire: StaticBody2D = $SortingNode/Campfire
 
 
 func _ready() -> void:
 	if not StoryState.intro_played:
-		pass
+		play(&"intro")
+		await animation_finished
+		StoryState.intro_played = true
+		print("intro played")
+	else:
+		campfire.ignite(false)
