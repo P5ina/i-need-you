@@ -1,13 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bqoiqhehqmbpo"]
+[gd_scene load_steps=32 format=3 uid="uid://bqoiqhehqmbpo"]
 
 [ext_resource type="Texture2D" uid="uid://5f0d6dwo2ua7" path="res://textures/player/vulture_player.png" id="1_xog6v"]
 [ext_resource type="Script" path="res://scripts/player/player_vulture_animation.gd" id="2_ou6yk"]
 [ext_resource type="PackedScene" uid="uid://c5a0xtoadotq4" path="res://scenes/players/components/interaction_area_expanded.tscn" id="3_2h3en"]
 [ext_resource type="Script" path="res://scripts/player/vertical_movement.gd" id="3_dpg05"]
-[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="4_epmoi"]
 [ext_resource type="Script" path="res://scripts/player/vulture_thoughts.gd" id="4_ywkx4"]
-[ext_resource type="Texture2D" uid="uid://buaesp0656y7s" path="res://textures/ui/left_mouse_button_icon.tres" id="6_8km3r"]
-[ext_resource type="Texture2D" uid="uid://b738vknao4buw" path="res://textures/ui/right_mouse_button_icon.tres" id="7_2f33w"]
 [ext_resource type="Script" path="res://scripts/player/player_gamemode_updater.gd" id="9_hrys8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w0ql5"]
@@ -204,12 +201,6 @@ animations = [{
 radius = 16.0
 height = 64.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmlcw"]
-texture = ExtResource("6_8km3r")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm561"]
-texture = ExtResource("7_2f33w")
-
 [node name="VulturePlayer" type="AnimatableBody2D"]
 z_index = 1
 collision_mask = 3
@@ -234,60 +225,7 @@ step_distance = 12.0
 script = ExtResource("4_ywkx4")
 first_thoughts = Array[String](["Нам надо рыбу", "Надо бы рыбу", "Сходим быстренько", "Быстро дойдем и уйдем", "Иди быстрее!", "Пошли!", "А там точно есть рыба?", "Сегодня же понедельник?", "Думай о рыбе", "Я точно ничего не забыл?", "Что они смотрят?", "Почему на меня все смотрят?", "Я сейчас что-то не так скажу", "Соберись, не ошибись"])
 thoughts = Array[String](["Пошли!", "Они смотрят...", "Иди быстрее!", "Боже что я сделал", "Это позор!", "Надо идти", "...", "ЗАЧЕМ?!", "Они смеются надо мной", "ИДИОТ!", "Надо уходить", "Почему я такой глупый", "Надо же было так ошибится", "Что они обо мне теперь думают...", "ДЕБИЛ!!!"])
-
-[node name="LeftMouseButton" type="HBoxContainer" parent="VerticalMovement/VultureThoughts"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -1.0
-offset_right = 8.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="LeftActionLabel" type="Label" parent="VerticalMovement/VultureThoughts/LeftMouseButton"]
-layout_mode = 2
-theme = ExtResource("4_epmoi")
-theme_override_font_sizes/font_size = 6
-text = "Left!"
-
-[node name="MouseButtonPanel" type="PanelContainer" parent="VerticalMovement/VultureThoughts/LeftMouseButton"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-mouse_filter = 2
-theme = ExtResource("4_epmoi")
-theme_override_styles/panel = SubResource("StyleBoxTexture_cmlcw")
-
-[node name="RightMouseButton" type="HBoxContainer" parent="VerticalMovement/VultureThoughts"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -1.0
-offset_right = 152.0
-offset_bottom = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MouseButtonPanel" type="PanelContainer" parent="VerticalMovement/VultureThoughts/RightMouseButton"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-mouse_filter = 2
-theme = ExtResource("4_epmoi")
-theme_override_styles/panel = SubResource("StyleBoxTexture_vm561")
-
-[node name="RightActionLabel" type="Label" parent="VerticalMovement/VultureThoughts/RightMouseButton"]
-layout_mode = 2
-theme = ExtResource("4_epmoi")
-theme_override_font_sizes/font_size = 6
-text = "Right!"
+fade_in_duration = 0.0
 
 [node name="GamemodeUpdater" type="Node" parent="."]
 script = ExtResource("9_hrys8")

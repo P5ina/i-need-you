@@ -255,7 +255,7 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(0, -26)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

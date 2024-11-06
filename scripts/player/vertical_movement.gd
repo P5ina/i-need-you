@@ -58,7 +58,7 @@ func _make_step() -> void:
 	if _tween:
 		_tween.kill()
 	_can_take_next_step = false
-	vulture_thoughts.hide_hint()
+	vulture_thoughts.send_hint()
 	var animation_direction: PlayerVultureAnimation.AnimationDirection = PlayerVultureAnimation.AnimationDirection.UP if direction == Vector2.UP else PlayerVultureAnimation.AnimationDirection.DOWN
 	animation.play_step_animation(animation_direction, _next_step == Step.RIGHT_STEP)
 	_tween = create_tween()

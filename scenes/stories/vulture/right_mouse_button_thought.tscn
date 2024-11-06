@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv2xylmlgg1h8"]
+
+[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="1_chvld"]
+[ext_resource type="Texture2D" uid="uid://b738vknao4buw" path="res://textures/ui/right_mouse_button_icon.tres" id="2_41jg2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vm561"]
+texture = ExtResource("2_41jg2")
+
+[node name="RightMouseButton" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -1.0
+offset_right = 152.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MouseButtonPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_chvld")
+theme_override_styles/panel = SubResource("StyleBoxTexture_vm561")
+
+[node name="RightActionLabel" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_chvld")
+theme_override_font_sizes/font_size = 6
+text = "Right!"

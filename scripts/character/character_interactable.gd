@@ -11,13 +11,20 @@ extends Interactable
 
 func _ready() -> void:
 	super()
+	if StoryState.get_character_state(character_name) == StoryState.CharacterState.BEGINING:
+		interact(Gamemode.current_player)
 	if StoryState.get_character_state(character_name) == StoryState.CharacterState.CONVINCE:
 		after_story_dialogue()
 	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
 		queue_free()
+	if StoryState.get_character_state(character_name) == StoryState.CharacterState.STORY:
+		SceneLoader.transit_to_scene(story_scene)
 
 
 func interact(player: CharacterBody2D) -> void:
+	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
+		return
+
 	StoryState.set_character_state(character_name, StoryState.CharacterState.BEGINING)
 	lock_player(player)
 	Dialogic.start("vulture_begining")
@@ -48,6 +55,7 @@ func unlock_player(player: Node2D) -> void:
 
 
 func after_story_dialogue() -> void:
+	await get_tree().process_frame
 	lock_player(Gamemode.current_player)
 	Dialogic.start("vulture_convince")
 	await Dialogic.timeline_ended

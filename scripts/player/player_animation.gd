@@ -10,8 +10,8 @@ enum AnimationDirection {
 	LEFT,
 }
 
-var last_direction: AnimationDirection
-var last_is_moving: bool
+var last_direction: AnimationDirection = AnimationDirection.DOWN
+var last_is_moving: bool = false
 
 
 func _ready() -> void:
