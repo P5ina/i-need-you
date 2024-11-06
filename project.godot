@@ -32,10 +32,12 @@ gdscript/warnings/untyped_declaration=2
 directories/dch_directory={
 "he": "res://dialogues/characters/he.dch",
 "she": "res://dialogues/characters/she.dch",
-"vulture": "res://dialogues/vulture.dch"
+"vulture": "res://dialogues/vulture.dch",
+"vulture_seller": "res://dialogues/characters/vulture_seller.dch"
 }
 directories/dtl_directory={
-"vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl"
+"vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl",
+"vulture_story": "res://dialogues/timelines/vulture/vulture_story.dtl"
 }
 text/letter_speed=0.025
 text/initial_text_reveal_skippable=true
