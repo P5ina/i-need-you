@@ -4,8 +4,6 @@ extends Area2D
 const META_NAME = &"InteractionAreaComponent"
 
 signal can_interact_changed(value: bool)
-signal interaction_started
-signal interaction_ended
 
 @export var ui_animation_duration: float
 
@@ -18,7 +16,11 @@ var can_interact: bool:
 		can_interact = value
 		can_interact_changed.emit(value)
 
-var _current_interaction: Interactable
+var current_interaction: Interactable:
+	set(value):
+		current_interaction = value
+		_update_can_interact()
+
 var _avaliable_interaction_amount: int
 var _tween: Tween
 
@@ -46,32 +48,19 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 
-	if _current_interaction:
+	if current_interaction:
 		return
 
 	for body in get_overlapping_bodies():
 		if body.has_meta(Interactable.META_NAME):
 			var interactable: Interactable = body.get_meta(Interactable.META_NAME)
-			
-			_current_interaction = interactable
-			_current_interaction.interaction_ended.connect(stop_interacting)
-			_current_interaction.interact(owner)
-			interaction_started.emit()
-			_update_can_interact()
+			interactable.interact(owner)
 			return
-
-
-func stop_interacting() -> void:
-	_current_interaction.interaction_ended.disconnect(stop_interacting)
-	_current_interaction = null
-	interaction_ended.emit()
-
-	_update_can_interact()
 
 
 func _update_can_interact() -> void:
 	var new_can_interact: bool = _avaliable_interaction_amount > 0
-	if _current_interaction:
+	if current_interaction:
 		new_can_interact = false
 
 	can_interact = new_can_interact
