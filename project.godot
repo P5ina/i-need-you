@@ -37,6 +37,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl",
+"vulture_convince": "res://dialogues/timelines/vulture/vulture_convince.dtl",
 "vulture_story": "res://dialogues/timelines/vulture/vulture_story.dtl"
 }
 text/letter_speed=0.025

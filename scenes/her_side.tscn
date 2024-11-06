@@ -225,14 +225,14 @@ position = Vector2(16, 0)
 tile_map_data = PackedByteArray("AAABAP7/BgAAAAAAAAACAAEABgAAAAAAAAAEAAAABgAAAAAAAAD6/wMABgAAAAAAAAD7/wUABgAAAAAAAAADAAQABgAAAAAAAAACAAMABgAAAAAAAAD7//3/BgAAAAAAAAD9//z/BgAAAAAAAAABAPv/BgAAAAAAAAADAPv/BgAAAAAAAAD8//r/BgAAAAAAAAD8//7/BgAAAAAAAAADAP3/BgAAAAAAAAAEAPv/BgAAAAAAAAAFAP3/BgAAAAAAAAD3/wEABgAAAAAAAAD5/wMABgAAAAAAAAD5/wQABgAAAAAAAAA=")
 tile_set = ExtResource("7_4hqte")
 
-[node name="Vulture" parent="CutsceneDirector/SortingNode" instance=ExtResource("8_kqdj8")]
-position = Vector2(0, -140)
-
 [node name="Campfire" parent="CutsceneDirector/SortingNode" instance=ExtResource("8_aam31")]
 z_index = 1
 
 [node name="HePlayer" parent="CutsceneDirector/SortingNode" instance=ExtResource("6_18sb7")]
 position = Vector2(0, -26)
+
+[node name="Vulture" parent="CutsceneDirector/SortingNode" instance=ExtResource("8_kqdj8")]
+position = Vector2(0, -140)
 
 [node name="PlayerCamera" type="Node2D" parent="CutsceneDirector" node_paths=PackedStringArray("follow_target")]
 position = Vector2(0, -26)

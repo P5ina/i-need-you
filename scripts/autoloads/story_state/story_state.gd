@@ -10,11 +10,19 @@ enum CharacterState {
 	ENDING,
 }
 
-var intro_played: bool = false
-var vulture_state: CharacterState = CharacterState.NONE
+var intro_played: bool:
+	get:
+		return _save_dictionary["intro_played"]
+	set(value):
+		_save_dictionary["intro_played"] = value
+
+var _save_dictionary: Dictionary = {}
 
 func _ready() -> void:
 	load_state()
+
+func get_character_state(character_name: String) -> CharacterState:
+	return _save_dictionary[character_name + "_state"]
 
 
 func get_save_state() -> Dictionary:
@@ -22,7 +30,6 @@ func get_save_state() -> Dictionary:
 		"intro_played": intro_played,
 		"vulture_state": vulture_state,
 	}
-
 
 func set_save_state(state: Dictionary) -> void:
 	intro_played = state["intro_played"]

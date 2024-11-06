@@ -7,12 +7,16 @@ extends Interactable
 @onready var character_camera_2d: PhantomCamera2D = $CharacterCamera2D
 @onready var player_position: Node2D = $PlayerPosition
 
+func _ready() -> void:
+	super()
+	if StoryState.vulture_state == StoryState.CharacterState.CONVINCE:
+		after_story_dialogue()
 
-func interact(_player: CharacterBody2D) -> void:
+
+func interact(player: CharacterBody2D) -> void:
 	StoryState.vulture_state = StoryState.CharacterState.BEGINING
 	character_camera_2d.priority = 50
-	_player.get_meta(PlayerAnimation.META_NAME).update_animation(facing_direction, false)
-	_player.global_position = player_position.global_position
+	snap_player(player)
 	Dialogic.start("vulture_begining")
 	await Dialogic.timeline_ended
 
@@ -24,3 +28,12 @@ func interact(_player: CharacterBody2D) -> void:
 		StoryState.vulture_state = StoryState.CharacterState.NONE
 		character_camera_2d.priority = 0
 		interaction_ended.emit()
+
+
+func snap_player(player: Node2D) -> void:
+	player.get_meta(PlayerAnimation.META_NAME).update_animation(facing_direction, false)
+	player.global_position = player_position.global_position
+
+
+func after_story_dialogue() -> void:
+	snap_player(Gamemode.current_player)
