@@ -13,6 +13,8 @@ func _ready() -> void:
 	super()
 	if StoryState.get_character_state(character_name) == StoryState.CharacterState.CONVINCE:
 		after_story_dialogue()
+	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
+		queue_free()
 
 
 func interact(player: CharacterBody2D) -> void:
@@ -52,3 +54,10 @@ func after_story_dialogue() -> void:
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)
 	unlock_player(Gamemode.current_player)
+	fade_out_character()
+
+
+func fade_out_character() -> void:
+	var tween: Tween = create_tween()
+	tween.tween_property(owner, "modulate", Color(1, 1, 1, 0), 1.0)
+	tween.tween_callback(owner.queue_free)
