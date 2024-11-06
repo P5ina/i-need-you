@@ -12,7 +12,7 @@ enum CharacterState {
 
 var intro_played: bool:
 	get:
-		return _save_dictionary["intro_played"]
+		return _save_dictionary.get("intro_played", false)
 	set(value):
 		_save_dictionary["intro_played"] = value
 
@@ -21,8 +21,13 @@ var _save_dictionary: Dictionary = {}
 func _ready() -> void:
 	load_state()
 
+
 func get_character_state(character_name: String) -> CharacterState:
-	return _save_dictionary[character_name + "_state"]
+	return _save_dictionary.get(character_name + "_state", CharacterState.NONE)
+
+
+func set_character_state(character_name: String, state: CharacterState) -> void:
+	_save_dictionary[character_name + "_state"] = state
 
 
 # TODO: Add save for dialogue lines to prevent abusing the save system

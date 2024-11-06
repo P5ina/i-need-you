@@ -27,5 +27,5 @@ func start_dialogue() -> void:
 func story_ended() -> void:
 	var vertical_movement: VerticalMovement = Gamemode.current_player.get_meta(VerticalMovement.META_NAME)
 	vertical_movement.movement_locked = true
-	StoryState.vulture_state = StoryState.CharacterState.CONVINCE
+	StoryState.set_character_state("vulture", StoryState.CharacterState.CONVINCE)
 	SceneLoader.transit_to_scene("res://scenes/her_side.tscn")
