@@ -30,12 +30,14 @@ gdscript/warnings/untyped_declaration=2
 [dialogic]
 
 directories/dch_directory={
+"dog": "res://dialogues/characters/dog.dch",
 "he": "res://dialogues/characters/he.dch",
 "she": "res://dialogues/characters/she.dch",
 "vulture": "res://dialogues/vulture.dch",
 "vulture_seller": "res://dialogues/characters/vulture_seller.dch"
 }
 directories/dtl_directory={
+"test_all_characters": "res://dialogues/timelines/test/test_all_characters.dtl",
 "vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl",
 "vulture_convince": "res://dialogues/timelines/vulture/vulture_convince.dtl",
 "vulture_story": "res://dialogues/timelines/vulture/vulture_story.dtl"
