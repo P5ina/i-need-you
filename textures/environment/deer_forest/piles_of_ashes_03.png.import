@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb1r3sx5o2fnx"
-path="res://.godot/imported/Deer_Sitting.png-4c326428fbc28ad8fc477d5cd488266d.ctex"
+uid="uid://bpu8uwpoie35d"
+path="res://.godot/imported/piles_of_ashes_03.png-0c27b6f163abb6c4fc72906569fc17f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/characters/deer/Deer_Sitting.png"
-dest_files=["res://.godot/imported/Deer_Sitting.png-4c326428fbc28ad8fc477d5cd488266d.ctex"]
+source_file="res://textures/environment/deer_forest/piles_of_ashes_03.png"
+dest_files=["res://.godot/imported/piles_of_ashes_03.png-0c27b6f163abb6c4fc72906569fc17f9.ctex"]
 
 [params]
 

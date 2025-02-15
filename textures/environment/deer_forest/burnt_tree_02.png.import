@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpu8uwpoie35d"
-path="res://.godot/imported/Piles_of_Ashes_03.png-47038201289f7c84ec5594a0d4641704.ctex"
+uid="uid://d4dwlgywbgn0i"
+path="res://.godot/imported/burnt_tree_02.png-b2c5c5ada67985b302331fcfc2f50e98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/environment/Piles_of_Ashes_03.png"
-dest_files=["res://.godot/imported/Piles_of_Ashes_03.png-47038201289f7c84ec5594a0d4641704.ctex"]
+source_file="res://textures/environment/deer_forest/burnt_tree_02.png"
+dest_files=["res://.godot/imported/burnt_tree_02.png-b2c5c5ada67985b302331fcfc2f50e98.ctex"]
 
 [params]
 

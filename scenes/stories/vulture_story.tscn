@@ -63,6 +63,7 @@ process_physics_priority = 300
 script = ExtResource("2_jtn8n")
 
 [node name="VultureCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target", "follow_path")]
+top_level = true
 position = Vector2(0, -60)
 script = ExtResource("3_hhlus")
 follow_mode = 4

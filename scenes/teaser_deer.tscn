@@ -1,0 +1,611 @@
+[gd_scene load_steps=18 format=4 uid="uid://qdhn1o3bpgc6"]
+
+[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_41fi0"]
+[ext_resource type="TileSet" uid="uid://c4dyjm6ettwwv" path="res://textures/environment/deer_forest/burnt_forest_tileset.tres" id="1_b7npo"]
+[ext_resource type="AudioStream" uid="uid://dgc0uqity0e0x" path="res://sounds/music/teaser_deer.mp3" id="1_pd4yg"]
+[ext_resource type="Texture2D" uid="uid://cb1r3sx5o2fnx" path="res://textures/characters/deer/deer_laying.png" id="2_hxw2p"]
+[ext_resource type="Texture2D" uid="uid://bkfrnl4l8j1er" path="res://textures/environment/deer_forest/piles_of_ashes_01.png" id="3_exi34"]
+[ext_resource type="Texture2D" uid="uid://dddeanlqi3ix6" path="res://textures/light.png" id="4_7xqg4"]
+[ext_resource type="Texture2D" uid="uid://dmdrm3a2xw63r" path="res://textures/environment/deer_forest/piles_of_ashes_02.png" id="4_i4ltc"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ic7pw"]
+[ext_resource type="Texture2D" uid="uid://bpu8uwpoie35d" path="res://textures/environment/deer_forest/piles_of_ashes_03.png" id="5_xotee"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_q5pe7"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_4q0jw"]
+[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="12_81cir"]
+
+[sub_resource type="Animation" id="Animation_0k0r5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PhantomCamera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PhantomCamera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10.05, 3.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CanvasModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SortingNode/BurntGrassLayer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SortingNode/BurntTreesLayer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../SortingNode/GrassLayer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SortingNode/TreesLayer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SortingNode/BurningTreesLayer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SortingNode/BurningTreesFireLayer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../SortingNode/AshLayer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CanvasLayer/Start:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../CanvasLayer/Start2:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h1haw"]
+resource_name = "cutscene"
+length = 80.0
+step = 0.05
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MusicPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_pd4yg")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PhantomCamera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 45.2),
+"transitions": PackedFloat32Array(8, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(13, 13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PhantomCamera2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 45.2),
+"transitions": PackedFloat32Array(8, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10.09, 4.32)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CanvasModulate:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10.0333, 15.6333, 22.2, 24.85, 24.9, 33.7, 33.75, 45.6, 45.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1e-05, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.830095, 0.519283, 0.358389, 1), Color(0.830095, 0.519283, 0.358389, 1), Color(0.0595589, 0, 0.575759, 1), Color(0.0595589, 0, 0.575759, 1), Color(0.574373, 0.705886, 0.833191, 1), Color(0.574373, 0.705886, 0.833191, 1), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SortingNode/BurntGrassLayer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../SortingNode/BurntTreesLayer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SortingNode/GrassLayer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../SortingNode/TreesLayer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 24.8, 24.9, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../SortingNode/BurningTreesLayer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 24.8, 24.9, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../SortingNode/BurningTreesFireLayer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 24.8, 24.9, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../SortingNode/AshLayer:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 33.7, 33.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../CanvasLayer/Start:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4.75, 5.75, 11.75, 12.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CanvasLayer/Start2:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(18.8, 19.75, 24.25, 24.85, 24.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.290196), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mkaa"]
+_data = {
+"RESET": SubResource("Animation_0k0r5"),
+"cutscene": SubResource("Animation_h1haw")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wbqrk"]
+light_mode = 1
+
+[sub_resource type="Resource" id="Resource_c0qov"]
+script = ExtResource("7_4q0jw")
+duration = 0.0
+transition = 0
+ease = 2
+
+[node name="TeaserDeer" type="Node2D"]
+
+[node name="TeaserCutscenePlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera2D")
+libraries = {
+"": SubResource("AnimationLibrary_4mkaa")
+}
+autoplay = "cutscene"
+
+[node name="SortingNode" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="BurntGrassLayer" type="TileMapLayer" parent="SortingNode"]
+tile_map_data = PackedByteArray("AAALAAgAAAADAAMAAAALAAcAAAADAAIAAAALAAYAAAADAAIAAAALAAUAAAADAAIAAAALAAQAAAADAAIAAAALAAMAAAADAAIAAAALAAIAAAADAAIAAAALAAEAAAADAAIAAAALAAAAAAADAAIAAAALAP//AAAAAAAAAAAKAAgAAAABAAIAAAAKAAcAAAACAAEAAAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAACAAEAAAAKAAEAAAACAAEAAAAKAAAAAAACAAEAAAAKAP//AAADAAAAAAAJAAgAAAABAAIAAAAJAAcAAAACAAEAAAAJAAYAAAACAAEAAAAJAAUAAAACAAEAAAAJAAQAAAACAAEAAAAJAAMAAAACAAEAAAAJAAIAAAACAAEAAAAJAAEAAAACAAEAAAAJAAAAAAACAAEAAAAJAP//AAADAAAAAAAIAAgAAAABAAIAAAAIAAcAAAACAAEAAAAIAAYAAAACAAEAAAAIAAUAAAACAAEAAAAIAAQAAAACAAEAAAAIAAMAAAACAAEAAAAIAAIAAAACAAEAAAAIAAEAAAACAAEAAAAIAAAAAAACAAEAAAAIAP//AAADAAAAAAAHAAgAAAABAAIAAAAHAAcAAAACAAEAAAAHAAYAAAACAAEAAAAHAAUAAAACAAEAAAAHAAQAAAACAAEAAAAHAAMAAAACAAEAAAAHAAIAAAACAAEAAAAHAAEAAAACAAEAAAAHAAAAAAACAAEAAAAHAP//AAADAAAAAAAGAAgAAAABAAIAAAAGAAcAAAACAAEAAAAGAAYAAAACAAEAAAAGAAUAAAACAAEAAAAGAAQAAAACAAEAAAAGAAMAAAACAAEAAAAGAAIAAAACAAEAAAAGAAEAAAACAAEAAAAGAAAAAAACAAEAAAAGAP//AAACAAAAAAAFAAgAAAABAAIAAAAFAAcAAAACAAEAAAAFAAYAAAACAAEAAAAFAAUAAAACAAEAAAAFAAQAAAACAAEAAAAFAAMAAAACAAEAAAAFAAIAAAACAAEAAAAFAAEAAAACAAEAAAAFAAAAAAACAAEAAAAFAP//AAACAAEAAAAEAAgAAAABAAIAAAAEAAcAAAACAAEAAAAEAAYAAAACAAEAAAAEAAUAAAACAAEAAAAEAAQAAAACAAEAAAAEAAMAAAACAAEAAAAEAAIAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAACAAEAAAAEAP//AAACAAEAAAADAAgAAAABAAIAAAADAAcAAAACAAEAAAADAAYAAAACAAEAAAADAAUAAAACAAEAAAADAAQAAAACAAEAAAADAAMAAAACAAEAAAADAAIAAAACAAEAAAADAAEAAAACAAEAAAADAAAAAAACAAEAAAADAP//AAACAAEAAAACAAgAAAABAAIAAAACAAcAAAACAAEAAAACAAYAAAACAAEAAAACAAUAAAACAAEAAAACAAQAAAACAAEAAAACAAMAAAACAAEAAAACAAIAAAACAAEAAAACAAEAAAACAAEAAAACAAAAAAACAAEAAAACAP//AAACAAEAAAABAAgAAAABAAIAAAABAAcAAAACAAEAAAABAAYAAAACAAEAAAABAAUAAAACAAEAAAABAAQAAAACAAEAAAABAAMAAAACAAEAAAABAAIAAAACAAEAAAABAAEAAAACAAEAAAABAAAAAAACAAEAAAABAP//AAACAAEAAAAAAAgAAAABAAIAAAAAAAcAAAACAAEAAAAAAAYAAAACAAEAAAAAAAUAAAACAAEAAAAAAAQAAAACAAEAAAAAAAMAAAACAAEAAAAAAAIAAAACAAEAAAAAAAEAAAACAAEAAAAAAAAAAAACAAEAAAAAAP//AAACAAEAAAD//wgAAAABAAIAAAD//wcAAAACAAEAAAD//wYAAAACAAEAAAD//wUAAAACAAEAAAD//wQAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAACAAEAAAD//wEAAAACAAEAAAD//wAAAAACAAEAAAD/////AAACAAEAAAD+/wgAAAAAAAIAAAD+/wcAAAABAAAAAAD+/wYAAAABAAAAAAD+/wUAAAACAAIAAAD+/wQAAAACAAEAAAD+/wMAAAACAAEAAAD+/wIAAAACAAEAAAD+/wEAAAACAAEAAAD+/wAAAAACAAEAAAD+////AAACAAEAAAAGAP7/AAADAAIAAAAGAP3/AAADAAIAAAAGAPz/AAAAAAAAAAAFAP7/AAACAAEAAAAFAP3/AAACAAEAAAAFAPz/AAADAAAAAAAEAP7/AAACAAEAAAAEAP3/AAACAAEAAAAEAPz/AAADAAAAAAADAP7/AAACAAEAAAADAP3/AAACAAEAAAADAPz/AAADAAAAAAACAP7/AAACAAEAAAACAP3/AAACAAEAAAACAPz/AAADAAAAAAABAP7/AAACAAEAAAABAP3/AAACAAEAAAABAPz/AAADAAAAAAAAAP7/AAACAAEAAAAAAP3/AAACAAEAAAAAAPz/AAADAAAAAAD///7/AAACAAEAAAD///3/AAACAAEAAAD///z/AAADAAAAAAD+//7/AAACAAEAAAD+//3/AAACAAEAAAD+//z/AAADAAAAAAD9/wUAAAABAAIAAAD9/wQAAAACAAEAAAD9/wMAAAACAAEAAAD9/wIAAAACAAEAAAD9/wEAAAACAAEAAAD9/wAAAAACAAEAAAD9////AAACAAEAAAD9//7/AAACAAEAAAD9//3/AAACAAEAAAD9//z/AAADAAAAAAD8/wUAAAABAAIAAAD8/wQAAAACAAEAAAD8/wMAAAACAAEAAAD8/wIAAAACAAEAAAD8/wEAAAACAAEAAAD8/wAAAAACAAEAAAD8////AAACAAEAAAD8//7/AAACAAEAAAD8//3/AAACAAEAAAD8//z/AAADAAAAAAD7/wUAAAABAAIAAAD7/wQAAAACAAEAAAD7/wMAAAACAAEAAAD7/wIAAAACAAEAAAD7/wEAAAACAAEAAAD7/wAAAAACAAEAAAD7////AAACAAEAAAD7//7/AAACAAEAAAD7//3/AAACAAEAAAD7//z/AAADAAAAAAD6/wUAAAABAAIAAAD6/wQAAAACAAEAAAD6/wMAAAACAAEAAAD6/wIAAAACAAEAAAD6/wEAAAACAAEAAAD6/wAAAAACAAEAAAD6////AAACAAEAAAD6//7/AAACAAEAAAD6//3/AAACAAEAAAD6//z/AAADAAAAAAD5/wUAAAABAAIAAAD5/wQAAAABAAEAAAD5/wMAAAABAAAAAAD5/wIAAAABAAAAAAD5/wEAAAABAAAAAAD5/wAAAAABAAAAAAD5////AAABAAAAAAD5//7/AAABAAAAAAD5//3/AAABAAAAAAD5//z/AAABAAMAAAA=")
+tile_set = ExtResource("1_b7npo")
+
+[node name="AshLayer" type="Node2D" parent="SortingNode"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Pile01" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(-60, -37)
+texture = ExtResource("3_exi34")
+
+[node name="Pile12" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(112, -67)
+texture = ExtResource("3_exi34")
+
+[node name="Pile13" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(112, -67)
+texture = ExtResource("3_exi34")
+
+[node name="Pile05" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(-40, 51)
+texture = ExtResource("3_exi34")
+
+[node name="Pile06" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(-91, 26)
+texture = ExtResource("3_exi34")
+
+[node name="Pile07" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(84, 54)
+texture = ExtResource("3_exi34")
+
+[node name="Pile02" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(50, 17)
+texture = ExtResource("4_i4ltc")
+
+[node name="Pile08" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(31, -25)
+texture = ExtResource("4_i4ltc")
+
+[node name="Pile04" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(-45, -3)
+texture = ExtResource("4_i4ltc")
+
+[node name="Pile03" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(-14, -2)
+texture = ExtResource("5_xotee")
+
+[node name="Pile09" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(5, 16)
+texture = ExtResource("5_xotee")
+
+[node name="Pile10" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(70, -41)
+texture = ExtResource("5_xotee")
+
+[node name="Pile11" type="Sprite2D" parent="SortingNode/AshLayer"]
+y_sort_enabled = true
+position = Vector2(-54, 18)
+texture = ExtResource("5_xotee")
+
+[node name="BurntTreesLayer" type="TileMapLayer" parent="SortingNode"]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+//7/AQAAAAAAAAADAP7/AQAAAAAAAAACAAAAAQAAAAAAAAD8/wEAAQAAAAAAAAD7////AQAAAAAAAAD+/wIAAQAAAAAAAAAFAAMAAQAAAAAAAAABAP3/AQAAAAAAAAABAAMAAQAAAAAAAAD9////AQAAAAAAAAD7/wMAAQAAAAAAAAAAAP//AQAAAAAAAAADAAMAAQAAAAAAAAAFAP//AQAAAAAAAAD8//3/AQAAAAAAAAD6/wEAAQAAAAAAAAA=")
+tile_set = ExtResource("1_b7npo")
+
+[node name="Sprite2D" type="Sprite2D" parent="SortingNode"]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_hxw2p")
+
+[node name="GrassLayer" type="TileMapLayer" parent="SortingNode"]
+tile_map_data = PackedByteArray("AAAGAAQAAgADAAIAAAAGAAMAAgADAAIAAAAGAAIAAgADAAIAAAAGAAEAAgADAAIAAAAGAAAAAgADAAIAAAAGAP//AgADAAIAAAAGAP7/AgADAAIAAAAGAP3/AgADAAIAAAAGAPz/AgAAAAAAAAAFAAQAAgACAAEAAAAFAAMAAgACAAEAAAAFAAIAAgACAAEAAAAFAAEAAgACAAEAAAAFAAAAAgACAAEAAAAFAP//AgACAAEAAAAFAP7/AgACAAEAAAAFAP3/AgACAAEAAAAFAPz/AgADAAAAAAAEAAQAAgACAAEAAAAEAAMAAgACAAEAAAAEAAIAAgACAAEAAAAEAAEAAgACAAEAAAAEAAAAAgACAAEAAAAEAP//AgACAAEAAAAEAP7/AgACAAEAAAAEAP3/AgACAAEAAAAEAPz/AgADAAAAAAADAAQAAgACAAEAAAADAAMAAgACAAEAAAADAAIAAgACAAEAAAADAAEAAgACAAEAAAADAAAAAgACAAEAAAADAP//AgACAAEAAAADAP7/AgACAAEAAAADAP3/AgACAAEAAAADAPz/AgADAAAAAAACAAQAAgACAAEAAAACAAMAAgACAAEAAAACAAIAAgACAAEAAAACAAEAAgACAAEAAAACAAAAAgACAAEAAAACAP//AgACAAEAAAACAP7/AgACAAEAAAACAP3/AgACAAEAAAACAPz/AgADAAAAAAABAAQAAgACAAEAAAABAAMAAgACAAEAAAABAAIAAgACAAEAAAABAAEAAgACAAEAAAABAAAAAgACAAEAAAABAP//AgACAAEAAAABAP7/AgACAAEAAAABAP3/AgACAAEAAAABAPz/AgADAAAAAAAAAAQAAgACAAEAAAAAAAMAAgACAAEAAAAAAAIAAgACAAEAAAAAAAEAAgACAAEAAAAAAAAAAgACAAEAAAAAAP//AgACAAEAAAAAAP7/AgACAAEAAAAAAP3/AgACAAEAAAAAAPz/AgADAAAAAAD//wQAAgACAAEAAAD//wMAAgACAAEAAAD//wIAAgACAAEAAAD//wEAAgACAAEAAAD//wAAAgACAAEAAAD/////AgACAAEAAAD///7/AgACAAEAAAD///3/AgACAAEAAAD///z/AgADAAAAAAD+/wQAAgACAAEAAAD+/wMAAgACAAEAAAD+/wIAAgACAAEAAAD+/wEAAgACAAEAAAD+/wAAAgACAAEAAAD+////AgACAAEAAAD+//7/AgACAAEAAAD+//3/AgACAAEAAAD+//z/AgADAAAAAAD9/wQAAgACAAEAAAD9/wMAAgACAAEAAAD9/wIAAgACAAEAAAD9/wEAAgACAAEAAAD9/wAAAgACAAEAAAD9////AgACAAEAAAD9//7/AgACAAEAAAD9//3/AgACAAEAAAD9//z/AgADAAAAAAD8/wQAAgACAAEAAAD8/wMAAgACAAEAAAD8/wIAAgACAAEAAAD8/wEAAgACAAEAAAD8/wAAAgACAAEAAAD8////AgACAAEAAAD8//7/AgACAAEAAAD8//3/AgACAAEAAAD8//z/AgADAAAAAAD7/wQAAgACAAEAAAD7/wMAAgACAAEAAAD7/wIAAgACAAEAAAD7/wEAAgACAAEAAAD7/wAAAgACAAEAAAD7////AgACAAEAAAD7//7/AgACAAEAAAD7//3/AgACAAEAAAD7//z/AgADAAAAAAD6/wQAAgACAAEAAAD6/wMAAgACAAEAAAD6/wIAAgACAAEAAAD6/wEAAgACAAEAAAD6/wAAAgACAAEAAAD6////AgACAAEAAAD6//7/AgACAAEAAAD6//3/AgACAAEAAAD6//z/AgADAAAAAAD5/wQAAgABAAAAAAD5/wMAAgABAAAAAAD5/wIAAgABAAAAAAD5/wEAAgABAAAAAAD5/wAAAgABAAAAAAD5////AgABAAAAAAD5//7/AgABAAAAAAD5//3/AgABAAAAAAD5//z/AgABAAMAAAAGAAUAAgADAAMAAAAFAAUAAgABAAIAAAAEAAUAAgABAAIAAAADAAUAAgABAAIAAAACAAUAAgABAAIAAAABAAUAAgABAAIAAAAAAAUAAgABAAIAAAD//wUAAgABAAIAAAD+/wUAAgABAAIAAAD9/wUAAgABAAIAAAD8/wUAAgABAAIAAAD7/wUAAgABAAIAAAD6/wUAAgABAAIAAAD5/wUAAgAAAAIAAAA=")
+tile_set = ExtResource("1_41fi0")
+
+[node name="BurningTreesLayer" type="TileMapLayer" parent="SortingNode"]
+tile_map_data = PackedByteArray("AAD+//7/BwAAAAAAAAADAP7/BwAAAAAAAAACAAAABwAAAAAAAAD8/wEABwAAAAAAAAD7////BwAAAAAAAAD+/wIABwAAAAAAAAAFAAMABwAAAAAAAAABAP3/BwAAAAAAAAABAAMABwAAAAAAAAD9////BwAAAAAAAAD7/wMABwAAAAAAAAAAAP//BwAAAAAAAAADAAMABwAAAAAAAAAFAP//BwAAAAAAAAD8//3/BwAAAAAAAAD6/wEABwAAAAAAAAA=")
+tile_set = ExtResource("1_b7npo")
+
+[node name="BurningTreesFireLayer" type="TileMapLayer" parent="SortingNode"]
+material = SubResource("CanvasItemMaterial_wbqrk")
+tile_map_data = PackedByteArray("AAD+//7/CAAAAAAAAAADAP7/CAAAAAAAAAACAAAACAAAAAAAAAD8/wEACAAAAAAAAAD7////CAAAAAAAAAD+/wIACAAAAAAAAAAFAAMACAAAAAAAAAABAP3/CAAAAAAAAAABAAMACAAAAAAAAAD9////CAAAAAAAAAD7/wMACAAAAAAAAAAAAP//CAAAAAAAAAADAAMACAAAAAAAAAAFAP//CAAAAAAAAAD8//3/CAAAAAAAAAD6/wEACAAAAAAAAAA=")
+tile_set = ExtResource("1_b7npo")
+
+[node name="PointLight2D" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(81, -30)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D2" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(113, -91)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D3" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(49, -122)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D4" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(17, -59)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D5" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-48, -88)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D6" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-112, -122)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D7" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-143, -58)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D8" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-81, -57)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D9" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(52, 70)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D10" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(114, 70)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D11" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(175, 71)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D12" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(178, -61)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D13" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-46, 39)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D14" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-110, 5)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D15" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-176, 6)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="PointLight2D16" type="PointLight2D" parent="SortingNode/BurningTreesFireLayer"]
+position = Vector2(-145, 68)
+color = Color(0.773663, 0.431697, 0.193764, 1)
+texture = ExtResource("4_7xqg4")
+texture_scale = 0.2
+
+[node name="TreesLayer" type="TileMapLayer" parent="SortingNode"]
+tile_map_data = PackedByteArray("AAD+//7/BgAAAAAAAAADAP7/BgAAAAAAAAACAAAABgAAAAAAAAD8/wEABgAAAAAAAAD7////BgAAAAAAAAD+/wIABgAAAAAAAAAFAAMABgAAAAAAAAABAP3/BgAAAAAAAAABAAMABgAAAAAAAAD9////BgAAAAAAAAD7/wMABgAAAAAAAAAAAP//BgAAAAAAAAADAAMABgAAAAAAAAAFAP//BgAAAAAAAAD8//3/BgAAAAAAAAD6/wEABgAAAAAAAAA=")
+tile_set = ExtResource("1_41fi0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-10.09, 4.32)
+zoom = Vector2(13, 13)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_ic7pw")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+position = Vector2(-10.05, 3.9)
+script = ExtResource("6_q5pe7")
+zoom = Vector2(12, 12)
+tween_resource = SubResource("Resource_c0qov")
+draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Start" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_81cir")
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Иногда прошлый опыт может мешать нам познавать что-то новое."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Start2" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_81cir")
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Даже если впереди не то, что кажется на самом деле."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

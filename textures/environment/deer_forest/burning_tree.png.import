@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4dwlgywbgn0i"
-path="res://.godot/imported/BurntTree_02.png-9ecd60e2ba82fe91990306ca0c4a8e6b.ctex"
+uid="uid://bojl8ucvbfg1e"
+path="res://.godot/imported/burning_tree.png-80e07f9895d8de62dc4e9b7f6ba3b2ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/environment/BurntTree_02.png"
-dest_files=["res://.godot/imported/BurntTree_02.png-9ecd60e2ba82fe91990306ca0c4a8e6b.ctex"]
+source_file="res://textures/environment/deer_forest/burning_tree.png"
+dest_files=["res://.godot/imported/burning_tree.png-80e07f9895d8de62dc4e9b7f6ba3b2ec.ctex"]
 
 [params]
 

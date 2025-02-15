@@ -235,6 +235,7 @@ position = Vector2(0, -26)
 position = Vector2(0, -140)
 
 [node name="PlayerCamera" type="Node2D" parent="CutsceneDirector" node_paths=PackedStringArray("follow_target")]
+top_level = true
 position = Vector2(0, -26)
 script = ExtResource("2_u4uff")
 priority = 5
@@ -255,6 +256,7 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(0, -26)
 process_callback = 0
 
