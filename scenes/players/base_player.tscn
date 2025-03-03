@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8sf01aw1jc0w"]
 
-[ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_rwqj8"]
+[ext_resource type="Script" uid="uid://cam7m5ru2sxo" path="res://scripts/player/player_animation.gd" id="2_rwqj8"]
 [ext_resource type="PackedScene" uid="uid://d0btb4nk81wf2" path="res://scenes/players/components/interaction_area.tscn" id="3_rkmi2"]
-[ext_resource type="Script" path="res://scripts/player/player_movement.gd" id="4_4rkoq"]
-[ext_resource type="Script" path="res://scripts/player/player_gamemode_updater.gd" id="4_jnila"]
+[ext_resource type="Script" uid="uid://bpkptynuug775" path="res://scripts/player/player_movement.gd" id="4_4rkoq"]
+[ext_resource type="Script" uid="uid://fkg8kmv8aomf" path="res://scripts/player/player_gamemode_updater.gd" id="4_jnila"]
 [ext_resource type="AudioStream" uid="uid://duqfqcm4a2wde" path="res://sounds/characters/general/footstep_randomizer.tres" id="5_ydj0g"]
-[ext_resource type="Script" path="res://scripts/player/footstep_sounds.gd" id="6_rl6h0"]
+[ext_resource type="Script" uid="uid://bio3l7u484yci" path="res://scripts/player/footstep_sounds.gd" id="6_rl6h0"]
 
 [sub_resource type="Gradient" id="Gradient_fpgu6"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)

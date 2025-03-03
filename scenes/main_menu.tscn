@@ -3,8 +3,8 @@
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_lgkms"]
 [ext_resource type="PackedScene" uid="uid://ctrei0oev4836" path="res://scenes/environment/main_menu_campfire.tscn" id="2_lkaum"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="3_0lw5e"]
-[ext_resource type="Script" path="res://scripts/ui/menu_options.gd" id="4_j3q0t"]
-[ext_resource type="Script" path="res://scripts/ui/menu_buttons/play_button.gd" id="5_5dbft"]
+[ext_resource type="Script" uid="uid://t2wvsxngguq2" path="res://scripts/ui/menu_options.gd" id="4_j3q0t"]
+[ext_resource type="Script" uid="uid://dx6vtdhm8je8n" path="res://scripts/ui/menu_buttons/play_button.gd" id="5_5dbft"]
 [ext_resource type="AudioStream" uid="uid://66051osbev0u" path="res://sounds/menu/whispers.wav" id="6_m6rj3"]
 [ext_resource type="Environment" uid="uid://4tk1xirkyd7v" path="res://resources/world_enviroment.tres" id="7_cghw7"]
 
@@ -85,8 +85,8 @@ tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0mtf1"]
 _data = {
-"RESET": SubResource("Animation_u8v45"),
-"intro": SubResource("Animation_1krpb")
+&"RESET": SubResource("Animation_u8v45"),
+&"intro": SubResource("Animation_1krpb")
 }
 
 [node name="MainMenu" type="Node2D"]
@@ -195,7 +195,7 @@ text = "Выйти"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0mtf1")
+&"": SubResource("AnimationLibrary_0mtf1")
 }
 autoplay = "intro"
 

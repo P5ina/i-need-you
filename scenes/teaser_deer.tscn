@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bkfrnl4l8j1er" path="res://textures/environment/deer_forest/piles_of_ashes_01.png" id="3_exi34"]
 [ext_resource type="Texture2D" uid="uid://dddeanlqi3ix6" path="res://textures/light.png" id="4_7xqg4"]
 [ext_resource type="Texture2D" uid="uid://dmdrm3a2xw63r" path="res://textures/environment/deer_forest/piles_of_ashes_02.png" id="4_i4ltc"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ic7pw"]
+[ext_resource type="Script" uid="uid://baup7udmcfxw6" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_ic7pw"]
 [ext_resource type="Texture2D" uid="uid://bpu8uwpoie35d" path="res://textures/environment/deer_forest/piles_of_ashes_03.png" id="5_xotee"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_q5pe7"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_4q0jw"]
+[ext_resource type="Script" uid="uid://3cvhxgf7l0bx" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_q5pe7"]
+[ext_resource type="Script" uid="uid://by0ot5fllgswt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_4q0jw"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="12_81cir"]
 
 [sub_resource type="Animation" id="Animation_0k0r5"]
@@ -326,8 +326,8 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4mkaa"]
 _data = {
-"RESET": SubResource("Animation_0k0r5"),
-"cutscene": SubResource("Animation_h1haw")
+&"RESET": SubResource("Animation_0k0r5"),
+&"cutscene": SubResource("Animation_h1haw")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wbqrk"]
@@ -344,7 +344,7 @@ ease = 2
 [node name="TeaserCutscenePlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Camera2D")
 libraries = {
-"": SubResource("AnimationLibrary_4mkaa")
+&"": SubResource("AnimationLibrary_4mkaa")
 }
 autoplay = "cutscene"
 

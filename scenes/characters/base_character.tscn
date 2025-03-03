@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bco3kjdrj10ue"]
 
 [ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="1_vh4ao"]
-[ext_resource type="Script" path="res://scripts/character/character_interactable.gd" id="2_pgt4u"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_owhwn"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_00htg"]
+[ext_resource type="Script" uid="uid://df6somcp8vecq" path="res://scripts/character/character_interactable.gd" id="2_pgt4u"]
+[ext_resource type="Script" uid="uid://3cvhxgf7l0bx" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_owhwn"]
+[ext_resource type="Script" uid="uid://by0ot5fllgswt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_00htg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44jjr"]
 size = Vector2(30, 10)
