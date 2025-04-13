@@ -22,6 +22,7 @@ SceneLoader="*res://scenes/autoloads/scene_loader.tscn"
 Gamemode="*res://scenes/autoloads/gamemode.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 StoryState="*res://scenes/autoloads/story_state.tscn"
+StoryLoader="*res://scenes/autoloads/story_loader.tscn"
 
 [debug]
 

@@ -2,8 +2,8 @@ extends Node
 
 const her_side: String = "res://scenes/her_side.tscn"
 
-const vulture_scene_path: String = "res://scenes/stories/vulture_story.tscn"
-const deer_scene_path: String = "res://scenes/stories/vulture_story.tscn"
+const vulture_scene_path: String = "res://scenes/stories/vulture/vulture_story.tscn"
+const deer_scene_path: String = "res://scenes/stories/deer/deer_story.tscn"
 
 func load_vulture_story() -> void:
 	StoryState.set_character_state("vulture", StoryState.CharacterState.STORY)

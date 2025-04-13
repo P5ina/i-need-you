@@ -29,7 +29,7 @@ func set_character_state(character_name: String, state: CharacterState) -> void:
 
 
 func save_state() -> void:
-	Dialogic.Save.save("", false, Dialogic.Save.ThumbnailMode.NONE)
+	Dialogic.Save.save()
 
 
 func load_state() -> void:

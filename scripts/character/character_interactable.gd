@@ -13,13 +13,14 @@ extends Interactable
 
 func _ready() -> void:
 	super()
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.BEGINING:
+	var state := StoryState.get_character_state(character_name)
+	if state == StoryState.CharacterState.BEGINING:
 		interact(Gamemode.current_player)
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.CONVINCE:
+	elif state == StoryState.CharacterState.CONVINCE:
 		after_story_dialogue()
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
+	elif state == StoryState.CharacterState.ENDING:
 		queue_free()
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.STORY:
+	elif state == StoryState.CharacterState.STORY:
 		SceneLoader.transit_to_scene(story_scene)
 
 
@@ -27,17 +28,14 @@ func interact(player: CharacterBody2D) -> void:
 	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
 		return
 
-	StoryState.set_character_state(character_name, StoryState.CharacterState.BEGINING)
 	lock_player(player)
 	Dialogic.start(begin_dialogue)
 	await Dialogic.timeline_ended
 
-	if Dialogic.VAR.get(&"load_story"):
-		Dialogic.VAR.set(&"load_story", false)
-		StoryState.set_character_state(character_name, StoryState.CharacterState.STORY)
-		SceneLoader.transit_to_scene(story_scene)
-	else:
-		StoryState.set_character_state(character_name, StoryState.CharacterState.NONE)
+	var state := StoryState.get_character_state(character_name)
+	print("Character end state: ", state)
+	print("Character raw state: ", StoryState.CharacterState.NONE)
+	if state == StoryState.CharacterState.NONE:
 		unlock_player(player)
 
 

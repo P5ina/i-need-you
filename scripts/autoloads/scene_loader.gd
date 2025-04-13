@@ -17,6 +17,7 @@ func _ready() -> void:
 func transit_to_scene(scene_path: String) -> void:
 	if tween and tween.is_running():
 		return
+	print("Going to scene: ", scene_path)
 	tween = create_tween()
 	fader.visible = true
 	tween.tween_property(fader, "modulate:a", 1.0, fade_duration)
