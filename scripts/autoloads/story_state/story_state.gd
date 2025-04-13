@@ -3,37 +3,35 @@ extends Node
 const SAVE_FILE = "user://story.save"
 
 enum CharacterState {
-	NONE,
-	BEGINING,
-	STORY,
-	CONVINCE,
-	ENDING,
+	NONE = 0,
+	BEGINING = 1,
+	STORY = 2,
+	CONVINCE = 3,
+	ENDING = 4,
 }
 
 var intro_played: bool:
 	get:
-		return _save_dictionary.get("intro_played", false)
+		return Dialogic.VAR.intro_played
 	set(value):
-		_save_dictionary["intro_played"] = value
-
-var _save_dictionary: Dictionary = {}
+		Dialogic.VAR.intro_played = value
 
 func _ready() -> void:
 	load_state()
 
 
 func get_character_state(character_name: String) -> CharacterState:
-	return _save_dictionary.get(character_name + "_state", CharacterState.NONE)
+	return Dialogic.VAR.get(character_name).get("state") as CharacterState
 
 
 func set_character_state(character_name: String, state: CharacterState) -> void:
-	_save_dictionary[character_name + "_state"] = state
+	Dialogic.VAR.get(character_name).set("state", state as int)
 
 
-# TODO: Add save for dialogue lines to prevent abusing the save system
 func save_state() -> void:
-	Dialogic.Save.save("", false, Dialogic.Save.ThumbnailMode.NONE, _save_dictionary)
+	Dialogic.Save.save("", false, Dialogic.Save.ThumbnailMode.NONE)
 
 
 func load_state() -> void:
-	_save_dictionary = Dialogic.Save.get_slot_info("")
+	if Dialogic.Save.has_slot(""):
+		Dialogic.Save.load()

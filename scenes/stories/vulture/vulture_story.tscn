@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://baup7udmcfxw6" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_jtn8n"]
 [ext_resource type="Script" uid="uid://3cvhxgf7l0bx" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_hhlus"]
 [ext_resource type="Script" uid="uid://by0ot5fllgswt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_11fiv"]
-[ext_resource type="PackedScene" uid="uid://2je1o05vtkn8" path="res://scenes/stories/vulture_looking.tscn" id="5_id3e1"]
+[ext_resource type="PackedScene" uid="uid://2je1o05vtkn8" path="res://scenes/stories/vulture/vulture_looking.tscn" id="5_id3e1"]
 [ext_resource type="PackedScene" uid="uid://bqoiqhehqmbpo" path="res://scenes/players/vulture_player.tscn" id="5_j5jhs"]
 [ext_resource type="Script" uid="uid://onpa2kpnobfa" path="res://scripts/story/vulture/vulture_darkness.gd" id="5_phnfr"]
 [ext_resource type="Script" uid="uid://dmk4lbmhefs6l" path="res://scripts/story/vulture/vultures_looking_spawn_area.gd" id="7_2vq0v"]

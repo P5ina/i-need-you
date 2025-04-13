@@ -4,11 +4,10 @@ extends AudioStreamPlayer2D
 
 var moved_distance: float
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var body: CharacterBody2D = owner
 	var velocity: float = body.get_position_delta().length()
 	moved_distance += velocity
 	if moved_distance > distance_for_sound:
 		moved_distance = 0
-		print(velocity)
 		play()

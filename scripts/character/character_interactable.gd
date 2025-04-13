@@ -4,6 +4,8 @@ extends Interactable
 @export_enum("vulture", "deer", "dog", "fish") var character_name: String
 @export var facing_direction: PlayerAnimation.AnimationDirection
 @export_file("*.tscn") var story_scene: String
+@export var begin_dialogue: String
+@export var convince_dialogue: String
 
 @onready var character_camera_2d: PhantomCamera2D = $CharacterCamera2D
 @onready var player_position: Node2D = $PlayerPosition
@@ -27,7 +29,7 @@ func interact(player: CharacterBody2D) -> void:
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.BEGINING)
 	lock_player(player)
-	Dialogic.start("vulture_begining")
+	Dialogic.start(begin_dialogue)
 	await Dialogic.timeline_ended
 
 	if Dialogic.VAR.get(&"load_story"):
@@ -57,7 +59,7 @@ func unlock_player(player: Node2D) -> void:
 func after_story_dialogue() -> void:
 	await get_tree().process_frame
 	lock_player(Gamemode.current_player)
-	Dialogic.start("vulture_convince")
+	Dialogic.start(convince_dialogue)
 	await Dialogic.timeline_ended
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)

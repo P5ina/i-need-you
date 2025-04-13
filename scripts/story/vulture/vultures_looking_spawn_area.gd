@@ -2,7 +2,7 @@ extends Polygon2D
 
 @export var spawn_distance: int = 40
 
-@onready var vulture_looking_scene: PackedScene = preload("res://scenes/stories/vulture_looking.tscn")
+@onready var vulture_looking_scene: PackedScene = preload("res://scenes/stories/vulture/vulture_looking.tscn")
 
 func _ready() -> void:
 	var points: PackedVector2Array = PoissonDiscSampling.generate_points_for_polygon(polygon, spawn_distance, 10)

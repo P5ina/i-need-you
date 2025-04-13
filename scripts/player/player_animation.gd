@@ -16,6 +16,7 @@ var last_is_moving: bool = false
 
 func _ready() -> void:
 	owner.set_meta(META_NAME, self)
+	play(direction_to_animation_name(AnimationDirection.DOWN, false))
 
 
 func _process(_delta: float) -> void:

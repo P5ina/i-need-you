@@ -30,13 +30,15 @@ gdscript/warnings/untyped_declaration=2
 [dialogic]
 
 directories/dch_directory={
+"deer": "res://dialogues/characters/deer.dch",
 "dog": "res://dialogues/characters/dog.dch",
 "he": "res://dialogues/characters/he.dch",
 "she": "res://dialogues/characters/she.dch",
-"vulture": "res://dialogues/vulture.dch",
+"vulture": "res://dialogues/characters/vulture.dch",
 "vulture_seller": "res://dialogues/characters/vulture_seller.dch"
 }
 directories/dtl_directory={
+"deer_begining": "res://dialogues/timelines/deer/deer_begining.dtl",
 "post_ending": "res://dialogues/timelines/endings/post_ending.dtl",
 "test_all_characters": "res://dialogues/timelines/test/test_all_characters.dtl",
 "vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl",
@@ -73,8 +75,16 @@ layout/default_style="res://dialogues/style/yni_style.tres"
 text/absolute_autopauses=false
 glossary/default_case_sensitive=true
 variables={
-"load_story": false,
-"vulture_good": 0.0
+"deer": {
+"good": 0.0,
+"state": 0
+},
+"intro_played": false,
+"player_side": 0,
+"vulture": {
+"good": 0.0,
+"state": 0
+}
 }
 extensions_folder="res://addons/dialogic_additions"
 animations/cross_fade_default_length=0.5

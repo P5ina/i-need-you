@@ -17,3 +17,14 @@ region_rect = Rect2(0, 64, 64, 64)
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_bg0o2")
+
+[node name="Interactable" parent="." index="2"]
+character_name = "deer"
+facing_direction = 2
+begin_dialogue = "deer_begining"
+
+[node name="CharacterCamera2D" parent="Interactable" index="0"]
+position = Vector2(0, -15)
+
+[node name="PlayerPosition" parent="Interactable" index="1"]
+position = Vector2(0, -36)

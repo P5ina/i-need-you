@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://drcr3mvorxqx7"]
+[gd_scene load_steps=17 format=4 uid="uid://drcr3mvorxqx7"]
 
 [ext_resource type="Script" uid="uid://3cvhxgf7l0bx" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_u4uff"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="2_vikpj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://baup7udmcfxw6" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
 [ext_resource type="PackedScene" uid="uid://b71g8dq5v2xht" path="res://scenes/players/he_player.tscn" id="6_18sb7"]
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="7_4hqte"]
+[ext_resource type="PackedScene" uid="uid://bmmp5kbqbevy5" path="res://scenes/characters/deer.tscn" id="7_e0tt2"]
 [ext_resource type="PackedScene" uid="uid://c0u15loetoco0" path="res://scenes/environment/campfire.tscn" id="8_aam31"]
 [ext_resource type="PackedScene" uid="uid://b6e234xe5gnhu" path="res://scenes/characters/vulture.tscn" id="8_kqdj8"]
 [ext_resource type="Environment" uid="uid://4tk1xirkyd7v" path="res://resources/world_enviroment.tres" id="9_no5ej"]
@@ -233,6 +234,9 @@ position = Vector2(0, -26)
 
 [node name="Vulture" parent="CutsceneDirector/SortingNode" instance=ExtResource("8_kqdj8")]
 position = Vector2(0, -140)
+
+[node name="Deer" parent="CutsceneDirector/SortingNode" instance=ExtResource("7_e0tt2")]
+position = Vector2(0, 140)
 
 [node name="PlayerCamera" type="Node2D" parent="CutsceneDirector" node_paths=PackedStringArray("follow_target")]
 top_level = true

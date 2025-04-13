@@ -250,9 +250,7 @@ height = 14.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_vnv0h")
-animation = &"walk_right"
-frame = 1
-frame_progress = 0.388127
+animation = &"idle_down"
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, -2)
