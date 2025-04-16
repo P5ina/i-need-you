@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=4 uid="uid://djcb3rmeil37s"]
+[gd_scene load_steps=14 format=4 uid="uid://djcb3rmeil37s"]
 
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_eb0f3"]
 [ext_resource type="Script" uid="uid://cn4gubpfhy16w" path="res://scripts/story/vulture/vulture_story.gd" id="1_fpcay"]
-[ext_resource type="Script" uid="uid://baup7udmcfxw6" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_jtn8n"]
-[ext_resource type="Script" uid="uid://3cvhxgf7l0bx" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_hhlus"]
-[ext_resource type="Script" uid="uid://by0ot5fllgswt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_11fiv"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_jtn8n"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_hhlus"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_11fiv"]
 [ext_resource type="PackedScene" uid="uid://2je1o05vtkn8" path="res://scenes/stories/vulture/vulture_looking.tscn" id="5_id3e1"]
 [ext_resource type="PackedScene" uid="uid://bqoiqhehqmbpo" path="res://scenes/players/vulture_player.tscn" id="5_j5jhs"]
 [ext_resource type="Script" uid="uid://onpa2kpnobfa" path="res://scripts/story/vulture/vulture_darkness.gd" id="5_phnfr"]
 [ext_resource type="Script" uid="uid://dmk4lbmhefs6l" path="res://scripts/story/vulture/vultures_looking_spawn_area.gd" id="7_2vq0v"]
+[ext_resource type="AudioStream" uid="uid://ksa23pjmbbl" path="res://sounds/stories/vulture/vulture_story_music.mp3" id="10_bwppy"]
+[ext_resource type="AudioStream" uid="uid://bnorwp2fo00u1" path="res://sounds/stories/vulture/wind.mp3" id="11_j4dbu"]
 
 [sub_resource type="Resource" id="Resource_ik7di"]
 script = ExtResource("4_11fiv")
@@ -53,9 +55,8 @@ spawn_distance = 48
 position = Vector2(0, -448)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-position = Vector2(0, -60)
-process_callback = 0
+zoom = Vector2(2, 2)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -87,3 +88,12 @@ curve = SubResource("Curve2D_i27w0")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 editor_only = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_bwppy")
+volume_db = -6.0
+autoplay = true
+
+[node name="WindSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_j4dbu")
+autoplay = true

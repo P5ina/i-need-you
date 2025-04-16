@@ -1,7 +1,6 @@
 extends Button
 
-@export_file("*.tscn") var her_side_scene: String
-
+const LOADING_SCENE = "res://scenes/loading.tscn"
 
 func _on_pressed() -> void:
-	SceneLoader.transit_to_scene(her_side_scene)
+	SceneLoader.transit_to_scene(LOADING_SCENE)

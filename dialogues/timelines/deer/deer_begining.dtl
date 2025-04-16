@@ -41,4 +41,4 @@ deer: А ты разве знаешь что со мной?
 	set {deer.good} += 0.5
 
 deer: Я просто хочу вернуть все как было...
-do StoryLoader.load_deer_story()
+set {vulture.state} = 2

@@ -1,7 +1,5 @@
 extends Node
 
-const SAVE_FILE = "user://story.save"
-
 enum CharacterState {
 	NONE = 0,
 	BEGINING = 1,
@@ -15,9 +13,6 @@ var intro_played: bool:
 		return Dialogic.VAR.intro_played
 	set(value):
 		Dialogic.VAR.intro_played = value
-
-func _ready() -> void:
-	load_state()
 
 
 func get_character_state(character_name: String) -> CharacterState:

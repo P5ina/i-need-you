@@ -1,5 +1,7 @@
 extends Node
 
+signal transition_finished
+
 @export var fade_duration: float
 @export var black_screen_delay: float
 
@@ -52,3 +54,4 @@ func _process(_delta: float) -> void:
 			tween.tween_property(fader, "modulate:a", 0.0, fade_duration)
 			tween.tween_callback(fader.set_visible.bind(false))
 			await tween.finished
+			transition_finished.emit()

@@ -80,7 +80,16 @@ variables={
 "good": 0.0,
 "state": 0
 },
+"dog": {
+"good": 0.0,
+"state": 0
+},
+"fish": {
+"good": 0.0,
+"state": 0
+},
 "intro_played": false,
+"last_loaded_scene": "",
 "player_side": 0,
 "vulture": {
 "good": 0.0,

@@ -19,7 +19,7 @@ func _ready() -> void:
 	elif state == StoryState.CharacterState.CONVINCE:
 		after_story_dialogue()
 	elif state == StoryState.CharacterState.ENDING:
-		queue_free()
+		owner.queue_free()
 	elif state == StoryState.CharacterState.STORY:
 		SceneLoader.transit_to_scene(story_scene)
 
@@ -29,7 +29,8 @@ func interact(player: CharacterBody2D) -> void:
 		return
 
 	lock_player(player)
-	Dialogic.start(begin_dialogue)
+	if Dialogic.current_timeline == null:
+		Dialogic.start(begin_dialogue)
 	await Dialogic.timeline_ended
 
 	var state := StoryState.get_character_state(character_name)
@@ -37,6 +38,8 @@ func interact(player: CharacterBody2D) -> void:
 	print("Character raw state: ", StoryState.CharacterState.NONE)
 	if state == StoryState.CharacterState.NONE:
 		unlock_player(player)
+	if state == StoryState.CharacterState.STORY:
+		StoryLoader.load_scene_and_save(story_scene)
 
 
 func lock_player(player: Node2D) -> void:
@@ -57,10 +60,12 @@ func unlock_player(player: Node2D) -> void:
 func after_story_dialogue() -> void:
 	await get_tree().process_frame
 	lock_player(Gamemode.current_player)
-	Dialogic.start(convince_dialogue)
+	if Dialogic.current_timeline == null:
+		Dialogic.start(convince_dialogue)
 	await Dialogic.timeline_ended
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)
+	StoryState.save_state()
 	unlock_player(Gamemode.current_player)
 	fade_out_character()
 

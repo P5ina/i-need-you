@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=4 uid="uid://drcr3mvorxqx7"]
 
-[ext_resource type="Script" uid="uid://3cvhxgf7l0bx" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_u4uff"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_u4uff"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="2_vikpj"]
 [ext_resource type="Script" uid="uid://ce7nwemi7n1iq" path="res://scripts/story/camera_director.gd" id="3_3qywj"]
-[ext_resource type="Script" uid="uid://by0ot5fllgswt" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_sihth"]
-[ext_resource type="Script" uid="uid://baup7udmcfxw6" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_sihth"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_h74hp"]
 [ext_resource type="PackedScene" uid="uid://b71g8dq5v2xht" path="res://scenes/players/he_player.tscn" id="6_18sb7"]
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="7_4hqte"]
 [ext_resource type="PackedScene" uid="uid://bmmp5kbqbevy5" path="res://scenes/characters/deer.tscn" id="7_e0tt2"]
@@ -180,6 +180,7 @@ offset_right = 103.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="Quote" type="Label" parent="CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer"]
@@ -260,9 +261,8 @@ tween_on_load = false
 draw_limits = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-position = Vector2(0, -26)
-process_callback = 0
+zoom = Vector2(2, 2)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
