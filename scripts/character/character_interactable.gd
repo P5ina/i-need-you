@@ -4,6 +4,8 @@ extends Interactable
 @export_enum("vulture", "deer", "dog", "fish") var character_name: String
 @export var facing_direction: PlayerAnimation.AnimationDirection
 @export_file("*.tscn") var story_scene: String
+@export var begin_dialogue: String
+@export var convince_dialogue: String
 
 @onready var character_camera_2d: PhantomCamera2D = $CharacterCamera2D
 @onready var player_position: Node2D = $PlayerPosition
@@ -11,13 +13,14 @@ extends Interactable
 
 func _ready() -> void:
 	super()
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.BEGINING:
+	var state := StoryState.get_character_state(character_name)
+	if state == StoryState.CharacterState.BEGINING:
 		interact(Gamemode.current_player)
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.CONVINCE:
+	elif state == StoryState.CharacterState.CONVINCE:
 		after_story_dialogue()
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
-		queue_free()
-	if StoryState.get_character_state(character_name) == StoryState.CharacterState.STORY:
+	elif state == StoryState.CharacterState.ENDING:
+		owner.queue_free()
+	elif state == StoryState.CharacterState.STORY:
 		SceneLoader.transit_to_scene(story_scene)
 
 
@@ -25,18 +28,18 @@ func interact(player: CharacterBody2D) -> void:
 	if StoryState.get_character_state(character_name) == StoryState.CharacterState.ENDING:
 		return
 
-	StoryState.set_character_state(character_name, StoryState.CharacterState.BEGINING)
 	lock_player(player)
-	Dialogic.start("vulture_begining")
+	if Dialogic.current_timeline == null:
+		Dialogic.start(begin_dialogue)
 	await Dialogic.timeline_ended
 
-	if Dialogic.VAR.get(&"load_story"):
-		Dialogic.VAR.set(&"load_story", false)
-		StoryState.set_character_state(character_name, StoryState.CharacterState.STORY)
-		SceneLoader.transit_to_scene(story_scene)
-	else:
-		StoryState.set_character_state(character_name, StoryState.CharacterState.NONE)
+	var state := StoryState.get_character_state(character_name)
+	print("Character end state: ", state)
+	print("Character raw state: ", StoryState.CharacterState.NONE)
+	if state == StoryState.CharacterState.NONE:
 		unlock_player(player)
+	if state == StoryState.CharacterState.STORY:
+		StoryLoader.load_scene_and_save(story_scene)
 
 
 func lock_player(player: Node2D) -> void:
@@ -57,10 +60,12 @@ func unlock_player(player: Node2D) -> void:
 func after_story_dialogue() -> void:
 	await get_tree().process_frame
 	lock_player(Gamemode.current_player)
-	Dialogic.start("vulture_convince")
+	if Dialogic.current_timeline == null:
+		Dialogic.start(convince_dialogue)
 	await Dialogic.timeline_ended
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)
+	StoryState.save_state()
 	unlock_player(Gamemode.current_player)
 	fade_out_character()
 

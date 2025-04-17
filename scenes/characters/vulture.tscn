@@ -20,7 +20,9 @@ shape = SubResource("RectangleShape2D_bg0o2")
 
 [node name="Interactable" parent="." index="2"]
 character_name = "vulture"
-story_scene = "res://scenes/stories/vulture_story.tscn"
+story_scene = "uid://djcb3rmeil37s"
+begin_dialogue = "vulture_begining"
+convince_dialogue = "vulture_convince"
 
 [node name="CharacterCamera2D" parent="Interactable" index="0"]
 position = Vector2(0, 32)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://f0wbyxk0bkco"]
+[gd_scene load_steps=12 format=4 uid="uid://f0wbyxk0bkco"]
 
 [ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_lgkms"]
+[ext_resource type="Script" uid="uid://dbghqp01w8dmu" path="res://scripts/ui/main_menu.gd" id="1_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://ctrei0oev4836" path="res://scenes/environment/main_menu_campfire.tscn" id="2_lkaum"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="3_0lw5e"]
-[ext_resource type="Script" path="res://scripts/ui/menu_options.gd" id="4_j3q0t"]
-[ext_resource type="Script" path="res://scripts/ui/menu_buttons/play_button.gd" id="5_5dbft"]
+[ext_resource type="Script" uid="uid://t2wvsxngguq2" path="res://scripts/ui/menu_options.gd" id="4_j3q0t"]
+[ext_resource type="Script" uid="uid://dx6vtdhm8je8n" path="res://scripts/ui/menu_buttons/play_button.gd" id="5_5dbft"]
 [ext_resource type="AudioStream" uid="uid://66051osbev0u" path="res://sounds/menu/whispers.wav" id="6_m6rj3"]
 [ext_resource type="Environment" uid="uid://4tk1xirkyd7v" path="res://resources/world_enviroment.tres" id="7_cghw7"]
 
@@ -85,11 +86,12 @@ tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0mtf1"]
 _data = {
-"RESET": SubResource("Animation_u8v45"),
-"intro": SubResource("Animation_1krpb")
+&"RESET": SubResource("Animation_u8v45"),
+&"intro": SubResource("Animation_1krpb")
 }
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_tbmy8")
 
 [node name="SortingNode" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -106,12 +108,14 @@ tile_set = ExtResource("1_lgkms")
 
 [node name="Pines" type="TileMapLayer" parent="SortingNode"]
 z_index = 1
+y_sort_enabled = true
 position = Vector2(16, 16)
 tile_map_data = PackedByteArray("AAD3//r/BgAAAAAAAAD3//v/BgAAAAAAAAD3//7/BgAAAAAAAAD3////BgAAAAAAAAD3/wAABgAAAAAAAAD3/wIABgAAAAAAAAD3/wMABgAAAAAAAAD3/wQABgAAAAAAAAD3/wUABgAAAAAAAAD4//v/BgAAAAAAAAD4//z/BgAAAAAAAAD4//3/BgAAAAAAAAD4//7/BgAAAAAAAAD4////BgAAAAAAAAD4/wEABgAAAAAAAAD4/wIABgAAAAAAAAD4/wQABgAAAAAAAAD4/wUABgAAAAAAAAD5//r/BgAAAAAAAAD5//v/BgAAAAAAAAD5//z/BgAAAAAAAAD5//3/BgAAAAAAAAD5////BgAAAAAAAAD5/wAABgAAAAAAAAD5/wEABgAAAAAAAAD5/wIABgAAAAAAAAD5/wQABgAAAAAAAAD6//7/BgAAAAAAAAD6////BgAAAAAAAAD6/wIABgAAAAAAAAD7//r/BgAAAAAAAAD7//v/BgAAAAAAAAD7//3/BgAAAAAAAAD7//7/BgAAAAAAAAD7/wAABgAAAAAAAAD7/wEABgAAAAAAAAD7/wIABgAAAAAAAAD8//v/BgAAAAAAAAD8//z/BgAAAAAAAAD8//3/BgAAAAAAAAD8/wAABgAAAAAAAAD8/wIABgAAAAAAAAD8/wMABgAAAAAAAAD8/wQABgAAAAAAAAD8/wUABgAAAAAAAAD9//r/BgAAAAAAAAD9//v/BgAAAAAAAAD9//z/BgAAAAAAAAD9//3/BgAAAAAAAAD9////BgAAAAAAAAD9/wEABgAAAAAAAAD9/wQABgAAAAAAAAD+//r/BgAAAAAAAAD+//v/BgAAAAAAAAD+//3/BgAAAAAAAAD+/wMABgAAAAAAAAD+/wQABgAAAAAAAAD+/wUABgAAAAAAAAD///r/BgAAAAAAAAD///z/BgAAAAAAAAD///3/BgAAAAAAAAD//wIABgAAAAAAAAD//wQABgAAAAAAAAD//wUABgAAAAAAAAAAAPr/BgAAAAAAAAAAAPv/BgAAAAAAAAAAAAMABgAAAAAAAAAAAAQABgAAAAAAAAABAPr/BgAAAAAAAAABAPv/BgAAAAAAAAABAP3/BgAAAAAAAAABAP7/BgAAAAAAAAABAAAABgAAAAAAAAABAAEABgAAAAAAAAABAAMABgAAAAAAAAACAPr/BgAAAAAAAAACAP3/BgAAAAAAAAACAP//BgAAAAAAAAACAAMABgAAAAAAAAACAAQABgAAAAAAAAADAPr/BgAAAAAAAAADAPv/BgAAAAAAAAADAPz/BgAAAAAAAAADAP7/BgAAAAAAAAADAP//BgAAAAAAAAADAAAABgAAAAAAAAADAAEABgAAAAAAAAADAAMABgAAAAAAAAADAAUABgAAAAAAAAAEAPz/BgAAAAAAAAAEAP3/BgAAAAAAAAAEAAEABgAAAAAAAAAEAAIABgAAAAAAAAAEAAMABgAAAAAAAAAEAAQABgAAAAAAAAAEAAUABgAAAAAAAAAFAPr/BgAAAAAAAAAFAPv/BgAAAAAAAAAFAP//BgAAAAAAAAAFAAAABgAAAAAAAAAFAAIABgAAAAAAAAAFAAMABgAAAAAAAAAFAAQABgAAAAAAAAAGAPr/BgAAAAAAAAAGAP7/BgAAAAAAAAAGAP//BgAAAAAAAAAGAAAABgAAAAAAAAAGAAEABgAAAAAAAAAGAAIABgAAAAAAAAAGAAMABgAAAAAAAAAGAAQABgAAAAAAAAAGAAUABgAAAAAAAAAHAPv/BgAAAAAAAAAHAPz/BgAAAAAAAAAHAP3/BgAAAAAAAAAHAP7/BgAAAAAAAAAHAP//BgAAAAAAAAAHAAIABgAAAAAAAAAHAAMABgAAAAAAAAAHAAQABgAAAAAAAAAAAPz/BgAAAAAAAAD///7/BgAAAAAAAAAAAP7/BgAAAAAAAAA=")
 tile_set = ExtResource("1_lgkms")
 
 [node name="Pines2" type="TileMapLayer" parent="SortingNode"]
 z_index = 1
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAAAP7/BgAAAAAAAAD+//7/BgAAAAAAAAD+/wIABgAAAAAAAAACAAEABgAAAAAAAAD9/wAABgAAAAAAAAD8////BgAAAAAAAAD///7/BgAAAAAAAAABAAIABgAAAAAAAAAAAAMABgAAAAAAAAA=")
 tile_set = ExtResource("1_lgkms")
 
@@ -181,7 +185,6 @@ layout_mode = 2
 theme = ExtResource("3_0lw5e")
 text = "Играть"
 script = ExtResource("5_5dbft")
-her_side_scene = "res://scenes/her_side.tscn"
 
 [node name="SettingsButton" type="Button" parent="CanvasLayer/MainMenuScreen/MenuOptions"]
 layout_mode = 2
@@ -195,7 +198,7 @@ text = "Выйти"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0mtf1")
+&"": SubResource("AnimationLibrary_0mtf1")
 }
 autoplay = "intro"
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=32 format=3 uid="uid://bqoiqhehqmbpo"]
 
 [ext_resource type="Texture2D" uid="uid://5f0d6dwo2ua7" path="res://textures/player/vulture_player.png" id="1_xog6v"]
-[ext_resource type="Script" path="res://scripts/player/player_vulture_animation.gd" id="2_ou6yk"]
+[ext_resource type="Script" uid="uid://v6fqc22wn36t" path="res://scripts/player/player_vulture_animation.gd" id="2_ou6yk"]
 [ext_resource type="PackedScene" uid="uid://c5a0xtoadotq4" path="res://scenes/players/components/interaction_area_expanded.tscn" id="3_2h3en"]
-[ext_resource type="Script" path="res://scripts/player/vertical_movement.gd" id="3_dpg05"]
-[ext_resource type="Script" path="res://scripts/player/vulture_thoughts.gd" id="4_ywkx4"]
-[ext_resource type="Script" path="res://scripts/player/player_gamemode_updater.gd" id="9_hrys8"]
+[ext_resource type="Script" uid="uid://vwp0hyr7plwj" path="res://scripts/player/vertical_movement.gd" id="3_dpg05"]
+[ext_resource type="Script" uid="uid://c345cp8h0c0v3" path="res://scripts/player/vulture_thoughts.gd" id="4_ywkx4"]
+[ext_resource type="Script" uid="uid://fkg8kmv8aomf" path="res://scripts/player/player_gamemode_updater.gd" id="9_hrys8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w0ql5"]
 light_mode = 1

@@ -1,9 +1,9 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"_translation_id": "",
-"color": Color(0.998047, 0.103313, 0.103313, 1),
-"custom_info": {
+&"_translation_id": "",
+&"color": Color(0.998047, 0.103313, 0.103313, 1),
+&"custom_info": {
 "sound_mood_default": "Mood 1",
 "sound_moods": {
 "Mood 1": {
@@ -13,18 +13,18 @@
 "pitch_variance": 0.1,
 "skip_characters": 3.0,
 "sound_path": "res://sounds/characters/vulture_seller",
-"volume_base": 0.0,
+"volume_base": -4.0,
 "volume_variance": 0.0
 }
 },
 "style": ""
 },
-"default_portrait": "",
-"description": "",
-"display_name": "Торговец Рыбой",
-"mirror": false,
-"nicknames": [""],
-"offset": Vector2(0, 0),
-"portraits": {},
-"scale": 1.0
+&"default_portrait": "",
+&"description": "",
+&"display_name": "Торговец Рыбой",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
 }

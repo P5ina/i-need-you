@@ -1,5 +1,7 @@
 extends Node
 
+signal transition_finished
+
 @export var fade_duration: float
 @export var black_screen_delay: float
 
@@ -17,6 +19,7 @@ func _ready() -> void:
 func transit_to_scene(scene_path: String) -> void:
 	if tween and tween.is_running():
 		return
+	print("Going to scene: ", scene_path)
 	tween = create_tween()
 	fader.visible = true
 	tween.tween_property(fader, "modulate:a", 1.0, fade_duration)
@@ -51,3 +54,4 @@ func _process(_delta: float) -> void:
 			tween.tween_property(fader, "modulate:a", 0.0, fade_duration)
 			tween.tween_callback(fader.set_visible.bind(false))
 			await tween.finished
+			transition_finished.emit()

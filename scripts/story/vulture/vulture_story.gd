@@ -6,6 +6,11 @@ extends Node2D
 var dialogue_started: bool = false
 
 
+#func _ready() -> void:
+	#StoryState.set_character_state("vulture", StoryState.CharacterState.STORY)
+	#StoryState.save_state()
+
+
 func _process(_delta: float) -> void:
 	if Gamemode.current_player.global_position.y <= dialogue_start_position_y and not dialogue_started:
 		start_dialogue()
@@ -28,4 +33,4 @@ func story_ended() -> void:
 	var vertical_movement: VerticalMovement = Gamemode.current_player.get_meta(VerticalMovement.META_NAME)
 	vertical_movement.movement_locked = true
 	StoryState.set_character_state("vulture", StoryState.CharacterState.CONVINCE)
-	SceneLoader.transit_to_scene("res://scenes/her_side.tscn")
+	StoryLoader.load_back()

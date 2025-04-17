@@ -8,6 +8,7 @@ func _ready() -> void:
 		play(&"intro")
 		await animation_finished
 		StoryState.intro_played = true
+		StoryState.save_state()
 		print("intro played")
 	else:
 		campfire.ignite(false)

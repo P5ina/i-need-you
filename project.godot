@@ -12,7 +12,7 @@ config_version=5
 
 config/name="I Need You"
 run/main_scene="res://scenes/main_menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,6 +22,7 @@ SceneLoader="*res://scenes/autoloads/scene_loader.tscn"
 Gamemode="*res://scenes/autoloads/gamemode.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 StoryState="*res://scenes/autoloads/story_state.tscn"
+StoryLoader="*res://scenes/autoloads/story_loader.tscn"
 
 [debug]
 
@@ -30,13 +31,16 @@ gdscript/warnings/untyped_declaration=2
 [dialogic]
 
 directories/dch_directory={
+"deer": "res://dialogues/characters/deer.dch",
 "dog": "res://dialogues/characters/dog.dch",
 "he": "res://dialogues/characters/he.dch",
 "she": "res://dialogues/characters/she.dch",
-"vulture": "res://dialogues/vulture.dch",
+"vulture": "res://dialogues/characters/vulture.dch",
 "vulture_seller": "res://dialogues/characters/vulture_seller.dch"
 }
 directories/dtl_directory={
+"deer_begining": "res://dialogues/timelines/deer/deer_begining.dtl",
+"post_ending": "res://dialogues/timelines/endings/post_ending.dtl",
 "test_all_characters": "res://dialogues/timelines/test/test_all_characters.dtl",
 "vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl",
 "vulture_convince": "res://dialogues/timelines/vulture/vulture_convince.dtl",
@@ -46,7 +50,7 @@ text/letter_speed=0.025
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
-text/autoadvance_per_character_delay=0.1
+text/autoadvance_per_character_delay=0
 text/autoadvance_ignored_characters_enabled=true
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
@@ -72,9 +76,31 @@ layout/default_style="res://dialogues/style/yni_style.tres"
 text/absolute_autopauses=false
 glossary/default_case_sensitive=true
 variables={
-"load_story": false,
-"vulture_good": 0.0
+"deer": {
+"good": 0.0,
+"state": 0
+},
+"dog": {
+"good": 0.0,
+"state": 0
+},
+"fish": {
+"good": 0.0,
+"state": 0
+},
+"intro_played": false,
+"last_loaded_scene": "",
+"player_side": 0,
+"vulture": {
+"good": 0.0,
+"state": 0
 }
+}
+extensions_folder="res://addons/dialogic_additions"
+animations/cross_fade_default_length=0.5
+audio/max_channels=4.0
+text/autoadvance_per_word_delay=0.2
+text/autoadvance_fixed_delay=0.5
 
 [display]
 
@@ -85,6 +111,10 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/movie_file="/Users/p5ina/godot-projects/movies/teaser.avi"
 
 [editor_plugins]
 
