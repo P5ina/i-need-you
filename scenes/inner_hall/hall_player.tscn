@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d181v7213vjds"]
+
+[ext_resource type="Script" uid="uid://8ukynrj02rjn" path="res://scripts/inner_hall/hall_player.gd" id="1_tymky"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ggpu"]
+radius = 0.3
+height = 1.7
+
+[node name="HallPlayer" type="CharacterBody3D"]
+script = ExtResource("1_tymky")
+rotation_speed = 0.01
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_1ggpu")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Head/Camera3D"]

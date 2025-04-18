@@ -1,8 +1,20 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+
+@export var rotation_speed := 0.005
+@export var min_rotation_angle := -60.0
+@export var max_rotation_angle := 60.0
+
+var movement_locked: bool
+var view_locked: bool
+
+@onready var head: Node3D = $Head
+
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _physics_process(delta: float) -> void:
@@ -22,3 +34,22 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton and !movement_locked:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#elif event.is_action_pressed("ui_cancel"):
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	#if event.is_action_pressed("interact") and interactable_object != null:
+		#interactable_object.interact(self)
+
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and event is InputEventMouseMotion \
+		and !view_locked:
+		rotate_y(-event.relative.x * rotation_speed)
+		head.rotation.x = clamp(
+			head.rotation.x - event.relative.y * rotation_speed,
+			deg_to_rad(min_rotation_angle),
+			deg_to_rad(max_rotation_angle)
+		)
