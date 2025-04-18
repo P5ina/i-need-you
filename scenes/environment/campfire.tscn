@@ -1,11 +1,11 @@
 [gd_scene load_steps=25 format=3 uid="uid://c0u15loetoco0"]
 
 [ext_resource type="Script" uid="uid://kani5qsyuw7s" path="res://scripts/campfire.gd" id="1_48djx"]
-[ext_resource type="Texture2D" uid="uid://dkyq3hfbl6rrv" path="res://textures/environment/campfire_spritesheet.png" id="1_lnhw7"]
+[ext_resource type="Texture2D" uid="uid://dkyq3hfbl6rrv" path="res://textures/environment/forest/campfire_spritesheet.png" id="1_lnhw7"]
 [ext_resource type="AudioStream" uid="uid://c1d74w5y7car7" path="res://sounds/campfire/campfire_ignite.wav" id="3_p48lc"]
-[ext_resource type="Texture2D" uid="uid://dkyxooca5h13b" path="res://textures/environment/campfire_unlit.png" id="3_pp1ia"]
+[ext_resource type="Texture2D" uid="uid://dkyxooca5h13b" path="res://textures/environment/forest/campfire_unlit.png" id="3_pp1ia"]
 [ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_4hclq"]
-[ext_resource type="Texture2D" uid="uid://b13nt4ceddo7q" path="res://textures/environment/campfire_fire_only.png" id="4_ovwsh"]
+[ext_resource type="Texture2D" uid="uid://b13nt4ceddo7q" path="res://textures/environment/forest/campfire_fire_only.png" id="4_ovwsh"]
 
 [sub_resource type="Gradient" id="Gradient_6q6tb"]
 interpolation_mode = 2

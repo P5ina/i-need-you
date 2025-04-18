@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkyxooca5h13b"
-path="res://.godot/imported/campfire_unlit.png-e694bee07ce0a67e5c995f947f245311.ctex"
+uid="uid://ck2csg7mqcvc8"
+path="res://.godot/imported/pine_tree_n.png-8b48c7965a29a168c6ca4b2414cda6ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/environment/campfire_unlit.png"
-dest_files=["res://.godot/imported/campfire_unlit.png-e694bee07ce0a67e5c995f947f245311.ctex"]
+source_file="res://textures/environment/forest/pine_tree_n.png"
+dest_files=["res://.godot/imported/pine_tree_n.png-8b48c7965a29a168c6ca4b2414cda6ce.ctex"]
 
 [params]
 

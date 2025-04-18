@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq88xdrncoy7q"]
 
-[ext_resource type="Texture2D" uid="uid://b58ok52ih20wx" path="res://textures/environment/pine_tree.png" id="1_hd6uw"]
-[ext_resource type="Texture2D" uid="uid://ck2csg7mqcvc8" path="res://textures/environment/pine_tree_n.png" id="2_ycipd"]
+[ext_resource type="Texture2D" uid="uid://b58ok52ih20wx" path="res://textures/environment/forest/pine_tree.png" id="1_hd6uw"]
+[ext_resource type="Texture2D" uid="uid://ck2csg7mqcvc8" path="res://textures/environment/forest/pine_tree_n.png" id="2_ycipd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2d0ec"]
 diffuse_texture = ExtResource("1_hd6uw")

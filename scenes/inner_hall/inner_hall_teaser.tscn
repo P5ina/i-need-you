@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://dysbogm0nxfh3"]
+
+[ext_resource type="Texture2D" uid="uid://c6mtissyhukw" path="res://textures/environment/sky/night_sky.png" id="1_1ggpu"]
+[ext_resource type="Script" uid="uid://8ukynrj02rjn" path="res://scripts/inner_hall/hall_player.gd" id="2_423ad"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_anudg"]
+panorama = ExtResource("1_1ggpu")
+
+[sub_resource type="Sky" id="Sky_1ggpu"]
+sky_material = SubResource("PanoramaSkyMaterial_anudg")
+
+[sub_resource type="Environment" id="Environment_anudg"]
+background_mode = 2
+background_energy_multiplier = 0.13
+sky = SubResource("Sky_1ggpu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ggpu"]
+size = Vector2(50, 50)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_423ad"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ggpu"]
+radius = 0.3
+height = 1.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_423ad"]
+
+[node name="InnerHallTeaser" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_anudg")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_1ggpu")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+shape = SubResource("WorldBoundaryShape3D_423ad")
+
+[node name="HallPlayer" type="CharacterBody3D" parent="."]
+script = ExtResource("2_423ad")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HallPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_1ggpu")
+
+[node name="Camera3D" type="Camera3D" parent="HallPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.631624, -4.69291)
+mesh = SubResource("BoxMesh_423ad")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.59528, -3.79023)

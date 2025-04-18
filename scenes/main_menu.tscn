@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=4 uid="uid://f0wbyxk0bkco"]
 
-[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_lgkms"]
+[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest/forest_tileset.tres" id="1_lgkms"]
 [ext_resource type="Script" uid="uid://dbghqp01w8dmu" path="res://scripts/ui/main_menu.gd" id="1_tbmy8"]
 [ext_resource type="PackedScene" uid="uid://ctrei0oev4836" path="res://scenes/environment/main_menu_campfire.tscn" id="2_lkaum"]
 [ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="3_0lw5e"]
