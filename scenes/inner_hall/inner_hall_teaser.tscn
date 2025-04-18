@@ -1,13 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://dysbogm0nxfh3"]
+[gd_scene load_steps=27 format=3 uid="uid://dysbogm0nxfh3"]
 
 [ext_resource type="Texture2D" uid="uid://c6mtissyhukw" path="res://textures/environment/sky/night_sky.png" id="1_1ggpu"]
 [ext_resource type="Material" uid="uid://yjk7u7juml56" path="res://3d/materials/grass.tres" id="2_cymyi"]
 [ext_resource type="PackedScene" uid="uid://d181v7213vjds" path="res://scenes/inner_hall/hall_player.tscn" id="3_gni8y"]
+[ext_resource type="Script" uid="uid://ck1n151ndrh6a" path="res://scripts/inner_hall/dog_with_campfire.gd" id="3_tsu2a"]
 [ext_resource type="PackedScene" uid="uid://c5p3p7brviqdy" path="res://scenes/inner_hall/dog.tscn" id="4_gni8y"]
 [ext_resource type="PackedScene" uid="uid://cjyvar8035awg" path="res://scenes/inner_hall/hall_campfire.tscn" id="5_cypw1"]
 [ext_resource type="Script" uid="uid://dso2lyk068bwg" path="res://scripts/inner_hall/video_display.gd" id="6_paaes"]
 [ext_resource type="VideoStream" uid="uid://brn34qhbbagpy" path="res://videos/popix_video.ogv" id="6_ranqk"]
 [ext_resource type="FontFile" uid="uid://0tx8wkusaqcj" path="res://fonts/retro_gaming.ttf" id="7_kefcs"]
+[ext_resource type="Script" uid="uid://cxd6x6gxsijgd" path="res://scripts/inner_hall/memory_painting.gd" id="7_tth1s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_c65tl"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="10_ff2iv"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_g7ac7"]
@@ -72,13 +74,37 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Music:volume_db")
-tracks/2/interp = 2
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 29.2333, 32.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [-80.0, -80.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HallPlayer:view_locked")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 32.1, 32.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HallPlayer:movement_locked")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 32.1, 32.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_g7ac7"]
@@ -119,6 +145,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HallPlayer:view_locked")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HallPlayer:movement_locked")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g7ac7"]
 _data = {
@@ -146,6 +196,7 @@ debug_fill = false
 
 [node name="DogWithCampfire" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+script = ExtResource("3_tsu2a")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="DogWithCampfire"]
 transform = Transform3D(1, 0, 0, 0, -0.288764, 0.9574, 0, -0.9574, -0.288764, 0, 1.987, -1.276)
@@ -159,18 +210,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.352)
 [node name="HallCampfire" parent="DogWithCampfire" instance=ExtResource("5_cypw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.027, 0)
 
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="DogWithCampfire"]
+
 [node name="HallPlayer" parent="." instance=ExtResource("3_gni8y")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 1.52952)
+movement_locked = true
+view_locked = true
 
 [node name="MemoryPainting" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 1.15723, 4)
+script = ExtResource("7_tth1s")
 
 [node name="Label3D" type="Label3D" parent="MemoryPainting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35367, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.309067, 0)
 shaded = true
 text = "Сколько бы времени ни прошло, 
 я все равно буду помнить каждый твой подарок"
 font = ExtResource("7_kefcs")
+font_size = 21
 
 [node name="PictureFrame" parent="MemoryPainting" instance=ExtResource("11_qug54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596, 0)
@@ -206,12 +263,17 @@ transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0.77
 script = ExtResource("10_ff2iv")
 priority = 5
 tween_resource = SubResource("Resource_qug54")
+tween_on_load = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="MemoryPainting"]
-transform = Transform3D(1, -8.53139e-08, -6.26647e-08, 8.53139e-08, 0.299107, 0.954219, -6.26647e-08, -0.954219, 0.299107, 1.0765e-07, 2.41373, 1.20404)
+transform = Transform3D(1, -7.28799e-08, -3.76177e-08, 7.28799e-08, 0.579253, 0.815148, -3.76177e-08, -0.815148, 0.579253, 1.0765e-07, 2.41373, 1.20404)
 light_energy = 0.5
+shadow_enabled = true
 spot_angle = 46.0408
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MemoryPainting"]
+aabb = AABB(-1.56451, -1.26146, -1.53662, 3.12902, 2.52292, 3.07324)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94692e-08, 1.75323, 3.223)
@@ -233,3 +295,6 @@ autoplay = "intro"
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_g7ac7")
 autoplay = true
+
+[connection signal="screen_entered" from="DogWithCampfire/VisibleOnScreenNotifier3D" to="DogWithCampfire" method="_on_visible_on_screen"]
+[connection signal="screen_exited" from="MemoryPainting/VisibleOnScreenNotifier3D" to="MemoryPainting" method="_on_screen_exited"]

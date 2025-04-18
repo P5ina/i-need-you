@@ -7,8 +7,8 @@ const JUMP_VELOCITY = 4.5
 @export var min_rotation_angle := -60.0
 @export var max_rotation_angle := 60.0
 
-var movement_locked: bool
-var view_locked: bool
+@export var movement_locked: bool
+@export var view_locked: bool
 
 @onready var head: Node3D = $Head
 
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and not movement_locked:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
