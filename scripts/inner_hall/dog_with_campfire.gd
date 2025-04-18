@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _on_visible_on_screen() -> void:
 	if _visible_called:
-		return	
+		return
 
 	_visible_called = true
 	await get_tree().create_timer(0.4).timeout
