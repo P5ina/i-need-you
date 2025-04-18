@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dme2vgqn1vw2m"]
+
+[ext_resource type="PackedScene" uid="uid://mdql305yssvb" path="res://3d/models/PictureFrame.fbx" id="1_55x8h"]
+
+[node name="PictureFrame" instance=ExtResource("1_55x8h")]

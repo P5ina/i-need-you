@@ -64,7 +64,8 @@ material = SubResource("StandardMaterial3D_ni16c")
 
 [node name="HallCampfire" instance=ExtResource("1_2ytv3")]
 script = ExtResource("2_4607b")
-ignite_from_start = true
+min_light = 0.5
+max_light = 1.2
 
 [node name="FireParticles" type="GPUParticles3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
@@ -77,8 +78,10 @@ process_material = SubResource("ParticleProcessMaterial_yfkot")
 draw_pass_1 = SubResource("QuadMesh_h41na")
 
 [node name="FireLight" type="OmniLight3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262962, 0)
-light_color = Color(0.821565, 0.770675, 0.539433, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414324, 0)
+light_color = Color(0.906079, 0.738117, 0.463192, 1)
+light_size = 0.2
+shadow_enabled = true
 
 [node name="CampfireLoopSound" type="AudioStreamPlayer3D" parent="." index="4"]
 stream = ExtResource("4_r665f")

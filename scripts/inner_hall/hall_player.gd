@@ -37,10 +37,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton and !movement_locked:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#elif event.is_action_pressed("ui_cancel"):
-		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if event is InputEventMouseButton and !movement_locked:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif event.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	#if event.is_action_pressed("interact") and interactable_object != null:
 		#interactable_object.interact(self)
