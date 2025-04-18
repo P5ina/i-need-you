@@ -45,8 +45,8 @@ movement_speed = 35.0
 [node name="GamemodeUpdater" type="Node" parent="."]
 script = ExtResource("4_jnila")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="FootstepSounds" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ydj0g")
 max_polyphony = 3
 script = ExtResource("6_rl6h0")
-distance_for_sound = 32.0
+distance_for_sound = 16.0

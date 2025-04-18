@@ -4,6 +4,7 @@ extends Node2D
 @export var story_end_position_y: float
 
 var dialogue_started: bool = false
+var is_ended: bool = false
 
 
 #func _ready() -> void:
@@ -30,6 +31,10 @@ func start_dialogue() -> void:
 
 
 func story_ended() -> void:
+	if is_ended:
+		return
+	
+	is_ended = true
 	var vertical_movement: VerticalMovement = Gamemode.current_player.get_meta(VerticalMovement.META_NAME)
 	vertical_movement.movement_locked = true
 	StoryState.set_character_state("vulture", StoryState.CharacterState.CONVINCE)

@@ -4,7 +4,7 @@ extends AudioStreamPlayer2D
 
 var moved_distance: float
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var body: CharacterBody2D = owner
 	var velocity: float = body.get_position_delta().length()
 	moved_distance += velocity
