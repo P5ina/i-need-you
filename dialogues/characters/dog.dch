@@ -7,7 +7,7 @@
 "sound_mood_default": "Mood 1",
 "sound_moods": {
 "Mood 1": {
-"mode": 1,
+"mode": 0,
 "name": "Mood 1",
 "pitch_base": 1.0,
 "pitch_variance": 0.1,

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="I Need You"
-run/main_scene="uid://dysbogm0nxfh3"
+run/main_scene="uid://f0wbyxk0bkco"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
