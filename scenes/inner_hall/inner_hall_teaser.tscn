@@ -1,0 +1,401 @@
+[gd_scene load_steps=35 format=3 uid="uid://dysbogm0nxfh3"]
+
+[ext_resource type="Texture2D" uid="uid://c6mtissyhukw" path="res://textures/environment/sky/night_sky.png" id="1_1ggpu"]
+[ext_resource type="Material" uid="uid://yjk7u7juml56" path="res://3d/materials/grass.tres" id="2_cymyi"]
+[ext_resource type="PackedScene" uid="uid://d181v7213vjds" path="res://scenes/inner_hall/hall_player.tscn" id="3_gni8y"]
+[ext_resource type="Script" uid="uid://ck1n151ndrh6a" path="res://scripts/inner_hall/dog_with_campfire.gd" id="3_tsu2a"]
+[ext_resource type="PackedScene" uid="uid://c5p3p7brviqdy" path="res://scenes/inner_hall/dog.tscn" id="4_gni8y"]
+[ext_resource type="PackedScene" uid="uid://cjyvar8035awg" path="res://scenes/inner_hall/hall_campfire.tscn" id="5_cypw1"]
+[ext_resource type="Script" uid="uid://imsifu08170p" path="res://scenes/inner_hall/hall_dog_dialogue_area.gd" id="6_a7alp"]
+[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="6_b0eoh"]
+[ext_resource type="Script" uid="uid://dso2lyk068bwg" path="res://scripts/inner_hall/video_display.gd" id="6_paaes"]
+[ext_resource type="VideoStream" uid="uid://brn34qhbbagpy" path="res://videos/popix_video.ogv" id="6_ranqk"]
+[ext_resource type="Texture2D" uid="uid://dqndf0argk5m" path="res://textures/ui/keyboard_button.png" id="7_a7alp"]
+[ext_resource type="FontFile" uid="uid://0tx8wkusaqcj" path="res://fonts/retro_gaming.ttf" id="7_kefcs"]
+[ext_resource type="Script" uid="uid://cxd6x6gxsijgd" path="res://scripts/inner_hall/memory_painting.gd" id="7_tth1s"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="9_c65tl"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="10_ff2iv"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="11_2ihh2"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_g7ac7"]
+[ext_resource type="PackedScene" uid="uid://dme2vgqn1vw2m" path="res://scenes/inner_hall/picture_frame.tscn" id="11_qug54"]
+[ext_resource type="AudioStream" uid="uid://bxxcl2ghvkk8p" path="res://sounds/music/hall_of_memory.mp3" id="12_g7ac7"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_anudg"]
+panorama = ExtResource("1_1ggpu")
+
+[sub_resource type="Sky" id="Sky_1ggpu"]
+sky_material = SubResource("PanoramaSkyMaterial_anudg")
+
+[sub_resource type="Environment" id="Environment_anudg"]
+background_mode = 2
+background_energy_multiplier = 0.13
+sky = SubResource("Sky_1ggpu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ggpu"]
+uv2_padding = 4.48
+size = Vector2(50, 50)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_423ad"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tth1s"]
+size = Vector3(2.57813, 2.09985, 3.77344)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ihh2"]
+content_margin_left = 3.0
+content_margin_top = 2.0
+content_margin_right = 3.0
+content_margin_bottom = 4.0
+texture = ExtResource("7_a7alp")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="Resource" id="Resource_a7alp"]
+script = ExtResource("11_g7ac7")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_3mm6f"]
+script = ExtResource("11_2ihh2")
+keep_aspect = 1
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 41.9
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="QuadMesh" id="QuadMesh_kefcs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kefcs"]
+
+[sub_resource type="Resource" id="Resource_qug54"]
+script = ExtResource("11_g7ac7")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Animation" id="Animation_g7ac7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MemoryPainting/PictureFrame/PhantomCamera3D:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MemoryPainting/PictureFrame/PhantomCamera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.777)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Music:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HallPlayer:view_locked")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HallPlayer:movement_locked")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ff2iv"]
+resource_name = "intro"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MemoryPainting/PictureFrame/PhantomCamera3D:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 31.9667, 32),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 5, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MemoryPainting/PictureFrame/PhantomCamera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8.56667, 31),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.777), Vector3(0, 0, 0.777), Vector3(9.98435e-08, 0, 2.33973)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Music:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 29.2333, 32.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -80.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HallPlayer:view_locked")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 32.1, 32.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HallPlayer:movement_locked")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 32.1, 32.1333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g7ac7"]
+_data = {
+&"RESET": SubResource("Animation_g7ac7"),
+&"intro": SubResource("Animation_ff2iv")
+}
+
+[node name="InnerHallTeaser" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_anudg")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = ExtResource("2_cymyi")
+mesh = SubResource("PlaneMesh_1ggpu")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+shape = SubResource("WorldBoundaryShape3D_423ad")
+debug_color = Color(0, 0.541176, 0.631373, 0.392157)
+debug_fill = false
+
+[node name="DogWithCampfire" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+script = ExtResource("3_tsu2a")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DogWithCampfire"]
+transform = Transform3D(1, 0, 0, 0, -0.288764, 0.9574, 0, -0.9574, -0.288764, 0, 1.987, -1.276)
+light_color = Color(0.301722, 0.492607, 0.605524, 1)
+light_energy = 0.357
+spot_angle = 34.3197
+
+[node name="Dog" parent="DogWithCampfire" instance=ExtResource("4_gni8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.352)
+
+[node name="HallCampfire" parent="DogWithCampfire" instance=ExtResource("5_cypw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.027, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="DogWithCampfire"]
+
+[node name="DialogueArea" type="Area3D" parent="DogWithCampfire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("6_a7alp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DogWithCampfire/DialogueArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.441895)
+shape = SubResource("BoxShape3D_tth1s")
+
+[node name="InteractionLayer" type="CanvasLayer" parent="DogWithCampfire/DialogueArea"]
+
+[node name="InteractionControl" type="Control" parent="DogWithCampfire/DialogueArea/InteractionLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DogWithCampfire/DialogueArea/InteractionLayer/InteractionControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -1.0
+offset_right = 96.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KeyboardButtonPanel" type="PanelContainer" parent="DogWithCampfire/DialogueArea/InteractionLayer/InteractionControl/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("6_b0eoh")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ihh2")
+
+[node name="KeyLabel" type="Label" parent="DogWithCampfire/DialogueArea/InteractionLayer/InteractionControl/HBoxContainer/KeyboardButtonPanel"]
+layout_mode = 2
+theme = ExtResource("6_b0eoh")
+theme_override_font_sizes/font_size = 5
+text = "E"
+horizontal_alignment = 1
+
+[node name="ActionLabel" type="Label" parent="DogWithCampfire/DialogueArea/InteractionLayer/InteractionControl/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_b0eoh")
+theme_override_font_sizes/font_size = 6
+text = "Поговорить"
+
+[node name="PhantomCamera3D" type="Node3D" parent="DogWithCampfire"]
+transform = Transform3D(1, 0, 0, 0, 0.966376, 0.257133, 0, -0.257133, 0.966376, 0, 1.603, 2.204)
+script = ExtResource("10_ff2iv")
+tween_resource = SubResource("Resource_a7alp")
+camera_3d_resource = SubResource("Resource_3mm6f")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="HallPlayer" parent="." instance=ExtResource("3_gni8y")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 1.52952)
+movement_locked = true
+view_locked = true
+
+[node name="MemoryPainting" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 0, 1.15723, 4)
+script = ExtResource("7_tth1s")
+
+[node name="Label3D" type="Label3D" parent="MemoryPainting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.309067, 0)
+shaded = true
+text = "Сколько бы времени ни прошло, 
+я все равно буду помнить каждый твой подарок"
+font = ExtResource("7_kefcs")
+font_size = 21
+
+[node name="PictureFrame" parent="MemoryPainting" instance=ExtResource("11_qug54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596, 0)
+
+[node name="VideoDisplay" type="MeshInstance3D" parent="MemoryPainting/PictureFrame"]
+transform = Transform3D(1.135, 0, 0, 0, 1.135, 0, 0, 0, 1.135, 5.99806e-09, 0, 0.0670872)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_kefcs")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kefcs")
+script = ExtResource("6_paaes")
+
+[node name="SubViewport" type="SubViewport" parent="MemoryPainting/PictureFrame/VideoDisplay"]
+disable_3d = true
+
+[node name="ColorRect" type="ColorRect" parent="MemoryPainting/PictureFrame/VideoDisplay/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MemoryPainting/PictureFrame/VideoDisplay/SubViewport"]
+offset_right = 512.0
+offset_bottom = 512.0
+stream = ExtResource("6_ranqk")
+autoplay = true
+expand = true
+
+[node name="PhantomCamera3D" type="Node3D" parent="MemoryPainting/PictureFrame"]
+transform = Transform3D(1, 0, 1.7683e-07, 0, 1, 0, -1.7683e-07, 0, 1, 0, 0, 0.777)
+script = ExtResource("10_ff2iv")
+priority = 5
+tween_resource = SubResource("Resource_qug54")
+tween_on_load = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MemoryPainting"]
+transform = Transform3D(1, -7.28799e-08, -3.76177e-08, 7.28799e-08, 0.579253, 0.815148, -3.76177e-08, -0.815148, 0.579253, 1.0765e-07, 2.41373, 1.20404)
+light_energy = 0.5
+shadow_enabled = true
+spot_angle = 46.0408
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="MemoryPainting"]
+aabb = AABB(-1.56451, -1.26146, -1.53662, 3.12902, 2.52292, 3.07324)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94692e-08, 1.75323, 3.223)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("9_c65tl")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+
+[node name="CutscenePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g7ac7")
+}
+autoplay = "intro"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_g7ac7")
+autoplay = true
+
+[connection signal="screen_entered" from="DogWithCampfire/VisibleOnScreenNotifier3D" to="DogWithCampfire" method="_on_visible_on_screen"]
+[connection signal="body_entered" from="DogWithCampfire/DialogueArea" to="DogWithCampfire/DialogueArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DogWithCampfire/DialogueArea" to="DogWithCampfire/DialogueArea" method="_on_body_exited"]
+[connection signal="screen_exited" from="MemoryPainting/VisibleOnScreenNotifier3D" to="MemoryPainting" method="_on_screen_exited"]

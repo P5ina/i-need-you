@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=3 uid="uid://cjyvar8035awg"]
+
+[ext_resource type="PackedScene" uid="uid://cm0xqcoo86fju" path="res://3d/models/Campfire.fbx" id="1_2ytv3"]
+[ext_resource type="Script" uid="uid://cec2jo1420ll" path="res://scripts/inner_hall/hall_campfire.gd" id="2_4607b"]
+[ext_resource type="Texture2D" uid="uid://ca6yswqe0gvql" path="res://3d/textures/fire-sprite.png" id="2_r6vlr"]
+[ext_resource type="AudioStream" uid="uid://c1d74w5y7car7" path="res://sounds/campfire/campfire_ignite.wav" id="4_evkls"]
+[ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_r665f"]
+
+[sub_resource type="Curve" id="Curve_5ntli"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.128676, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sic64"]
+curve = SubResource("Curve_5ntli")
+
+[sub_resource type="Gradient" id="Gradient_mdv42"]
+offsets = PackedFloat32Array(0, 0.144, 0.474)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.658824, 0, 1, 1, 0.109804, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lfl0i"]
+gradient = SubResource("Gradient_mdv42")
+
+[sub_resource type="Curve" id="Curve_4o3x8"]
+_data = [Vector2(0, 1), 0.0, -0.14073, 0, 0, Vector2(1, 0.608593), 2.10533, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p50vx"]
+curve = SubResource("Curve_4o3x8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfkot"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.16
+emission_ring_inner_radius = 0.16
+emission_ring_cone_angle = 90.0
+angle_min = -45.0
+angle_max = 45.0
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 0.78
+initial_velocity_max = 0.78
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_p50vx")
+color_ramp = SubResource("GradientTexture1D_lfl0i")
+alpha_curve = SubResource("CurveTexture_sic64")
+anim_offset_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni16c"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_r6vlr")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_h41na"]
+material = SubResource("StandardMaterial3D_ni16c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r665f"]
+
+[node name="HallCampfire" instance=ExtResource("1_2ytv3")]
+script = ExtResource("2_4607b")
+min_light = 0.5
+max_light = 1.2
+
+[node name="FireParticles" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+cast_shadow = 0
+amount = 7
+lifetime = 0.62
+visibility_aabb = AABB(-0.68, -0.1, -0.68, 1.36, 1.5, 1.36)
+transform_align = 1
+process_material = SubResource("ParticleProcessMaterial_yfkot")
+draw_pass_1 = SubResource("QuadMesh_h41na")
+
+[node name="FireLight" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414324, 0)
+light_color = Color(0.906079, 0.738117, 0.463192, 1)
+light_size = 0.2
+shadow_enabled = true
+
+[node name="CampfireLoopSound" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("4_r665f")
+
+[node name="CampfireIgniteSound" type="AudioStreamPlayer3D" parent="." index="5"]
+stream = ExtResource("4_evkls")
+
+[node name="Collision" type="StaticBody3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.405441, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0"]
+shape = SubResource("BoxShape3D_r665f")

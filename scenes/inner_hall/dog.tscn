@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5p3p7brviqdy"]
+
+[ext_resource type="PackedScene" uid="uid://dewcig3cegq6n" path="res://3d/models/Dog.glb" id="1_sjkr6"]
+[ext_resource type="Script" uid="uid://ctnwodyvexs07" path="res://scripts/inner_hall/hall_dog.gd" id="2_nomsl"]
+
+[node name="Dog" instance=ExtResource("1_sjkr6")]
+script = ExtResource("2_nomsl")
+
+[node name="Dog_GoldenRetriever" parent="." index="0"]
+transform = Transform3D(0.015, 0, 0, 0, -6.55671e-10, -0.015, 0, 0.015, -6.55671e-10, 0, 0, 0)
+
+[node name="Root_M" parent="Dog_GoldenRetriever/Main/DeformationSystem" index="0"]
+transform = Transform3D(0.0383495, 0.999264, -1.10336e-06, 0.998079, -0.038304, 0.0486904, 0.0486545, -0.00186835, -0.998814, -0.249396, -14.8307, -54.0154)
+
+[node name="Skeleton3D" parent="Dog_GoldenRetriever/Main/DeformationSystem/Root_M" index="0"]
+bones/14/rotation = Quaternion(-0.707107, -1.88887e-09, -2.04594e-10, 0.707107)
+bones/20/rotation = Quaternion(-0.194904, 0.963048, 0.185814, 0.00485439)
+bones/23/rotation = Quaternion(5.49309e-08, 1.59809e-08, -0.0394869, 0.99922)
+bones/28/rotation = Quaternion(0.963048, 0.194904, -0.00485415, 0.185814)
+bones/30/rotation = Quaternion(1.17188e-08, 4.61838e-08, 0.227847, 0.973697)
+bones/47/rotation = Quaternion(0.856444, 0.412017, -0.309315, 0.032697)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Root_M|Dog_GoldenRetriever_Idle|Animation Base Layer"

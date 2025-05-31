@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://djcb3rmeil37s"]
 
-[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_eb0f3"]
+[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest/forest_tileset.tres" id="1_eb0f3"]
 [ext_resource type="Script" uid="uid://cn4gubpfhy16w" path="res://scripts/story/vulture/vulture_story.gd" id="1_fpcay"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_jtn8n"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_hhlus"]

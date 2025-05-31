@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://c1pxkmvwlkxoa"]
 
-[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest_tileset.tres" id="1_ne08h"]
+[ext_resource type="TileSet" uid="uid://cemlm1x0snvik" path="res://textures/environment/forest/forest_tileset.tres" id="1_ne08h"]
 [ext_resource type="PackedScene" uid="uid://b6e234xe5gnhu" path="res://scenes/characters/vulture.tscn" id="2_0m0id"]
 [ext_resource type="PackedScene" uid="uid://ctrei0oev4836" path="res://scenes/environment/main_menu_campfire.tscn" id="2_4is6h"]
 [ext_resource type="PackedScene" uid="uid://h1qakwnx5c6t" path="res://scenes/characters/fish.tscn" id="3_g4wjb"]

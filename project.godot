@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="I Need You"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="uid://f0wbyxk0bkco"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -40,6 +40,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "deer_begining": "res://dialogues/timelines/deer/deer_begining.dtl",
+"dog_memory_hall": "res://dialogues/timelines/memory_hall/dog_memory_hall.dtl",
 "post_ending": "res://dialogues/timelines/endings/post_ending.dtl",
 "test_all_characters": "res://dialogues/timelines/test/test_all_characters.dtl",
 "vulture_begining": "res://dialogues/timelines/vulture/vulture_begining.dtl",
