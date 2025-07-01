@@ -144,9 +144,14 @@ min_light = 0.5
 max_light = 1.0
 light_change_duration = 0.75
 
-[node name="FireLight" type="PointLight2D" parent="."]
+[node name="FireCenter" type="Node2D" parent="."]
+
+[node name="FireLight" type="PointLight2D" parent="FireCenter"]
+light_mask = 3
+position = Vector2(0, 3)
 color = Color(1, 0.523648, 0.238001, 1)
 energy = 0.5
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_favlu")
 texture_scale = 0.75
 

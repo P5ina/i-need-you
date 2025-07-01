@@ -11,7 +11,8 @@ extends Node2D
 var is_on: bool = false
 var tween: Tween
 
-@onready var fire_light: PointLight2D = $FireLight
+@onready var fire_light: PointLight2D = $FireCenter/FireLight
+@onready var fire_center: Node2D = $FireCenter
 @onready var campfire_sprite: AnimatedSprite2D = $CampfireSprite
 @onready var fire_sprite: AnimatedSprite2D = $FireSprite
 @onready var campfire_loop: AudioStreamPlayer2D = $CampfireLoopSound
@@ -36,6 +37,7 @@ func _process(_delta: float) -> void:
 	if not tween.is_running():
 		tween = create_tween()
 		tween.tween_property(fire_light, "energy", rand_light(), light_change_duration)
+		
 
 
 func ignite(play_ignite_sound: bool = true) -> void:
@@ -43,6 +45,12 @@ func ignite(play_ignite_sound: bool = true) -> void:
 
 	tween = create_tween()
 	tween.tween_property(fire_light, "energy", rand_light(), light_start_duration)
+
+	var spin_tween := create_tween().set_loops()
+	spin_tween.tween_property(fire_center, "rotation", PI * 2, 8.0).from(0.0)
+	spin_tween.tween_property(fire_center, "rotation", PI, 6.0)
+	spin_tween.tween_property(fire_center, "rotation", PI * 2.0, 6.0)
+
 	campfire_sprite.play(&"lit")
 	fire_sprite.play(&"lit")
 

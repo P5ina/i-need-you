@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://c0oxp3bbys68r"]
+
+[ext_resource type="Texture2D" uid="uid://ch4434je65xqp" path="res://textures/environment/forest/pine_tree_leaves.png" id="1_nqc0s"]
+[ext_resource type="Texture2D" uid="uid://ck2csg7mqcvc8" path="res://textures/environment/forest/pine_tree_n.png" id="2_xwthn"]
+
+[resource]
+diffuse_texture = ExtResource("1_nqc0s")
+normal_texture = ExtResource("2_xwthn")
