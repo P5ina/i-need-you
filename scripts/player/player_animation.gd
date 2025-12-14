@@ -10,6 +10,8 @@ enum AnimationDirection {
 	LEFT,
 }
 
+@export var animation_enabled: bool = true
+
 var last_direction: AnimationDirection = AnimationDirection.DOWN
 var last_is_moving: bool = false
 
@@ -24,20 +26,22 @@ func _process(_delta: float) -> void:
 	var direction: AnimationDirection = get_direction(normalized_velocity)
 	var is_moving: bool = normalized_velocity.length() > 0.1
 
-	update_animation(direction, is_moving)
+	if animation_enabled:
+		update_animation(direction, is_moving)
 
 
 func get_direction(normalized_velocity: Vector2) -> AnimationDirection:
-	if normalized_velocity.y < 0:
+	var angle := rad_to_deg(normalized_velocity.angle())
+	if not normalized_velocity:
+		return last_direction if last_direction != null else AnimationDirection.DOWN
+	if angle >= -135 and angle <= -50:
 		return AnimationDirection.UP
-	elif normalized_velocity.y > 0:
-		return AnimationDirection.DOWN
-	elif normalized_velocity.x > 0:
+	elif angle > -50 and angle < 50:
 		return AnimationDirection.RIGHT
-	elif normalized_velocity.x < 0:
+	elif angle >= 50 and angle <= 135:
+		return AnimationDirection.DOWN
+	else:
 		return AnimationDirection.LEFT
-
-	return last_direction if last_direction != null else AnimationDirection.DOWN
 
 
 func update_animation(direction: AnimationDirection, is_moving: bool) -> void:

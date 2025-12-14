@@ -375,7 +375,6 @@ spot_angle = 46.0408
 aabb = AABB(-1.56451, -1.26146, -1.53662, 3.12902, 2.52292, 3.07324)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94692e-08, 1.75323, 3.223)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 process_priority = 300

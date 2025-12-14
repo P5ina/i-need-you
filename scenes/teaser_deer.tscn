@@ -551,8 +551,6 @@ tile_set = ExtResource("1_41fi0")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-10.05, 3.9)
-zoom = Vector2(12, 12)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]

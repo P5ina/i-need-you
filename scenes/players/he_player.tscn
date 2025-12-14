@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://b71g8dq5v2xht"]
+[gd_scene load_steps=38 format=3 uid="uid://b71g8dq5v2xht"]
 
 [ext_resource type="PackedScene" uid="uid://b8sf01aw1jc0w" path="res://scenes/players/base_player.tscn" id="1_2j7eh"]
 [ext_resource type="Texture2D" uid="uid://bxugpj4lfc0nu" path="res://textures/player/he_player.png" id="2_lqbls"]
+[ext_resource type="Texture2D" uid="uid://cubepipjsf210" path="res://textures/environment/forest/firefly.png" id="3_fj3rx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8j3y"]
 atlas = ExtResource("2_lqbls")
@@ -246,6 +247,26 @@ animations = [{
 radius = 5.0
 height = 14.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mu1k5"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_m5lcl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.18389058, 1), 0.0, 0.0, 0, 0, Vector2(0.7006079, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_lgwnu"]
+curve = SubResource("Curve_m5lcl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hfvq4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 300, 1)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_lgwnu")
+turbulence_enabled = true
+
 [node name="HePlayer" instance=ExtResource("1_2j7eh")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
@@ -255,3 +276,13 @@ animation = &"idle_down"
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_cvtou")
+
+[node name="Fireflies" type="GPUParticles2D" parent="." index="7"]
+z_index = 1
+material = SubResource("CanvasItemMaterial_mu1k5")
+amount = 64
+texture = ExtResource("3_fj3rx")
+lifetime = 10.0
+preprocess = 5.0
+visibility_rect = Rect2(-300, -300, 600, 600)
+process_material = SubResource("ParticleProcessMaterial_hfvq4")

@@ -4,6 +4,7 @@
 &"_translation_id": "",
 &"color": Color(0.664062, 1, 0, 1),
 &"custom_info": {
+"prefix": "",
 "sound_mood_default": "Mood 1",
 "sound_moods": {
 "Mood 1": {
@@ -13,11 +14,12 @@
 "pitch_variance": 0.1,
 "skip_characters": 3.0,
 "sound_path": "res://sounds/characters/deer/deer_talking.wav",
-"volume_base": -6.0,
+"volume_base": -1.0,
 "volume_variance": 0.0
 }
 },
-"style": ""
+"style": "",
+"suffix": ""
 },
 &"default_portrait": "",
 &"description": "",

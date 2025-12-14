@@ -1,11 +1,17 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bcnjij6ip3ope"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bcnjij6ip3ope"]
 
 [ext_resource type="Texture2D" uid="uid://r0q4flpe43t7" path="res://textures/ui/panel_frameless.png" id="1_71cv8"]
 [ext_resource type="StyleBox" uid="uid://clra7wpfh23oa" path="res://dialogues/style/frame_panel_style.tres" id="1_e76hc"]
 [ext_resource type="Texture2D" uid="uid://b45frtpvoqntv" path="res://textures/ui/panel_selected.png" id="2_1jeww"]
 [ext_resource type="FontFile" uid="uid://0tx8wkusaqcj" path="res://fonts/retro_gaming.ttf" id="2_hw12q"]
+[ext_resource type="Texture2D" uid="uid://cbydiif5o6ykt" path="res://textures/ui/panel_frame.png" id="2_noh7e"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j67gl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0b5k"]
+texture = ExtResource("2_noh7e")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yk7qe"]
 content_margin_left = 6.0
@@ -43,7 +49,7 @@ texture_margin_bottom = 4.0
 [resource]
 Button/font_sizes/font_size = 5
 Button/fonts/font = ExtResource("2_hw12q")
-Button/styles/focus = SubResource("StyleBoxEmpty_j67gl")
+Button/styles/focus = SubResource("StyleBoxTexture_r0b5k")
 Button/styles/hover = SubResource("StyleBoxTexture_yk7qe")
 Button/styles/normal = SubResource("StyleBoxTexture_hp13n")
 Button/styles/pressed = SubResource("StyleBoxTexture_5y5pq")

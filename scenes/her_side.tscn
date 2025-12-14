@@ -138,15 +138,11 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_wiidg"]
 script = ExtResource("3_sihth")
-duration = 1.0
 transition = 4
-ease = 2
 
 [sub_resource type="Resource" id="Resource_soo13"]
 script = ExtResource("3_sihth")
 duration = 0.0
-transition = 0
-ease = 2
 
 [node name="HerSide" type="Node2D"]
 
@@ -189,14 +185,15 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("2_vikpj")
 theme_override_font_sizes/font_size = 8
-text = "“Дойдя до конца, 
-люди смеются над страхами, 
-мучившими их вначале.”"
+text = "“Чужой страх легче заметить.
+Но, помогая с ним, 
+ты находишь путь к своему.”"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Author" type="Label" parent="CutsceneDirector/CanvasLayer/IntroQuote/VBoxContainer"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2

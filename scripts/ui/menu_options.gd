@@ -16,3 +16,4 @@ func show_options() -> void:
 		var tween: Tween = child.create_tween()
 		tween.tween_property(child, "modulate:a", 1.0, appear_duration)
 		await get_tree().create_timer(appear_delay).timeout
+	$PlayButton.grab_focus()

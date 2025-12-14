@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dx6vtdhm8je8n" path="res://scripts/ui/menu_buttons/play_button.gd" id="5_5dbft"]
 [ext_resource type="AudioStream" uid="uid://66051osbev0u" path="res://sounds/menu/whispers.wav" id="6_m6rj3"]
 [ext_resource type="Environment" uid="uid://4tk1xirkyd7v" path="res://resources/world_enviroment.tres" id="7_cghw7"]
-[ext_resource type="Script" uid="uid://b8stbnbjxb2he" path="res://scripts/ui/menu_buttons/exit_game_button.gd" id="7_jk1qb"]
+[ext_resource type="Script" path="res://scripts/ui/menu_buttons/exit_game_button.gd" id="7_jk1qb"]
 
 [sub_resource type="Animation" id="Animation_u8v45"]
 length = 0.001

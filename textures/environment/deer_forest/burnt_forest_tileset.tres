@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://c4dyjm6ettwwv"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://c4dyjm6ettwwv"]
 
 [ext_resource type="Texture2D" uid="uid://bsaod1fd56he8" path="res://textures/environment/deer_forest/burnt_forest_tiles.png" id="1_0qbnc"]
 [ext_resource type="Texture2D" uid="uid://cebmtwj1a7row" path="res://textures/environment/deer_forest/burnt_tree_01.png" id="2_tlm5o"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bpu8uwpoie35d" path="res://textures/environment/deer_forest/piles_of_ashes_03.png" id="7_2tuo1"]
 [ext_resource type="Texture2D" uid="uid://bojl8ucvbfg1e" path="res://textures/environment/deer_forest/burning_tree.png" id="8_p1im5"]
 [ext_resource type="Texture2D" uid="uid://uiftoy6g3au0" path="res://textures/environment/deer_forest/burning_tree_fire.png" id="9_q678n"]
+[ext_resource type="PackedScene" uid="uid://l480rmhts2yq" path="res://scenes/stories/deer/burning_tree.tscn" id="10_nufve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2rm6"]
 texture = ExtResource("1_0qbnc")
@@ -151,6 +152,10 @@ texture_region_size = Vector2i(64, 120)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 50)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ncqx1"]
+resource_name = "trees"
+scenes/1/scene = ExtResource("10_nufve")
+
 [resource]
 tile_size = Vector2i(32, 32)
 terrain_set_0/mode = 1
@@ -165,3 +170,4 @@ sources/5 = SubResource("TileSetAtlasSource_k0re2")
 sources/6 = SubResource("TileSetAtlasSource_vpbgn")
 sources/7 = SubResource("TileSetAtlasSource_lxkfb")
 sources/8 = SubResource("TileSetAtlasSource_yiv2y")
+sources/9 = SubResource("TileSetScenesCollectionSource_ncqx1")

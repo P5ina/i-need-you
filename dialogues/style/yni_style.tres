@@ -1,17 +1,18 @@
 [gd_resource type="Resource" script_class="DialogicStyle" load_steps=6 format=3 uid="uid://b7an2r1v8x6d8"]
 
-[ext_resource type="Script" uid="uid://blvk6e1xqg7v3" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_xg8e3"]
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_xg8e3"]
 [ext_resource type="PackedScene" uid="uid://cgm078g3bq865" path="res://scenes/dialogues/style/dialogue_layout.tscn" id="2_fxca1"]
-[ext_resource type="Script" uid="uid://bgd6n1nm42hf4" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_roc2q"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_roc2q"]
 
 [sub_resource type="Resource" id="Resource_iwro4"]
 script = ExtResource("1_xg8e3")
-overrides = {}
+overrides = {
+"canvas_layer": "3.0"
+}
 
 [sub_resource type="Resource" id="Resource_0jd1o"]
 script = ExtResource("1_xg8e3")
 scene = ExtResource("2_fxca1")
-overrides = {}
 
 [resource]
 script = ExtResource("2_roc2q")
@@ -21,6 +22,4 @@ layer_info = {
 "": SubResource("Resource_iwro4"),
 "10": SubResource("Resource_0jd1o")
 }
-base_overrides = {}
-layers = Array[ExtResource("1_xg8e3")]([])
-metadata/_latest_layer = "10"
+metadata/_latest_layer = ""

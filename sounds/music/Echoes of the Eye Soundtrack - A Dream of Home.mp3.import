@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8bi5xt8mnvxh"
+path="res://.godot/imported/Echoes of the Eye Soundtrack - A Dream of Home.mp3-9001a6c8040695c2b91a260faad5e655.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/Echoes of the Eye Soundtrack - A Dream of Home.mp3"
+dest_files=["res://.godot/imported/Echoes of the Eye Soundtrack - A Dream of Home.mp3-9001a6c8040695c2b91a260faad5e655.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
