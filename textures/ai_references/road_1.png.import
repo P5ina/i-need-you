@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi8n7lv6hoaoe"
-path="res://.godot/imported/deer_laying_down.png-53cab5640fff992d36acfe28ee4ac72f.ctex"
+uid="uid://c5rt2v0y3aan"
+path="res://.godot/imported/road_1.png-b9c94225f70f992c68ef97fa027a1305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/characters/deer/deer_laying_down.png"
-dest_files=["res://.godot/imported/deer_laying_down.png-53cab5640fff992d36acfe28ee4ac72f.ctex"]
+source_file="res://textures/ai_references/road_1.png"
+dest_files=["res://.godot/imported/road_1.png-b9c94225f70f992c68ef97fa027a1305.ctex"]
 
 [params]
 

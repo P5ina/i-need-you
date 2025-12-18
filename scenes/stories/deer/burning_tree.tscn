@@ -1,61 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://l480rmhts2yq"]
+[gd_scene load_steps=10 format=3 uid="uid://l480rmhts2yq"]
 
-[ext_resource type="Texture2D" uid="uid://b58ok52ih20wx" path="res://textures/environment/forest/pine_tree.png" id="1_5hp5v"]
-[ext_resource type="Texture2D" uid="uid://uiftoy6g3au0" path="res://textures/environment/deer_forest/burning_tree_fire.png" id="1_a0bsb"]
+[ext_resource type="Shader" uid="uid://djton2wsbacqn" path="res://shaders/tree_sway.gdshader" id="1_k4dbj"]
+[ext_resource type="Texture2D" uid="uid://bojl8ucvbfg1e" path="res://textures/environment/deer_forest/burning_tree.png" id="2_k4dbj"]
+[ext_resource type="Script" uid="uid://clsw7pobnlxjc" path="res://scripts/environment/tree_sprite.gd" id="3_k4dbj"]
 [ext_resource type="Texture2D" uid="uid://dddeanlqi3ix6" path="res://textures/light.png" id="3_q2o68"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2o68"]
-light_mode = 1
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cqyc1"]
+frequency = 0.0052
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5hp5v"]
-atlas = ExtResource("1_a0bsb")
-region = Rect2(0, 0, 64, 120)
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0yykh"]
+noise = SubResource("FastNoiseLite_cqyc1")
+seamless = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2o68"]
-atlas = ExtResource("1_a0bsb")
-region = Rect2(64, 0, 64, 120)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nf3vo"]
+shader = ExtResource("1_k4dbj")
+shader_parameter/wind_strength = 0.5890000279775
+shader_parameter/wind_speed = 0.4810000228475
+shader_parameter/max_angle = 0.2
+shader_parameter/spiral_strength = 0.5810000275975
+shader_parameter/sprite_height = 96.0
+shader_parameter/pixel_size = 0.23
+shader_parameter/world_position = Vector2(0, 0)
+shader_parameter/noise_scale = 0.03600000171
+shader_parameter/wind_noise = SubResource("NoiseTexture2D_0yykh")
+shader_parameter/h_frames = 6
+shader_parameter/v_frames = 1
+shader_parameter/fps = 8.0
+shader_parameter/time_offset = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k4dbj"]
-atlas = ExtResource("1_a0bsb")
-region = Rect2(128, 0, 64, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cqyc1"]
-atlas = ExtResource("1_a0bsb")
-region = Rect2(192, 0, 64, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0yykh"]
-atlas = ExtResource("1_a0bsb")
-region = Rect2(256, 0, 64, 120)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nf3vo"]
-atlas = ExtResource("1_a0bsb")
-region = Rect2(320, 0, 64, 120)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p73h8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5hp5v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q2o68")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k4dbj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cqyc1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0yykh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nf3vo")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="QuadMesh" id="QuadMesh_q2o68"]
+size = Vector2(48, 96)
+subdivide_depth = 8
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hp5v"]
 radius = 3.0
@@ -63,23 +38,21 @@ height = 14.0
 
 [node name="BurningTree" type="StaticBody2D"]
 
-[node name="Tree" type="Sprite2D" parent="."]
+[node name="Tree" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_nf3vo")
 position = Vector2(0, -38)
-texture = ExtResource("1_5hp5v")
+scale = Vector2(1, -1)
+mesh = SubResource("QuadMesh_q2o68")
+texture = ExtResource("2_k4dbj")
+script = ExtResource("3_k4dbj")
 
-[node name="Fire" type="AnimatedSprite2D" parent="Tree"]
-material = SubResource("CanvasItemMaterial_q2o68")
-position = Vector2(0, -12)
-sprite_frames = SubResource("SpriteFrames_p73h8")
-autoplay = "default"
-frame_progress = 0.24069373
-
-[node name="PointLight2D" type="PointLight2D" parent="Tree/Fire"]
-position = Vector2(0, 25)
+[node name="PointLight2D" type="PointLight2D" parent="Tree"]
+position = Vector2(0, -39)
+scale = Vector2(1, -1)
 color = Color(0.773663, 0.431697, 0.193764, 1)
-energy = 0.7
+energy = 0.3
 texture = ExtResource("3_q2o68")
-texture_scale = 0.1
+texture_scale = 0.13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
