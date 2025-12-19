@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ca12qvo2qkh2j"
+path="res://.godot/imported/DOORS ORIGINAL SOUNDTRACK VOL. 1 - Here I Come.mp3-2d4140f6e5175843a77554bb59a258b7.mp3str"
+
+[deps]
+
+source_file="res://sounds/stories/deer/DOORS ORIGINAL SOUNDTRACK VOL. 1 - Here I Come.mp3"
+dest_files=["res://.godot/imported/DOORS ORIGINAL SOUNDTRACK VOL. 1 - Here I Come.mp3-2d4140f6e5175843a77554bb59a258b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

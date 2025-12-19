@@ -33,7 +33,7 @@ size = Vector2(48, 96)
 subdivide_depth = 8
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hp5v"]
-radius = 3.0
+radius = 5.0
 height = 14.0
 
 [node name="BurningTree" type="StaticBody2D"]

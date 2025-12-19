@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://c4dyjm6ettwwv"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://c4dyjm6ettwwv"]
 
 [ext_resource type="Texture2D" uid="uid://bsaod1fd56he8" path="res://textures/environment/deer_forest/burnt_forest_tiles.png" id="1_0qbnc"]
 [ext_resource type="Texture2D" uid="uid://cebmtwj1a7row" path="res://textures/environment/deer_forest/burnt_tree_01.png" id="2_tlm5o"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bojl8ucvbfg1e" path="res://textures/environment/deer_forest/burning_tree.png" id="8_p1im5"]
 [ext_resource type="Texture2D" uid="uid://uiftoy6g3au0" path="res://textures/environment/deer_forest/burning_tree_fire.png" id="9_q678n"]
 [ext_resource type="PackedScene" uid="uid://l480rmhts2yq" path="res://scenes/stories/deer/burning_tree.tscn" id="10_nufve"]
+[ext_resource type="PackedScene" uid="uid://blxyfuxfccqbu" path="res://scenes/stories/deer/falling_burning_tree.tscn" id="11_ncqx1"]
+[ext_resource type="PackedScene" uid="uid://cq88xdrncoy7q" path="res://scenes/environment/pine_tree.tscn" id="12_freoa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2rm6"]
 texture = ExtResource("1_0qbnc")
@@ -98,18 +100,21 @@ texture = ExtResource("2_tlm5o")
 texture_region_size = Vector2i(48, 96)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 38)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prl6b"]
 texture = ExtResource("3_t76o0")
 texture_region_size = Vector2i(48, 96)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 38)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2irpq"]
 texture = ExtResource("4_k17gw")
 texture_region_size = Vector2i(48, 96)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 38)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cp3hj"]
 texture = ExtResource("5_u0u2j")
@@ -155,9 +160,12 @@ texture_region_size = Vector2i(64, 120)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ncqx1"]
 resource_name = "trees"
 scenes/1/scene = ExtResource("10_nufve")
+scenes/2/scene = ExtResource("11_ncqx1")
+scenes/3/scene = ExtResource("12_freoa")
 
 [resource]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Burnt Grass"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)

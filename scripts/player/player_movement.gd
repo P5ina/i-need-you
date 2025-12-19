@@ -4,9 +4,9 @@ extends Node
 const META_NAME = &"PlayerMovement"
 
 @export var movement_speed: float = 50.0
+@export var movement_locked: bool
 
 var interaction_area: InteractionArea
-var movement_locked: bool
 
 
 func _ready() -> void:
