@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://l480rmhts2yq"]
 
-[ext_resource type="Shader" uid="uid://djton2wsbacqn" path="res://shaders/tree_sway.gdshader" id="1_k4dbj"]
+[ext_resource type="Shader" uid="uid://qffs234htrrr" path="res://shaders/tree_sway_unshaded.gdshader" id="1_k4dbj"]
 [ext_resource type="Texture2D" uid="uid://bojl8ucvbfg1e" path="res://textures/environment/deer_forest/burning_tree.png" id="2_k4dbj"]
 [ext_resource type="Script" uid="uid://clsw7pobnlxjc" path="res://scripts/environment/tree_sprite.gd" id="3_k4dbj"]
 [ext_resource type="Texture2D" uid="uid://dddeanlqi3ix6" path="res://textures/light.png" id="3_q2o68"]
@@ -14,8 +14,8 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nf3vo"]
 shader = ExtResource("1_k4dbj")
-shader_parameter/wind_strength = 0.5890000279775
-shader_parameter/wind_speed = 0.4810000228475
+shader_parameter/wind_strength = 0.5630000267425
+shader_parameter/wind_speed = 0.16800000798
 shader_parameter/max_angle = 0.2
 shader_parameter/spiral_strength = 0.5810000275975
 shader_parameter/sprite_height = 96.0
