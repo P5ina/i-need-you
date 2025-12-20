@@ -11,13 +11,17 @@ uniform vec2 world_position = vec2(0.0);
 uniform float noise_scale : hint_range(0.001, 0.1) = 0.02;
 uniform sampler2D wind_noise : repeat_enable;
 
-// Анимация
 uniform int h_frames = 1;
 uniform int v_frames = 1;
 uniform float fps = 8.0;
-uniform float time_offset = 0.0;  // чтобы деревья не синхронизировались
+uniform float time_offset = 0.0;
+
+varying vec4 vertex_modulate;
 
 void vertex() {
+    // Сохраняем modulate для fragment шейдера
+    vertex_modulate = COLOR;
+    
     float height_factor = 1.0 - UV.y;
     float dist_from_base = height_factor * sprite_height;
     
@@ -46,5 +50,6 @@ void fragment() {
     vec2 frame_offset = vec2(float(frame_x), float(frame_y)) * frame_size;
     vec2 frame_uv = frame_offset + UV * frame_size;
     
-    COLOR = texture(TEXTURE, frame_uv);
+    // Применяем modulate к текстуре
+    COLOR = texture(TEXTURE, frame_uv) * vertex_modulate;
 }

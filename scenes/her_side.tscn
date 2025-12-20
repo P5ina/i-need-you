@@ -218,7 +218,7 @@ tile_map_data = PackedByteArray("AAD//wAABwAJAAIAAAD/////BwAJAAAAAAD+/wAABwAIAAE
 tile_set = ExtResource("7_4hqte")
 
 [node name="Pines" type="TileMapLayer" parent="CutsceneDirector/SortingNode"]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 position = Vector2(16, 0)
 tile_map_data = PackedByteArray("AAABAP7/AwAAAAAAAQACAAEAAwAAAAAAAQAEAAAAAwAAAAAAAQD6/wMAAwAAAAAAAQD7/wUAAwAAAAAAAQADAAQAAwAAAAAAAQACAAMAAwAAAAAAAQD7//3/AwAAAAAAAQD9//z/AwAAAAAAAQABAPv/AwAAAAAAAQADAPv/AwAAAAAAAQD8//r/AwAAAAAAAQD8//7/AwAAAAAAAQADAP3/AwAAAAAAAQAEAPv/AwAAAAAAAQAFAP3/AwAAAAAAAQD3/wEAAwAAAAAAAQD5/wMAAwAAAAAAAQD5/wQAAwAAAAAAAQD7/wAAAwAAAAAAAQD8/wMAAwAAAAAAAQD5//7/AwAAAAAAAQD5/wAAAwAAAAAAAQD5//n/AwAAAAAAAQD5//v/AwAAAAAAAQAGAAIAAwAAAAAAAQAHAPz/AwAAAAAAAQACAPj/AwAAAAAAAQD8/wcAAwAAAAAAAQD9/wEAAwAAAAAAAQAAAAIAAwAAAAAAAQABAAAAAwAAAAAAAQABAAUAAwAAAAAAAQD9/wQAAwAAAAAAAQACAAgAAwAAAAAAAQD7/woAAwAAAAAAAQD8/w0AAwAAAAAAAQAAAA4AAwAAAAAAAQD+/w8AAwAAAAAAAQD6/wsAAwAAAAAAAQACAA4AAwAAAAAAAQAEAA0AAwAAAAAAAQADAAoAAwAAAAAAAQD9/wgAAwAAAAAAAQD6/wcAAwAAAAAAAQD3/wcAAwAAAAAAAQD4/wQAAwAAAAAAAQD2/wgAAwAAAAAAAQD2/wQAAwAAAAAAAQD+//v/AwAAAAAAAQABAPj/AwAAAAAAAQD+//j/AwAAAAAAAQD5//b/AwAAAAAAAQD6//P/AwAAAAAAAQD9//H/AwAAAAAAAQABAPH/AwAAAAAAAQAEAPP/AwAAAAAAAQAFAPX/AwAAAAAAAQAFAPb/AwAAAAAAAQA=")
@@ -231,9 +231,11 @@ z_index = 1
 position = Vector2(0, -26)
 
 [node name="Vulture" parent="CutsceneDirector/SortingNode" instance=ExtResource("8_kqdj8")]
-position = Vector2(0, -386)
+position = Vector2(0, -366)
 
 [node name="Deer" parent="CutsceneDirector/SortingNode" instance=ExtResource("7_e0tt2")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(0, 372)
 
 [node name="PlayerCamera" type="Node2D" parent="CutsceneDirector" node_paths=PackedStringArray("follow_target")]
@@ -243,6 +245,7 @@ script = ExtResource("2_u4uff")
 priority = 5
 follow_mode = 2
 follow_target = NodePath("../SortingNode/HePlayer")
+snap_to_pixel = true
 tween_resource = SubResource("Resource_wiidg")
 tween_on_load = false
 follow_damping = true
@@ -269,10 +272,11 @@ process_physics_priority = 300
 script = ExtResource("4_h74hp")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.096204735, 0.09620475, 0.096204735, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("9_no5ej")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 editor_only = true

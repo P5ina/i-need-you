@@ -1,23 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://c0u15loetoco0"]
+[gd_scene load_steps=24 format=3 uid="uid://c0u15loetoco0"]
 
 [ext_resource type="Script" uid="uid://kani5qsyuw7s" path="res://scripts/campfire.gd" id="1_48djx"]
 [ext_resource type="Texture2D" uid="uid://dkyq3hfbl6rrv" path="res://textures/environment/forest/campfire_spritesheet.png" id="1_lnhw7"]
+[ext_resource type="Texture2D" uid="uid://pc0hhejmq5ae" path="res://textures/light_quad.png" id="2_220hi"]
 [ext_resource type="AudioStream" uid="uid://c1d74w5y7car7" path="res://sounds/campfire/campfire_ignite.wav" id="3_p48lc"]
 [ext_resource type="Texture2D" uid="uid://dkyxooca5h13b" path="res://textures/environment/forest/campfire_unlit.png" id="3_pp1ia"]
 [ext_resource type="AudioStream" uid="uid://bxkywify5k0i0" path="res://sounds/campfire/campfire_loop.wav" id="4_4hclq"]
 [ext_resource type="Texture2D" uid="uid://b13nt4ceddo7q" path="res://textures/environment/forest/campfire_fire_only.png" id="4_ovwsh"]
-
-[sub_resource type="Gradient" id="Gradient_6q6tb"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_favlu"]
-gradient = SubResource("Gradient_6q6tb")
-width = 512
-height = 512
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17cw7"]
 atlas = ExtResource("1_lnhw7")
@@ -152,8 +141,10 @@ position = Vector2(0, 3)
 color = Color(1, 0.523648, 0.238001, 1)
 energy = 0.5
 range_item_cull_mask = 3
-texture = SubResource("GradientTexture2D_favlu")
-texture_scale = 0.75
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 4.0
+texture = ExtResource("2_220hi")
 
 [node name="CampfireSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bafyt")

@@ -3,10 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c0u15loetoco0" path="res://scenes/environment/campfire.tscn" id="1_k43xx"]
 
 [node name="MainMenuCampfire" instance=ExtResource("1_k43xx")]
+min_light = 0.2
+max_light = 0.3
 
 [node name="FireLight" parent="FireCenter" index="0"]
-color = Color(0.699218, 0.310854, 0, 1)
-shadow_enabled = true
-shadow_filter = 2
+energy = 0.2
 shadow_filter_smooth = 2.0
-texture_scale = 0.5

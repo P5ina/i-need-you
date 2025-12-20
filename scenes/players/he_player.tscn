@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b71g8dq5v2xht"]
+[gd_scene load_steps=39 format=3 uid="uid://b71g8dq5v2xht"]
 
 [ext_resource type="PackedScene" uid="uid://b8sf01aw1jc0w" path="res://scenes/players/base_player.tscn" id="1_2j7eh"]
 [ext_resource type="Texture2D" uid="uid://bxugpj4lfc0nu" path="res://textures/player/he_player.png" id="2_lqbls"]
@@ -267,6 +267,9 @@ gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_lgwnu")
 turbulence_enabled = true
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fj3rx"]
+polygon = PackedVector2Array(-3, 0, 3, 0, 3, 4, 1, 4, 1, 1, -1, 1, -1, 4, -3, 4)
+
 [node name="HePlayer" instance=ExtResource("1_2j7eh")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
@@ -277,6 +280,9 @@ animation = &"idle_down"
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_cvtou")
 
+[node name="PointLight2D" parent="." index="3"]
+position = Vector2(-1, -10)
+
 [node name="Fireflies" type="GPUParticles2D" parent="." index="7"]
 z_index = 1
 material = SubResource("CanvasItemMaterial_mu1k5")
@@ -286,3 +292,6 @@ lifetime = 10.0
 preprocess = 5.0
 visibility_rect = Rect2(-300, -300, 600, 600)
 process_material = SubResource("ParticleProcessMaterial_hfvq4")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="8"]
+occluder = SubResource("OccluderPolygon2D_fj3rx")

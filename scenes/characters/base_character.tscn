@@ -15,8 +15,7 @@ transition = 4
 ease = 1
 
 [node name="BaseCharacter" type="StaticBody2D"]
-z_index = 1
-y_sort_enabled = true
+z_index = 2
 collision_layer = 2
 collision_mask = 3
 
@@ -34,7 +33,7 @@ action_name = "Поговорить"
 
 [node name="CharacterCamera2D" type="Node2D" parent="Interactable"]
 script = ExtResource("3_owhwn")
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_jppqv")
 tween_on_load = false
 draw_limits = true

@@ -51,6 +51,7 @@ position = Vector2(0, -39)
 scale = Vector2(1, -1)
 color = Color(0.773663, 0.431697, 0.193764, 1)
 energy = 0.3
+range_item_cull_mask = 3
 texture = ExtResource("3_q2o68")
 texture_scale = 0.13
 

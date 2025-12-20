@@ -46,11 +46,6 @@ func ignite(play_ignite_sound: bool = true) -> void:
 	tween = create_tween()
 	tween.tween_property(fire_light, "energy", rand_light(), light_start_duration)
 
-	var spin_tween := create_tween().set_loops()
-	spin_tween.tween_property(fire_center, "rotation", PI * 2, 8.0).from(0.0)
-	spin_tween.tween_property(fire_center, "rotation", PI, 6.0)
-	spin_tween.tween_property(fire_center, "rotation", PI * 2.0, 6.0)
-
 	campfire_sprite.play(&"lit")
 	fire_sprite.play(&"lit")
 

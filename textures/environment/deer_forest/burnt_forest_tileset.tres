@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://c4dyjm6ettwwv"]
+[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://c4dyjm6ettwwv"]
 
 [ext_resource type="Texture2D" uid="uid://bsaod1fd56he8" path="res://textures/environment/deer_forest/burnt_forest_tiles.png" id="1_0qbnc"]
 [ext_resource type="Texture2D" uid="uid://cebmtwj1a7row" path="res://textures/environment/deer_forest/burnt_tree_01.png" id="2_tlm5o"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://l480rmhts2yq" path="res://scenes/stories/deer/burning_tree.tscn" id="10_nufve"]
 [ext_resource type="PackedScene" uid="uid://blxyfuxfccqbu" path="res://scenes/stories/deer/falling_burning_tree.tscn" id="11_ncqx1"]
 [ext_resource type="PackedScene" uid="uid://cq88xdrncoy7q" path="res://scenes/environment/pine_tree.tscn" id="12_freoa"]
+[ext_resource type="PackedScene" uid="uid://6bapw16bqhrr" path="res://scenes/stories/deer/falling_burning_tree_left.tscn" id="13_xmupc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2rm6"]
 texture = ExtResource("1_0qbnc")
@@ -162,6 +163,7 @@ resource_name = "trees"
 scenes/1/scene = ExtResource("10_nufve")
 scenes/2/scene = ExtResource("11_ncqx1")
 scenes/3/scene = ExtResource("12_freoa")
+scenes/4/scene = ExtResource("13_xmupc")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://6bapw16bqhrr"]
+
+[ext_resource type="PackedScene" uid="uid://blxyfuxfccqbu" path="res://scenes/stories/deer/falling_burning_tree.tscn" id="1_60sk1"]
+
+[node name="FallingBurningTreeLeft" instance=ExtResource("1_60sk1")]
+
+[node name="FallingTreeSprite" parent="." index="0"]
+position = Vector2(-37, -38)
+flip_h = true
+
+[node name="FallenTreeSprite" parent="." index="1"]
+position = Vector2(-35, -26)
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-36, -0.5)

@@ -9,16 +9,18 @@ size = Vector2(46, 18)
 [node name="Vulture" instance=ExtResource("1_ukoj2")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -19)
 scale = Vector2(1, 1)
 texture = ExtResource("2_tl55e")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 19)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_bg0o2")
 
 [node name="Interactable" parent="." index="2"]
+position = Vector2(0, -19)
 character_name = "vulture"
 story_scene = "uid://djcb3rmeil37s"
 begin_dialogue = "vulture_begining"
@@ -26,7 +28,6 @@ convince_dialogue = "vulture_convince"
 
 [node name="CharacterCamera2D" parent="Interactable" index="0"]
 position = Vector2(0, 32)
-zoom = Vector2(1.3, 1.3)
 
 [node name="PlayerPosition" parent="Interactable" index="1"]
 position = Vector2(0, 45)

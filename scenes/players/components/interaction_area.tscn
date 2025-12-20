@@ -54,7 +54,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="KeyboardButtonPanel" type="PanelContainer" parent="InteractionLayer/InteractionControl/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("2_qpqck")
@@ -63,14 +63,12 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_axwna")
 [node name="KeyLabel" type="Label" parent="InteractionLayer/InteractionControl/HBoxContainer/KeyboardButtonPanel"]
 layout_mode = 2
 theme = ExtResource("2_qpqck")
-theme_override_font_sizes/font_size = 5
 text = "E"
 horizontal_alignment = 1
 
 [node name="ActionLabel" type="Label" parent="InteractionLayer/InteractionControl/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_qpqck")
-theme_override_font_sizes/font_size = 6
 text = "Talk"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

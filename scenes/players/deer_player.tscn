@@ -795,16 +795,16 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvlaw"]
-radius = 12.0
-height = 28.0
+radius = 9.0
+height = 22.0
 
 [node name="DeerPlayer" instance=ExtResource("1_eiphm")]
 z_index = 2
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(0, -24)
+position = Vector2(-2, -24)
 sprite_frames = SubResource("SpriteFrames_cpcl0")
-animation = &"laying"
+animation = &"idle_left"
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, -1)
@@ -815,4 +815,5 @@ shape = SubResource("CapsuleShape2D_fvlaw")
 movement_speed = 90.0
 
 [node name="FootstepSounds" parent="." index="6"]
+volume_db = 11.45
 distance_for_sound = 32.0
