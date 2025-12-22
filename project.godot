@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 SceneLoader="*res://scenes/autoloads/scene_loader.tscn"
 Gamemode="*res://scenes/autoloads/gamemode.tscn"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SaveManager="*res://scripts/autoloads/save_manager.gd"
+AIDialogueClient="*res://scripts/ai_dialogue_client.gd"
 StoryState="*res://scenes/autoloads/story_state.tscn"
 StoryLoader="*res://scenes/autoloads/story_loader.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
@@ -137,7 +139,7 @@ movie_writer/movie_file="/Users/p5ina/godot-projects/movies/teaser.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [filesystem]
 
@@ -177,7 +179,7 @@ move_right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
-dialogic_default_action={
+advance={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
@@ -204,6 +206,10 @@ vulture_leg_right={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/dialogue_manager/vulture_story.dialogue")
 
 [layer_names]
 

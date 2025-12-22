@@ -2,11 +2,11 @@ extends TextureRect
 
 
 func _ready() -> void:
-	Dialogic.Save.saved.connect(_on_save)
+	SaveManager.saved.connect(_on_save)
 	visible = false
 
 
-func _on_save(_info: Dictionary) -> void:
+func _on_save() -> void:
 	visible = true
 	modulate.a = 1.0
 	var tween: Tween = create_tween()

@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bcnjij6ip3ope"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bcnjij6ip3ope"]
 
 [ext_resource type="Texture2D" uid="uid://r0q4flpe43t7" path="res://textures/ui/panel_frameless.png" id="1_71cv8"]
 [ext_resource type="StyleBox" uid="uid://clra7wpfh23oa" path="res://dialogues/style/frame_panel_style.tres" id="1_e76hc"]
 [ext_resource type="Texture2D" uid="uid://b45frtpvoqntv" path="res://textures/ui/panel_selected.png" id="2_1jeww"]
 [ext_resource type="Texture2D" uid="uid://cbydiif5o6ykt" path="res://textures/ui/panel_frame.png" id="2_noh7e"]
+[ext_resource type="Texture2D" uid="uid://dtmv4v0283uf4" path="res://textures/ui/panel_line.png" id="4_r0b5k"]
+[ext_resource type="Texture2D" uid="uid://drcgpxi6aaif8" path="res://textures/ui/panel_line_disabled.png" id="5_bekns"]
 [ext_resource type="FontFile" uid="uid://0tx8wkusaqcj" path="res://fonts/retro_gaming.ttf" id="5_noh7e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0b5k"]
@@ -46,6 +48,35 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1o70"]
+texture = ExtResource("2_noh7e")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bekns"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+texture = ExtResource("4_r0b5k")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fske2"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+texture = ExtResource("5_bekns")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [resource]
 default_font = ExtResource("5_noh7e")
 default_font_size = 11
@@ -53,5 +84,7 @@ Button/styles/focus = SubResource("StyleBoxTexture_r0b5k")
 Button/styles/hover = SubResource("StyleBoxTexture_yk7qe")
 Button/styles/normal = SubResource("StyleBoxTexture_hp13n")
 Button/styles/pressed = SubResource("StyleBoxTexture_5y5pq")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_c1o70")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_bekns")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_fske2")
 PanelContainer/styles/panel = ExtResource("1_e76hc")
-RichTextLabel/font_sizes/normal_font_size = 6

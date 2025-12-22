@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cadnctma0msyt"
+path="res://.godot/imported/vulture_story.dialogue-5a5f0eb6045120209c990b931acf5b2e.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_manager/vulture_story.dialogue"
+dest_files=["res://.godot/imported/vulture_story.dialogue-5a5f0eb6045120209c990b931acf5b2e.tres"]
+
+[params]
+
+defaults=true
