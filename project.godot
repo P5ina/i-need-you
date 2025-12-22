@@ -129,8 +129,7 @@ window/size/viewport_height=360
 window/size/mode=4
 window/size/window_width_override=1920
 window/size/window_height_override=1080
-window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
+window/stretch/mode="canvas_items"
 
 [editor]
 
@@ -220,4 +219,3 @@ common/physics_interpolation=true
 
 textures/canvas_textures/default_texture_filter=3
 viewport/hdr_2d=true
-2d/snap/snap_2d_transforms_to_pixel=true

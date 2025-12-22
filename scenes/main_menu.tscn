@@ -26,10 +26,34 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:play_wush")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1krpb"]
 resource_name = "intro"
-length = 10.0
+length = 8.15
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -86,21 +110,44 @@ tracks/3/keys = {
 "times": PackedFloat32Array(1)
 }
 tracks/3/use_blend = true
-tracks/4/type = "audio"
+tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("WushSound")
+tracks/4/path = NodePath(".:play_wush")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("9_lgwnu")
-}],
-"times": PackedFloat32Array(3.6124587)
+"times": PackedFloat32Array(0, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
-tracks/4/use_blend = true
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WushSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.6121848),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ProgressBar:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0mtf1"]
 _data = {
@@ -110,6 +157,7 @@ _data = {
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_tbmy8")
+need_to_press = 10
 
 [node name="SortingNode" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -151,13 +199,27 @@ tile_set = ExtResource("1_lgkms")
 color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-process_callback = 0
+zoom = Vector2(2, 2)
 
 [node name="MainMenuCampfire" parent="." instance=ExtResource("2_lkaum")]
 z_index = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 32.0
+offset_right = 156.0
+offset_bottom = 59.0
+grow_horizontal = 2
+max_value = 10.0
+step = 1.0
+rounded = true
+show_percentage = false
 
 [node name="MainMenuScreen" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -234,6 +296,7 @@ autoplay = "intro"
 [node name="WhispersSound" type="AudioStreamPlayer" parent="."]
 
 [node name="WushSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lgwnu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("7_cghw7")

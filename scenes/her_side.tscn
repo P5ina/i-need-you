@@ -213,8 +213,17 @@ tile_map_data = PackedByteArray("AADm/+n/BQAAAAAAAADm/+r/BQAAAAEAAADm/+v/BQAAAAI
 tile_set = ExtResource("7_4hqte")
 
 [node name="Path" type="TileMapLayer" parent="CutsceneDirector/SortingNode"]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(16, 0)
 tile_map_data = PackedByteArray("AAD//wAABwAJAAIAAAD/////BwAJAAAAAAD+/wAABwAIAAEAAAD+////BwAIAAAAAAAAAP//BwALAAAAAAAAAAAABwALAAIAAAD+/wEABwAIAAMAAAD//wEABwAKAAMAAAAAAAEABwALAAMAAAD///7/BwAAAAEAAAD///3/BwAAAAEAAAD///z/BwAAAAEAAAD///v/BwAAAAEAAAD///r/BwAAAAEAAAD///n/BwAAAAEAAAD///j/BwAAAAEAAAD///f/BwAAAAEAAAD///b/BwAAAAEAAAD///X/BwAKAAMAAAD+//X/BwAIAAMAAAAAAPX/BwALAAMAAAAAAPT/BwALAAIAAAD///T/BwAJAAIAAAD+//T/BwAIAAEAAAD+//P/BwAIAAAAAAD///P/BwAKAAAAAAAAAPP/BwALAAAAAAD//wIABwAAAAEAAAD//wMABwAAAAEAAAD//wQABwAAAAEAAAD//wUABwAAAAEAAAD//wYABwAAAAEAAAD//wcABwAAAAEAAAD//wgABwAAAAEAAAD//wkABwAAAAEAAAD//woABwAJAAAAAAD+/woABwAIAAAAAAAAAAoABwALAAAAAAAAAAsABwALAAIAAAD//wsABwAJAAIAAAD+/wsABwAIAAEAAAD+/wwABwAIAAMAAAD//wwABwAJAAMAAAAAAAwABwALAAMAAAA=")
+tile_set = ExtResource("7_4hqte")
+
+[node name="Stones" type="TileMapLayer" parent="CutsceneDirector/SortingNode"]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(16, 0)
+tile_map_data = PackedByteArray("AADt/wQAAAAIAAQAAADt/woAAAAAAAgAAADu//7/AAAEAAAAAADx/wgAAAAIAAAAAADy/wIAAAAEAAQAAAD0//3/AAAIAAQAAAD0/wsAAAAEAAgAAAD1/wUAAAAAAAAAAAD3/w4AAAAAAAQAAAA=")
 tile_set = ExtResource("7_4hqte")
 
 [node name="Pines" type="TileMapLayer" parent="CutsceneDirector/SortingNode"]
@@ -225,7 +234,7 @@ tile_map_data = PackedByteArray("AAABAP7/AwAAAAAAAQACAAEAAwAAAAAAAQAEAAAAAwAAAAA
 tile_set = ExtResource("7_4hqte")
 
 [node name="Campfire" parent="CutsceneDirector/SortingNode" instance=ExtResource("8_aam31")]
-z_index = 1
+z_index = 2
 
 [node name="HePlayer" parent="CutsceneDirector/SortingNode" instance=ExtResource("6_18sb7")]
 position = Vector2(0, -26)
@@ -234,7 +243,6 @@ position = Vector2(0, -26)
 position = Vector2(0, -366)
 
 [node name="Deer" parent="CutsceneDirector/SortingNode" instance=ExtResource("7_e0tt2")]
-z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 372)
 
@@ -278,5 +286,4 @@ color = Color(0.096204735, 0.09620475, 0.096204735, 1)
 environment = ExtResource("9_no5ej")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 editor_only = true
