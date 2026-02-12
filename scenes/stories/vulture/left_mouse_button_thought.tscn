@@ -24,7 +24,6 @@ alignment = 2
 [node name="LeftActionLabel" type="Label" parent="."]
 layout_mode = 2
 theme = ExtResource("1_yxiil")
-theme_override_font_sizes/font_size = 6
 text = "Left!"
 
 [node name="MouseButtonPanel" type="PanelContainer" parent="."]

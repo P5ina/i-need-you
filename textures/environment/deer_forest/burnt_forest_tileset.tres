@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://c4dyjm6ettwwv"]
+[gd_resource type="TileSet" format=3 uid="uid://c4dyjm6ettwwv"]
 
 [ext_resource type="Texture2D" uid="uid://bsaod1fd56he8" path="res://textures/environment/deer_forest/burnt_forest_tiles.png" id="1_0qbnc"]
 [ext_resource type="Texture2D" uid="uid://cebmtwj1a7row" path="res://textures/environment/deer_forest/burnt_tree_01.png" id="2_tlm5o"]

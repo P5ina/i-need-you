@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="I Need You"
 run/main_scene="uid://f0wbyxk0bkco"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -20,10 +24,9 @@ config/icon="res://icon.svg"
 SceneLoader="*res://scenes/autoloads/scene_loader.tscn"
 Gamemode="*res://scenes/autoloads/gamemode.tscn"
 SaveManager="*res://scripts/autoloads/save_manager.gd"
-AIDialogueClient="*res://scripts/ai_dialogue_client.gd"
 StoryState="*res://scenes/autoloads/story_state.tscn"
 StoryLoader="*res://scenes/autoloads/story_loader.tscn"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
@@ -209,7 +212,7 @@ vulture_leg_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/dialogue_manager/vulture_story.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/dialogue_manager/vulture_story.dialogue", "res://dialogues/dialogue_manager/vulture_beginning.dialogue", "res://dialogues/dialogue_manager/deer_beginning.dialogue", "res://dialogues/dialogue_manager/vulture_convince.dialogue")
 
 [layer_names]
 

@@ -26,9 +26,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -153.0
-offset_top = -273.0
+offset_top = -267.0
 offset_right = -25.0
-offset_bottom = -145.0
+offset_bottom = -139.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("3_33ust")
@@ -87,23 +87,6 @@ offset_top = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("6_oqa2b")
-
-[node name="Control" type="Control" parent="DialoguePanel"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-
-[node name="InputContainer" type="HBoxContainer" parent="DialoguePanel"]
-layout_mode = 2
-
-[node name="PlayerInput" type="LineEdit" parent="DialoguePanel/InputContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_vq7a6")
-
-[node name="SendButton" type="Button" parent="DialoguePanel/InputContainer"]
-layout_mode = 2
-theme = ExtResource("1_vq7a6")
-text = ">"
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8

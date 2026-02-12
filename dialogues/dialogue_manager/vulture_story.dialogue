@@ -1,36 +1,36 @@
 ~ start
 
-vulture: *стервятник подошел к торговцу и теперь деваться было уже некуда*
+vulture: [#emotion=anxious] *стервятник подошел к торговцу и теперь деваться было уже некуда*
 - Кхм. Да.
-	vulture: Кхм. Да.
+	vulture: [#emotion=anxious] Кхм. Да.
 - *промолчать*
-	vulture: ...
+	vulture: [#emotion=anxious] ...
 - *кивнуть головой в знак приветствия*
-	vulture: *кивает головой*
+	vulture: [#emotion=anxious] *кивает головой*
 
-vulture_seller: Привет
+vulture_seller: [#emotion=neutral] Привет
 - Кхм. Эм. Ррры. Баа?
-	vulture: Кхм. Эм. Ррры. Баа?
+	vulture: [#emotion=vulnerable] Кхм. Эм. Ррры. Баа?
 	=> get_fish
 - *промолчать*
-	vulture: ...
+	vulture: [#emotion=anxious] ...
 
-vulture_seller: Все в порядке?
+vulture_seller: [#emotion=neutral] Все в порядке?
 - Кхм. Эм. Ррры. Баа?
-	vulture: Кхм. Эм. Ррры. Баа?
+	vulture: [#emotion=vulnerable] Кхм. Эм. Ррры. Баа?
 	=> get_fish
 - *промолчать*
-	vulture: ...
+	vulture: [#emotion=anxious] ...
 
-vulture_seller: Позвать врача?
+vulture_seller: [#emotion=neutral] Позвать врача?
 - Кхм. Эм. Ррры. Баа?
-	vulture: Кхм. Эм. Ррры. Баа?
+	vulture: [#emotion=vulnerable] Кхм. Эм. Ррры. Баа?
 	=> get_fish
 
 
 ~ get_fish
 
-vulture_seller: Ррры...Тебе нужна рыба? Ты же знаешь, что раньше пятницы поставок не будет.
+vulture_seller: [#emotion=neutral] Ррры...Тебе нужна рыба? Ты же знаешь, что раньше пятницы поставок не будет.
 - Я знаю?
 	=> question_knowledge
 - А сегодня что?
@@ -41,16 +41,16 @@ vulture_seller: Ррры...Тебе нужна рыба? Ты же знаешь,
 
 ~ question_day
 
-vulture: А сегодня что?
-vulture_seller: Среда.
+vulture: [#emotion=anxious] А сегодня что?
+vulture_seller: [#emotion=neutral] Среда.
 - Мне кажется, ты что-то перепутал. Сегодня явно не среда.
-	vulture: Мне кажется, ты что-то перепутал. Сегодня явно не среда.
+	vulture: [#emotion=anxious] Мне кажется, ты что-то перепутал. Сегодня явно не среда.
 - *Самое время уйти, здесь еды не достать* (~выход)
 	=> END
 
-vulture_seller: Среда.
+vulture_seller: [#emotion=neutral] Среда.
 - Ммм, нет, сегодня явно понедельник. Просто посмотри вокруг, разве это похоже на среду?
-	vulture: Ммм, нет, сегодня явно понедельник. Просто посмотри вокруг, разве это похоже на среду?
+	vulture: [#emotion=vulnerable] Ммм, нет, сегодня явно понедельник. Просто посмотри вокруг, разве это похоже на среду?
 	=> no_fish
 - *Ты специально это делаешь? Если не хочешь утонуть в океане неловкости, самое время валить* (~выход)
 	=> END
@@ -58,16 +58,16 @@ vulture_seller: Среда.
 
 ~ question_knowledge
 
-vulture: Я знаю?
-vulture_seller: Ну да, я же говорил тебе, с вечера вторника рыбы никогда не остается.
+vulture: [#emotion=anxious] Я знаю?
+vulture_seller: [#emotion=neutral] Ну да, я же говорил тебе, с вечера вторника рыбы никогда не остается.
 - Говорил?
-	vulture: Говорил?
+	vulture: [#emotion=vulnerable] Говорил?
 - *Самое время уйти, здесь еды не достать* (~выход)
 	=> END
 
-vulture_seller: Да.
+vulture_seller: [#emotion=neutral] Да.
 - Ты говорил кому-то еще, я в первый раз об этом слышу.
-	vulture: Ты говорил кому-то еще, я в первый раз об этом слышу.
+	vulture: [#emotion=defensive] Ты говорил кому-то еще, я в первый раз об этом слышу.
 	=> no_fish
 - *Ты специально это делаешь? Если не хочешь утонуть в океане неловкости, самое время валить* (~выход)
 	=> END
@@ -75,14 +75,14 @@ vulture_seller: Да.
 
 ~ no_fish
 
-vulture_seller: Как хочешь. Но я тебе говорю, сейчас рыбы нет.
+vulture_seller: [#emotion=neutral] Как хочешь. Но я тебе говорю, сейчас рыбы нет.
 - Напомни еще раз, когда рыба появится?
-	vulture: Напомни еще раз, когда рыба появится?
-	vulture_seller: В пятницу.
+	vulture: [#emotion=anxious] Напомни еще раз, когда рыба появится?
+	vulture_seller: [#emotion=neutral] В пятницу.
 	=> no_fish_2
 - Может быть у тебя есть другая еда на продажу?
-	vulture: Может быть у тебя есть другая еда на продажу?
-	vulture_seller: Это рыбная лавка. Могу предложить только червей.
+	vulture: [#emotion=anxious] Может быть у тебя есть другая еда на продажу?
+	vulture_seller: [#emotion=neutral] Это рыбная лавка. Могу предложить только червей.
 	=> no_fish_2
 - *Это уже не смешно. Просто развернись и уйди. Пожалуйста. Здесь нечего ловить* (~выход)
 	=> END
@@ -91,16 +91,16 @@ vulture_seller: Как хочешь. Но я тебе говорю, сейчас
 ~ no_fish_2
 
 - Ах да, точно. Спасибо за напоминание
-	vulture: Ах да, точно. Спасибо за напоминание
+	vulture: [#emotion=vulnerable] Ах да, точно. Спасибо за напоминание
 - *БЕГИ, БЕГИ! ИНАЧЕ У ТЕБЯ БУДЕТ ИНСУЛЬТ И ТЫ УМРЕШЬ ПРЯМО ЗДЕСЬ* (~выход)
 	=> END
 
-vulture_seller: Ага
+vulture_seller: [#emotion=neutral] Ага
 - *Промолчать*
-	vulture: ...
+	vulture: [#emotion=vulnerable] ...
 - *ПРЕКРАТИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИ* (~выход)
 	=> END
 
-vulture_seller: Что-то еще?
-vulture: *Довольно. Мы уходим. Сейчас.*
+vulture_seller: [#emotion=neutral] Что-то еще?
+vulture: [#emotion=retreating] *Довольно. Мы уходим. Сейчас.*
 => END

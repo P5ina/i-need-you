@@ -3,16 +3,11 @@ extends Interactable
 
 const AI_DIALOGUE_UI_SCENE := preload("res://scenes/ai_dialogue/ai_dialogue_ui.tscn")
 
-const DISPLAY_NAMES := {
-	"vulture": "Стервятник",
-	"deer": "Олень",
-	"dog": "Пёс",
-	"fish": "Рыба",
-}
-
 @export_enum("vulture", "deer", "dog", "fish") var character_name: String
 @export var facing_direction: PlayerAnimation.AnimationDirection
 @export_file("*.tscn") var story_scene: String
+@export var beginning_dialogue: DialogueResource
+@export var convince_dialogue: DialogueResource
 
 @onready var character_camera_2d: PhantomCamera2D = $CharacterCamera2D
 @onready var player_position: Node2D = $PlayerPosition
@@ -42,23 +37,16 @@ func interact(player: CharacterBody2D) -> void:
 	dialogue_ui = AI_DIALOGUE_UI_SCENE.instantiate()
 	get_tree().root.add_child(dialogue_ui)
 
-	var display_name: String = DISPLAY_NAMES.get(character_name, character_name)
-	dialogue_ui.start_ai_dialogue(character_name, display_name)
-
-	var ending: String = await dialogue_ui.dialogue_finished
+	dialogue_ui.start_dialogue_manager(beginning_dialogue, "start")
+	await dialogue_ui.dialogue_manager_finished
+	var should_load_story: bool = dialogue_ui.story_ready
 	_cleanup_ui()
 
-	match ending:
-		"story":
-			StoryState.set_character_state(character_name, StoryState.CharacterState.STORY)
-			StoryLoader.load_scene_and_save(story_scene)
-		"good", "bad":
-			StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)
-			StoryState.save_state()
-			unlock_player(player)
-			fade_out_character()
-		_:
-			unlock_player(player)
+	if should_load_story:
+		StoryState.set_character_state(character_name, StoryState.CharacterState.STORY)
+		StoryLoader.load_scene_and_save(story_scene)
+	else:
+		unlock_player(player)
 
 
 func lock_player(player: Node2D) -> void:
@@ -83,10 +71,8 @@ func after_story_dialogue() -> void:
 	dialogue_ui = AI_DIALOGUE_UI_SCENE.instantiate()
 	get_tree().root.add_child(dialogue_ui)
 
-	var display_name: String = DISPLAY_NAMES.get(character_name, character_name)
-	dialogue_ui.start_ai_dialogue(character_name, display_name)
-
-	var ending: String = await dialogue_ui.dialogue_finished
+	dialogue_ui.start_dialogue_manager(convince_dialogue, "start")
+	await dialogue_ui.dialogue_manager_finished
 	_cleanup_ui()
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)

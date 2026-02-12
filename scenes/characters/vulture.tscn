@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6e234xe5gnhu"]
+[gd_scene load_steps=6 format=3 uid="uid://b6e234xe5gnhu"]
 
 [ext_resource type="PackedScene" uid="uid://bco3kjdrj10ue" path="res://scenes/characters/base_character.tscn" id="1_ukoj2"]
 [ext_resource type="Texture2D" uid="uid://cir1hx8aaa056" path="res://textures/characters/characters.tres" id="2_tl55e"]
+[ext_resource type="Resource" path="res://dialogues/dialogue_manager/vulture_beginning.dialogue" id="3_beg"]
+[ext_resource type="Resource" path="res://dialogues/dialogue_manager/vulture_convince.dialogue" id="4_conv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg0o2"]
 size = Vector2(46, 18)
@@ -23,8 +25,8 @@ shape = SubResource("RectangleShape2D_bg0o2")
 position = Vector2(0, -19)
 character_name = "vulture"
 story_scene = "uid://djcb3rmeil37s"
-begin_dialogue = "vulture_begining"
-convince_dialogue = "vulture_convince"
+beginning_dialogue = ExtResource("3_beg")
+convince_dialogue = ExtResource("4_conv")
 
 [node name="CharacterCamera2D" parent="Interactable" index="0"]
 position = Vector2(0, 32)
