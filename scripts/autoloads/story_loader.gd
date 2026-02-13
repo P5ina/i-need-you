@@ -19,13 +19,13 @@ const her_side: String = "res://scenes/her_side.tscn"
 
 func load_scene_and_save(scene_path: String) -> void:
 	SceneLoader.transit_to_scene(scene_path)
-	Dialogic.VAR.last_loaded_scene = scene_path
+	SaveManager.data.last_loaded_scene = scene_path
 	StoryState.save_state()
 
 
 func load_back() -> void:
 	var selected_scene: String = her_side
-	if Dialogic.VAR.player_side == 0:
+	if SaveManager.data.get("player_side", 0) == 0:
 		selected_scene = her_side
 
 	load_scene_and_save(selected_scene)

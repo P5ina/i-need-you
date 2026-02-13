@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cebxixdaw5erm"
+path="res://.godot/imported/vulture_convince.dialogue-cb171d657dd4443267e5edbbc6ce7c68.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_manager/vulture_convince.dialogue"
+dest_files=["res://.godot/imported/vulture_convince.dialogue-cb171d657dd4443267e5edbbc6ce7c68.tres"]
+
+[params]
+
+defaults=true

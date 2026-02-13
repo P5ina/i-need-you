@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb0reld7jsqlm"]
+
+[ext_resource type="Script" uid="uid://coqo367e3x21l" path="res://scripts/ai_dialogue/ai_dialogue_ui.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://bcnjij6ip3ope" path="res://dialogues/style/yni_ui_theme.tres" id="1_vq7a6"]
+[ext_resource type="Texture2D" uid="uid://r0q4flpe43t7" path="res://textures/ui/panel_frameless.png" id="2_1t15w"]
+[ext_resource type="Texture2D" uid="uid://c6h56alf015tj" path="res://icon.svg" id="3_33ust"]
+[ext_resource type="Texture2D" uid="uid://4c875pfrpu1m" path="res://textures/ui/next_indicator.png" id="6_oqa2b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5fwa"]
+content_margin_top = 2.0
+texture = ExtResource("2_1t15w")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 32, 16)
+
+[node name="AIDialogueUI" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_script")
+
+[node name="CharacterPortrait" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -267.0
+offset_right = -25.0
+offset_bottom = -139.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_33ust")
+
+[node name="DialoguePanel" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -171.0
+offset_right = -25.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="NameContainer" type="PanelContainer" parent="DialoguePanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_vq7a6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_y5fwa")
+
+[node name="NameLabel" type="Label" parent="DialoguePanel/NameContainer"]
+layout_mode = 2
+theme = ExtResource("1_vq7a6")
+text = "He"
+
+[node name="TextContainer" type="PanelContainer" parent="DialoguePanel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_vq7a6")
+
+[node name="ResponseText" type="RichTextLabel" parent="DialoguePanel/TextContainer"]
+layout_mode = 2
+theme = ExtResource("1_vq7a6")
+bbcode_enabled = true
+text = "Test text"
+fit_content = true
+
+[node name="NextIndicator" type="Control" parent="DialoguePanel/TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="DialoguePanel/TextContainer/NextIndicator"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6_oqa2b")
+
+[node name="ChoicesContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -94.0
+offset_right = 150.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vq7a6")
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -6.0

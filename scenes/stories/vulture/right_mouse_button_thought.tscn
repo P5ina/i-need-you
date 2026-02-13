@@ -29,5 +29,4 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_vm561")
 [node name="RightActionLabel" type="Label" parent="."]
 layout_mode = 2
 theme = ExtResource("1_chvld")
-theme_override_font_sizes/font_size = 6
 text = "Right!"

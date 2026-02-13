@@ -1,14 +1,18 @@
 class_name CharacterInteractable
 extends Interactable
 
+const AI_DIALOGUE_UI_SCENE := preload("res://scenes/ai_dialogue/ai_dialogue_ui.tscn")
+
 @export_enum("vulture", "deer", "dog", "fish") var character_name: String
 @export var facing_direction: PlayerAnimation.AnimationDirection
 @export_file("*.tscn") var story_scene: String
-@export var begin_dialogue: String
-@export var convince_dialogue: String
+@export var beginning_dialogue: DialogueResource
+@export var convince_dialogue: DialogueResource
 
 @onready var character_camera_2d: PhantomCamera2D = $CharacterCamera2D
 @onready var player_position: Node2D = $PlayerPosition
+
+var dialogue_ui: CanvasLayer
 
 
 func _ready() -> void:
@@ -29,17 +33,20 @@ func interact(player: CharacterBody2D) -> void:
 		return
 
 	lock_player(player)
-	if Dialogic.current_timeline == null:
-		Dialogic.start(begin_dialogue)
-	await Dialogic.timeline_ended
 
-	var state := StoryState.get_character_state(character_name)
-	print("Character end state: ", state)
-	print("Character raw state: ", StoryState.CharacterState.NONE)
-	if state == StoryState.CharacterState.NONE:
-		unlock_player(player)
-	if state == StoryState.CharacterState.STORY:
+	dialogue_ui = AI_DIALOGUE_UI_SCENE.instantiate()
+	get_tree().root.add_child(dialogue_ui)
+
+	dialogue_ui.start_dialogue_manager(beginning_dialogue, "start")
+	await dialogue_ui.dialogue_manager_finished
+	var should_load_story: bool = dialogue_ui.story_ready
+	_cleanup_ui()
+
+	if should_load_story:
+		StoryState.set_character_state(character_name, StoryState.CharacterState.STORY)
 		StoryLoader.load_scene_and_save(story_scene)
+	else:
+		unlock_player(player)
 
 
 func lock_player(player: Node2D) -> void:
@@ -60,14 +67,24 @@ func unlock_player(player: Node2D) -> void:
 func after_story_dialogue() -> void:
 	await get_tree().process_frame
 	lock_player(Gamemode.current_player)
-	if Dialogic.current_timeline == null:
-		Dialogic.start(convince_dialogue)
-	await Dialogic.timeline_ended
+
+	dialogue_ui = AI_DIALOGUE_UI_SCENE.instantiate()
+	get_tree().root.add_child(dialogue_ui)
+
+	dialogue_ui.start_dialogue_manager(convince_dialogue, "start")
+	await dialogue_ui.dialogue_manager_finished
+	_cleanup_ui()
 
 	StoryState.set_character_state(character_name, StoryState.CharacterState.ENDING)
 	StoryState.save_state()
 	unlock_player(Gamemode.current_player)
 	fade_out_character()
+
+
+func _cleanup_ui() -> void:
+	if dialogue_ui and is_instance_valid(dialogue_ui):
+		dialogue_ui.queue_free()
+		dialogue_ui = null
 
 
 func fade_out_character() -> void:

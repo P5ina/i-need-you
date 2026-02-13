@@ -1,0 +1,106 @@
+~ start
+
+vulture: [#emotion=anxious] *стервятник подошел к торговцу и теперь деваться было уже некуда*
+- Кхм. Да.
+	vulture: [#emotion=anxious] Кхм. Да.
+- *промолчать*
+	vulture: [#emotion=anxious] ...
+- *кивнуть головой в знак приветствия*
+	vulture: [#emotion=anxious] *кивает головой*
+
+vulture_seller: [#emotion=neutral] Привет
+- Кхм. Эм. Ррры. Баа?
+	vulture: [#emotion=vulnerable] Кхм. Эм. Ррры. Баа?
+	=> get_fish
+- *промолчать*
+	vulture: [#emotion=anxious] ...
+
+vulture_seller: [#emotion=neutral] Все в порядке?
+- Кхм. Эм. Ррры. Баа?
+	vulture: [#emotion=vulnerable] Кхм. Эм. Ррры. Баа?
+	=> get_fish
+- *промолчать*
+	vulture: [#emotion=anxious] ...
+
+vulture_seller: [#emotion=neutral] Позвать врача?
+- Кхм. Эм. Ррры. Баа?
+	vulture: [#emotion=vulnerable] Кхм. Эм. Ррры. Баа?
+	=> get_fish
+
+
+~ get_fish
+
+vulture_seller: [#emotion=neutral] Ррры...Тебе нужна рыба? Ты же знаешь, что раньше пятницы поставок не будет.
+- Я знаю?
+	=> question_knowledge
+- А сегодня что?
+	=> question_day
+- *Перестать позориться и иди назад, ты ведь знаешь, что сегодня среда* (~выход)
+	=> END
+
+
+~ question_day
+
+vulture: [#emotion=anxious] А сегодня что?
+vulture_seller: [#emotion=neutral] Среда.
+- Мне кажется, ты что-то перепутал. Сегодня явно не среда.
+	vulture: [#emotion=anxious] Мне кажется, ты что-то перепутал. Сегодня явно не среда.
+- *Самое время уйти, здесь еды не достать* (~выход)
+	=> END
+
+vulture_seller: [#emotion=neutral] Среда.
+- Ммм, нет, сегодня явно понедельник. Просто посмотри вокруг, разве это похоже на среду?
+	vulture: [#emotion=vulnerable] Ммм, нет, сегодня явно понедельник. Просто посмотри вокруг, разве это похоже на среду?
+	=> no_fish
+- *Ты специально это делаешь? Если не хочешь утонуть в океане неловкости, самое время валить* (~выход)
+	=> END
+
+
+~ question_knowledge
+
+vulture: [#emotion=anxious] Я знаю?
+vulture_seller: [#emotion=neutral] Ну да, я же говорил тебе, с вечера вторника рыбы никогда не остается.
+- Говорил?
+	vulture: [#emotion=vulnerable] Говорил?
+- *Самое время уйти, здесь еды не достать* (~выход)
+	=> END
+
+vulture_seller: [#emotion=neutral] Да.
+- Ты говорил кому-то еще, я в первый раз об этом слышу.
+	vulture: [#emotion=defensive] Ты говорил кому-то еще, я в первый раз об этом слышу.
+	=> no_fish
+- *Ты специально это делаешь? Если не хочешь утонуть в океане неловкости, самое время валить* (~выход)
+	=> END
+
+
+~ no_fish
+
+vulture_seller: [#emotion=neutral] Как хочешь. Но я тебе говорю, сейчас рыбы нет.
+- Напомни еще раз, когда рыба появится?
+	vulture: [#emotion=anxious] Напомни еще раз, когда рыба появится?
+	vulture_seller: [#emotion=neutral] В пятницу.
+	=> no_fish_2
+- Может быть у тебя есть другая еда на продажу?
+	vulture: [#emotion=anxious] Может быть у тебя есть другая еда на продажу?
+	vulture_seller: [#emotion=neutral] Это рыбная лавка. Могу предложить только червей.
+	=> no_fish_2
+- *Это уже не смешно. Просто развернись и уйди. Пожалуйста. Здесь нечего ловить* (~выход)
+	=> END
+
+
+~ no_fish_2
+
+- Ах да, точно. Спасибо за напоминание
+	vulture: [#emotion=vulnerable] Ах да, точно. Спасибо за напоминание
+- *БЕГИ, БЕГИ! ИНАЧЕ У ТЕБЯ БУДЕТ ИНСУЛЬТ И ТЫ УМРЕШЬ ПРЯМО ЗДЕСЬ* (~выход)
+	=> END
+
+vulture_seller: [#emotion=neutral] Ага
+- *Промолчать*
+	vulture: [#emotion=vulnerable] ...
+- *ПРЕКРАТИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИИ* (~выход)
+	=> END
+
+vulture_seller: [#emotion=neutral] Что-то еще?
+vulture: [#emotion=retreating] *Довольно. Мы уходим. Сейчас.*
+=> END
