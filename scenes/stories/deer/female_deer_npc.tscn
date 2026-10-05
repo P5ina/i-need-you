@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://x0xkdit1iq3d"]
+
+[ext_resource type="PackedScene" uid="uid://bco3kjdrj10ue" path="res://scenes/characters/base_character.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bkjx7hiyb5b56" path="res://textures/characters/deer/deer_female.png" id="2_sprite"]
+[ext_resource type="Script" uid="uid://btarho3v0aphm" path="res://scripts/story/deer/female_deer_interactable.gd" id="3_script"]
+[ext_resource type="Resource" uid="uid://bj0dp0nf8aida" path="res://dialogues/dialogue_manager/deer_female_story.dialogue" id="4_dialogue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(30, 12)
+
+[node name="FemaleDeerNPC" instance=ExtResource("1_base")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -24)
+scale = Vector2(1, 1)
+texture = ExtResource("2_sprite")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Interactable" parent="." index="2"]
+script = ExtResource("3_script")
+action_name = "Поговорить"
+facing_direction = 3
+dialogue_resource = ExtResource("4_dialogue")
+
+[node name="CharacterCamera2D" parent="Interactable" index="0"]
+position = Vector2(35, 0)
+
+[node name="PlayerPosition" parent="Interactable" index="1"]
+position = Vector2(70, 0)

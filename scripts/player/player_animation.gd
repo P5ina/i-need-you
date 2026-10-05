@@ -14,11 +14,12 @@ enum AnimationDirection {
 
 var last_direction: AnimationDirection = AnimationDirection.DOWN
 var last_is_moving: bool = false
+var last_is_running: bool = false
 
 
 func _ready() -> void:
 	owner.set_meta(META_NAME, self)
-	play(direction_to_animation_name(AnimationDirection.DOWN, false))
+	play(direction_to_animation_name(AnimationDirection.DOWN, false, false))
 
 
 func _process(_delta: float) -> void:
@@ -45,15 +46,27 @@ func get_direction(normalized_velocity: Vector2) -> AnimationDirection:
 
 
 func update_animation(direction: AnimationDirection, is_moving: bool) -> void:
-	if direction == last_direction and is_moving == last_is_moving:
+	var is_running: bool = _is_running()
+	if direction == last_direction and is_moving == last_is_moving and is_running == last_is_running:
 		return
 
 	last_direction = direction
 	last_is_moving = is_moving
-	play(direction_to_animation_name(direction, is_moving))
+	last_is_running = is_running
+	play(direction_to_animation_name(direction, is_moving, is_running))
 
 
-func direction_to_animation_name(direction: AnimationDirection, is_moving: bool) -> String:
+func direction_to_animation_name(direction: AnimationDirection, is_moving: bool, is_running: bool) -> String:
 	var direction_name: String = ["up", "right", "down", "left"][direction]
-	var state: String = "walk" if is_moving else "idle"
-	return state + "_" + direction_name
+	if not is_moving:
+		return "idle_" + direction_name
+	if is_running:
+		var run_name := "run_" + direction_name
+		if sprite_frames and sprite_frames.has_animation(run_name):
+			return run_name
+	return "walk_" + direction_name
+
+
+func _is_running() -> bool:
+	var movement: PlayerMovement = owner.get_meta(PlayerMovement.META_NAME, null)
+	return movement != null and movement.is_running

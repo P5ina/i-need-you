@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bj0dp0nf8aida"
+path="res://.godot/imported/deer_female_story.dialogue-36cc75d96410e3250424ef350a63cc6c.tres"
+
+[deps]
+
+source_file="res://dialogues/dialogue_manager/deer_female_story.dialogue"
+dest_files=["res://.godot/imported/deer_female_story.dialogue-36cc75d96410e3250424ef350a63cc6c.tres"]
+
+[params]
+
+defaults=true

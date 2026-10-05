@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_bg0o2")
 [node name="Interactable" parent="." index="2"]
 character_name = "deer"
 facing_direction = 2
+story_scene = "res://scenes/stories/deer/deer_story.tscn"
 beginning_dialogue = ExtResource("3_beg")
 
 [node name="CharacterCamera2D" parent="Interactable" index="0"]

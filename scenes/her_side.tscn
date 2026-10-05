@@ -218,6 +218,7 @@ tile_map_data = PackedByteArray("AAD//wAABwAJAAIAAAD/////BwAJAAAAAAD+/wAABwAIAAE
 tile_set = ExtResource("7_4hqte")
 
 [node name="Stones" type="TileMapLayer" parent="CutsceneDirector/SortingNode" unique_id=816902235]
+visible = false
 z_index = 2
 y_sort_enabled = true
 position = Vector2(16, 0)

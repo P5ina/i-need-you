@@ -9,45 +9,32 @@ const PERIOD_DELAY := 0.25
 const SOUND_INTERVAL := 3  # Play sound every N characters
 
 const CHARACTER_SOUNDS := {
-	"Стервятник": preload("res://sounds/characters/vulture/vulture_talking.mp3"),
-	"Олень": preload("res://sounds/characters/deer/deer_talking.wav"),
-	"Пёс": preload("res://sounds/characters/dog/dog_talking_a.wav"),
-	"Рыба": preload("res://sounds/characters/character_talking.wav"),
-	"Торговец": preload("res://sounds/characters/vulture_seller/seller_talking_1.mp3"),
+	#"Стервятник": preload("res://sounds/characters/vulture/vulture_talking.mp3"),
+	#"Олень": preload("res://sounds/characters/deer/deer_talking.wav"),
+	#"Олениха": preload("res://sounds/characters/deer/deer_talking.wav"),
+	#"Пёс": preload("res://sounds/characters/dog/dog_talking_a.wav"),
+	#"Рыба": preload("res://sounds/characters/character_talking.wav"),
+	#"Торговец": preload("res://sounds/characters/vulture_seller/seller_talking_1.mp3"),
 	"vulture": preload("res://sounds/characters/vulture/vulture_talking.mp3"),
 	"deer": preload("res://sounds/characters/deer/deer_talking.wav"),
+	"female_deer": preload("res://sounds/characters/deer/deer_talking.wav"),
 	"dog": preload("res://sounds/characters/dog/dog_talking_a.wav"),
 	"fish": preload("res://sounds/characters/character_talking.wav"),
 	"vulture_seller": preload("res://sounds/characters/vulture_seller/seller_talking_1.mp3"),
-	"he": preload("res://sounds/characters/character_talking.wav"),
+	"he": preload("res://sounds/characters/he_talking.mp3"),
 	"she": preload("res://sounds/characters/character_talking.wav"),
 }
 
 const CHARACTER_DISPLAY_NAMES := {
 	"vulture": "Стервятник",
 	"deer": "Олень",
+	"female_deer": "Олениха",
 	"dog": "Пёс",
 	"fish": "Рыба",
 	"vulture_seller": "Торговец",
 	"he": "Он",
 	"she": "Она",
 }
-
-const CHARACTER_PORTRAITS := {
-	"vulture": preload("res://textures/characters/vulture/vulture_portraits.png"),
-	"vulture_seller": preload("res://textures/characters/vulture/vulture_portraits.png"),
-}
-
-const EMOTION_FRAMES := {
-	"neutral": 0,
-	"vulnerable": 1,
-	"retreating": 2,
-	"defensive": 3,
-	"hopeful": 4,
-	"anxious": 5,
-}
-
-const PORTRAIT_FRAME_SIZE := 128
 
 var is_typing := false
 var full_text := ""
@@ -59,7 +46,6 @@ var dialogue_line: DialogueLine
 var temporary_game_states: Array = []
 var is_waiting_for_input := false
 
-@onready var character_portrait: TextureRect = $CharacterPortrait
 @onready var name_label: Label = $DialoguePanel/NameContainer/NameLabel
 @onready var response_text: RichTextLabel = $DialoguePanel/TextContainer/ResponseText
 @onready var next_indicator: Control = $DialoguePanel/TextContainer/NextIndicator
@@ -118,7 +104,6 @@ func _apply_dialogue_line() -> void:
 	name_label.text = CHARACTER_DISPLAY_NAMES.get(character, character)
 
 	_update_voice_sound_for_character(character)
-	_update_portrait_for_character(character)
 
 	_clear_responses()
 	choices_container.visible = false
@@ -148,6 +133,7 @@ func _show_responses() -> void:
 		var button := Button.new()
 		button.text = response.text
 		button.theme = preload("res://dialogues/style/yni_ui_theme.tres")
+		button.autowrap_mode = TextServer.AUTOWRAP_WORD
 		button.pressed.connect(_on_response_selected.bind(response))
 		choices_container.add_child(button)
 
@@ -230,28 +216,3 @@ func _play_voice_sound() -> void:
 func _skip_typing() -> void:
 	is_typing = false
 	response_text.visible_characters = -1
-
-
-func _update_portrait_for_character(character: String) -> void:
-	var emotion := "neutral"
-	if dialogue_line and dialogue_line.get_tag_value("emotion"):
-		emotion = dialogue_line.get_tag_value("emotion")
-	_set_portrait(character, emotion)
-
-
-func _set_portrait(character: String, emotion: String) -> void:
-	if not CHARACTER_PORTRAITS.has(character):
-		character_portrait.visible = false
-		return
-
-	character_portrait.visible = true
-	var frame_index: int = EMOTION_FRAMES.get(emotion, 0)
-	var source_texture: Texture2D = CHARACTER_PORTRAITS[character]
-
-	var atlas := AtlasTexture.new()
-	atlas.atlas = source_texture
-	atlas.region = Rect2(
-		frame_index * PORTRAIT_FRAME_SIZE, 0,
-		PORTRAIT_FRAME_SIZE, PORTRAIT_FRAME_SIZE
-	)
-	character_portrait.texture = atlas

@@ -22,4 +22,4 @@ func move(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body == deer:
 		deer.get_meta(PlayerMovement.META_NAME).movement_locked = true
-		SceneLoader.transit_to_scene("res://scenes/stories/deer/deer_story.tscn")
+		SceneLoader.transit_to_scene("res://scenes/stories/deer/deer_burning_forest.tscn")
